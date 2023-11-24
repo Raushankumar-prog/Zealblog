@@ -23,7 +23,7 @@ const Footer = () => {
                   </div>
                   <hr></hr>
                   <div className="address">
-                    <p className="line">&copy;Dehradun,Uttrakhand</p>
+                    <p className="line">&copy;Dehradun,Uttrakhand,India</p>
                   </div>
             </div>
     </div> );
