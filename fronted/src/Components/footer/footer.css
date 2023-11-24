@@ -4,7 +4,7 @@
     
     color:white;
     background-color:#333;
-margin-top: 40%;
+    margin-top: 40%;
 
 
 }
@@ -40,6 +40,9 @@ hr{
 }
 .action{
        display:flex;
+       height:auto;
+       width:auto;
+
 }
 
 .first{
@@ -50,14 +53,14 @@ hr{
 }
 .second{
 display: grid;
-padding-left:9%;
+padding-left:12%;
 font-size: 1.0vw;
 padding-top:2%;
 }
 
 .third{
 display: grid;
-padding-left: 9%;
+padding-left:12%;
 font-size:1.0vw;
 padding-top:2%;
 }
