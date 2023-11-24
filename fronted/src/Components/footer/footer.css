@@ -41,3 +41,23 @@ hr{
 .action{
        display:flex;
 }
+
+.first{
+    display:grid;
+    font-size: 1.0vw;
+    padding-top:2%;
+    height:auto;
+}
+.second{
+display: grid;
+padding-left:9%;
+font-size: 1.0vw;
+padding-top:2%;
+}
+
+.third{
+display: grid;
+padding-left: 9%;
+font-size:1.0vw;
+padding-top:2%;
+}
