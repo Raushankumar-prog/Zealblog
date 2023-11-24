@@ -35,8 +35,8 @@ hr{
     font-size: 1.1vw;
         color: #fff;
         text-transform: capitalize;
-        padding-top: 3%;
-        padding-bottom:3%;
+        padding-top:5%;
+       
 }
 .action{
        display:flex;
@@ -50,6 +50,8 @@ hr{
     font-size: 1.0vw;
     padding-top:2%;
     height:auto;
+    width:auto;
+
 }
 .second{
 display: grid;
