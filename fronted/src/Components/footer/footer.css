@@ -1,0 +1,11 @@
+.size{
+    width:90%;
+    height:45%;
+    border:2px dashed black;
+    color:white;
+    background-color: black;
+    margin-top: 20%;
+    padding-left: 10%;
+    padding-top:10%;
+    padding-bottom: 10%;
+}
