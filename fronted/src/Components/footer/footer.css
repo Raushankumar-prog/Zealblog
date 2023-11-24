@@ -24,25 +24,30 @@
 hr{
     color: #fff;
     border:0.4%;
+
 }
 .a{
     font-size:1.1vw;
     color: #fff;
     text-transform: capitalize;
     padding-top:2%;
-}
+    font-family: 'Courier New', Courier, monospace;
+    }
+
 .a1{
     font-size: 1.1vw;
         color: #fff;
         text-transform: capitalize;
         padding-top:5%;
+        font-family: 'Courier New', Courier, monospace;
+        
        
 }
 .action{
        display:flex;
        height:auto;
        width:auto;
-
+       padding-bottom: 4%;
 }
 
 .first{

@@ -21,6 +21,7 @@ const Footer = () => {
                     <div className="a">advertise with us</div>
                 </div>
                   </div>
+                  <hr></hr>
             </div>
     </div> );
 }
