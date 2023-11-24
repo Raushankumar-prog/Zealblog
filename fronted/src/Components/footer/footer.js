@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
     return ( <div className="footer">
             <div className="size">
-              <p id="line">Zealblog is platform where author can post the article.</p> 
+              <p className="line">Zealblog is platform where author can post the article.</p> 
               <hr></hr>
           
             <div className="action">
@@ -22,6 +22,9 @@ const Footer = () => {
                 </div>
                   </div>
                   <hr></hr>
+                  <div className="address">
+                    <p className="line">&copy;Dehradun,Uttrakhand</p>
+                  </div>
             </div>
     </div> );
 }
