@@ -5,7 +5,7 @@ const Footer = () => {
     return ( <div className="footer">
             <div className="size">
               <p className="line">Zealblog is platform where author can post the article.</p> 
-              <hr></hr>
+             <hr></hr>
           
             <div className="action">
                 <div className="first">

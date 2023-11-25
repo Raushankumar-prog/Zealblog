@@ -1,0 +1,13 @@
+.heading{
+    display: flex;
+    width:100%;
+    height:auto;
+    border:2px solid red;
+}
+
+appicon1{
+     margin-top:14%;
+}
+.re{
+    margin-top:30%;
+}
