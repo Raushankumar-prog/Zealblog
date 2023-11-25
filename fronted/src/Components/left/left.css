@@ -1,0 +1,27 @@
+.fr{
+    border-radius:2%;
+    width:13%;
+    height:auto;
+    margin-left:1%;
+    background-color:#333;
+    
+    padding-left: 2%;
+    margin-top:3%
+}
+
+.category1{
+    text-transform:capitalize;
+    padding-top:5%;
+    color: #fff;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 1vw;
+}
+
+.category2{
+    text-transform: capitalize;
+        padding-top: 5%;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1vw;
+        margin-top: 120%;
+}

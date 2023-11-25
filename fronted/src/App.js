@@ -2,16 +2,14 @@ import './App.css';
 import Footer from './Components/footer/footer';
 import {Link} from 'react-router-dom';
 import Routing from './Routes/route';
-
+import Left from './Components/left/left';
 
 function App() {
   return (
     <div className="hu">
-      <p>
-        Initializing the project.
-      </p>
-      <Link to="/author">friend</Link>
+
  <Routing/>
+ <Left/>
  <Footer/>
     
     </div>
@@ -19,3 +17,4 @@ function App() {
 }
 
 export default App;
+
