@@ -1,4 +1,4 @@
- import './header.css';
+import './header.css';
 import MenuIcon from '@mui/icons-material/Menu';
 //import WifiChannelIcon from '@mui/icons-material/WifiChannel';
 import * as React from 'react';
@@ -19,15 +19,15 @@ const Header = () => {
                
             </div>
             <div className="center">
-                        <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }} >
-                         <IconButton sx={{ p: '10px' }} aria-label="menu"></IconButton>
+                         <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }} >
+                          <IconButton sx={{ p: '10px' }} aria-label="menu"></IconButton>
                           <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" inputProps={{ 'aria-label': 'search google maps' }}/>
                            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
                            <SearchIcon />
-                          </IconButton>
-                         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                           </IconButton>
+                            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                               <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
-                         <DirectionsIcon />
+                              <DirectionsIcon />
                             </IconButton>
                           </Paper>
             </div>

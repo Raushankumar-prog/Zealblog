@@ -6,6 +6,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ShareIcon from '@mui/icons-material/Share';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Left = () => {
     return (<div> 
          <div className="fr">
@@ -34,8 +35,13 @@ const Left = () => {
              <div className="text"><p className="category">Notification</p></div>
         </div>
         <div  className="category2">
-             <div className="icon"><SettingsIcon SubscriptionsIcon fontSize="small"/></div> 
+             <div className="icon"><AccountCircleIcon fontSize="small"/></div> 
+              <div className="text"><p className="category">profile</p></div>
+       </div>
+       <div  className="category1">
+             <div className="icon"><SettingsIcon  fontSize="small"/></div> 
               <div className="text"><p className="category">setting</p></div>
+        
        </div>
         </div>    
 
