@@ -8,7 +8,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Left = () => {
-    return (<div> 
+    return (
          <div className="fr">
         <div className="category1" >
              <div className="icon"><ExploreIcon  fontSize="small"  /></div> 
@@ -46,7 +46,7 @@ const Left = () => {
         </div>    
 
 
-    </div>  );
+    );
 }
  
 export default Left;

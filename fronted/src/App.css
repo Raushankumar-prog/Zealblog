@@ -39,9 +39,13 @@
 .hu{
   color: #000;
 }
-.gh{
-  color: aliceblue;
+
+.main{
+  display:flex;
 }
-.djf{
-  color:aliceblue;
+
+
+.glance{
+     padding-top: 3%;
+     padding-left:3%
 }
