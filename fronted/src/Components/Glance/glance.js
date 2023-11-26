@@ -1,4 +1,6 @@
 import './glance.css';
+import Paper from '@mui/material/Paper';
+
 import img from './OIP.jpeg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -6,8 +8,9 @@ import CommentIcon from '@mui/icons-material/Comment';
 const Glance = () => {
     return ( 
               <div className="main1"> 
-                            
+                           
                    <div className="universe">
+                     <Paper >
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
                                   <div className="glancecontent">
@@ -16,13 +19,19 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author"> <AccountCircleIcon fontSize="small"/>profile
+                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large"/></div>
+                                                                       <div className="profile">profile</div>
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon/></div>
                                      <div className="comment"><CommentIcon/></div>
                             </div>
+                              </Paper>
                    </div>
-                    <div className="universe">
+                 
+                    
+                  
+                   <div className="universe">
+                         <Paper>
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
                                   <div className="glancecontent">
@@ -31,13 +40,17 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author"> <AccountCircleIcon fontSize="small"/>profile
-                           </div>
+                                     <div className="author"> 
+                                                     <div className="channelicon"><AccountCircleIcon fontSize="large"/></div>
+                                                                       <div className="profile">profile</div>
+                            </div>
                                      <div className="like"><ThumbUpOffAltIcon/></div>
                                      <div className="comment"><CommentIcon/></div>
                             </div>
+                             </Paper>
                    </div>
-                   
+                  
+                    
                    
               </div>
     );
