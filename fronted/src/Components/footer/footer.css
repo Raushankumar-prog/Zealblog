@@ -21,6 +21,11 @@
       font-size: 1.2vw;
       font-family:'Courier New', Courier, monospace;
 }
+ 
+
+
+
+
 hr{
     color: #fff;
     border:0.4%;
@@ -50,24 +55,74 @@ hr{
        padding-bottom: 4%;
 }
 
+  @media only screen and (max-width:700px) {
+    .action {
+            display: grid;
+            height: auto;
+            width: auto;
+            padding-bottom: 4%;
+        }
+                
+        .line {
+            font-size: 2vw;
+            font-family: 'Courier New', Courier, monospace;
+        }
+                .a1 {
+                    font-size: 2vw;
+                    color: #fff;
+                    text-transform: capitalize;
+                    padding-top: 5%;
+                    font-family: 'Courier New', Courier, monospace;
+        
+        
+                }
+                                .a {
+                                    font-size: 2vw;
+                                    color: #fff;
+                                    text-transform: capitalize;
+                                    padding-top: 2%;
+                                    font-family: 'Courier New', Courier, monospace;
+                                }
+                                                                .first {
+                                                                    display: grid;
+                                                                padding-left: 12%;
+                                                                    padding-top: 2%;
+                                                                   
+                                
+                                                                }
+                                
+                                                                .second {
+                                                                    display: grid;
+                                                                    padding-left: 12%;
+                                                            
+                                                                    padding-top: 2%;
+                                                                }
+                                
+                                                                .third {
+                                                                    display: grid;
+                                                                    padding-left: 12%;
+                                                              
+                                                                    padding-top: 2%;
+                                                                }
+  }
+
 .first{
     display:grid;
-    font-size: 1.0vw;
+ 
     padding-top:2%;
-    height:auto;
-    width:auto;
+    
 
 }
 .second{
 display: grid;
 padding-left:12%;
-font-size: 1.0vw;
+
 padding-top:2%;
 }
 
 .third{
 display: grid;
 padding-left:12%;
-font-size:1.0vw;
+
 padding-top:2%;
 }

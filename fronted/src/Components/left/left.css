@@ -34,3 +34,18 @@
 .icon{
     padding-top: 3%;
 }
+
+@media only screen and (max-width:700px) {
+.text{
+       display: none; 
+    }
+        .fr {
+            border-radius: 6%;
+            width: 4%;
+            height: auto;
+            margin-left: 1%;
+            background-color: #333;
+
+            margin-top: 3%
+        }
+}
