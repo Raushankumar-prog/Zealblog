@@ -1,5 +1,4 @@
 .universe {
-   
     height:40%;
     width: 70%;
     display: grid;
@@ -11,7 +10,7 @@
     .universe {
     
             height: 49%;
-            width: 58%;
+            width: 50%;
             display: grid;
             margin-right: 1.3%;
             margin-top: 2%;
@@ -65,8 +64,8 @@
                 }
         
                 .glanceimage {
-                    width: 70%;
-                    height: 70%;
+                    width: 40%;
+                    height: 40%;
                     overflow: hidden;
         
                     margin-top: 1%;
@@ -115,7 +114,7 @@
                 }
         
                 .comment {
-                    padding-left: 6%;
+                    padding-left:3.4%;
                     color: #333;
                 }
         
@@ -222,7 +221,7 @@ height: 40%;
     color: #333;
 }
 .comment{
-    padding-left:6%;
+    padding-left:3.4%;
     color: #333;
 }
 .author{

@@ -3,7 +3,7 @@
     width:13%;
     height:auto;
     margin-left:1%;
-    background-color:#333;
+    background-color:rgb(0, 149, 255);
     
     padding-left: 2%;
     margin-top:3%
@@ -16,6 +16,7 @@
    font-family: 'Courier New', Courier, monospace;
    font-size: 1vw;
    display: flex;
+ 
 }
 
 .category2{
@@ -43,9 +44,10 @@
             border-radius: 6%;
             width: 4%;
             height: auto;
-            margin-left: 1%;
-            background-color: #333;
-
-            margin-top: 3%
+            margin-left: 4%; 
+            background-color:rgb(0, 149, 255);
+            margin-top: 3%;
+            
+    
         }
 }
