@@ -6,6 +6,7 @@ import Left from './Components/left/left';
 import Heading from './Components/header/header';
 
 function App() {
+  
   return (
     <div className="hu">
 
@@ -14,9 +15,9 @@ function App() {
  <Heading/>
  <div className="main">
  <Left/>
- <Routing/>
+ 
  <div className="glance">
-
+<Routing/>
  </div>
  </div>
 

@@ -8,7 +8,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 const Glance = () => {
     return ( 
               <div className="main1"> 
-                           <Link to="/mainpage">
+                           <Link to="/mainpage" className="remove">
                    <div className="universe">
                      <Paper >
                             <div className="space">

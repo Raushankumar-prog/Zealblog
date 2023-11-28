@@ -232,3 +232,7 @@ height: 40%;
      padding-top: 2%;
      text-transform: capitalize;
 }
+
+.remove{
+    text-decoration: none;
+}
