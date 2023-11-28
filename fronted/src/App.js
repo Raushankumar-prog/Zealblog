@@ -9,11 +9,12 @@ function App() {
   return (
     <div className="hu">
 
- <Routing/>
+ 
  
  <Heading/>
  <div className="main">
  <Left/>
+ <Routing/>
  <div className="glance">
 
  </div>
