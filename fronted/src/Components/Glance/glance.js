@@ -1,6 +1,6 @@
 import './glance.css';
 import Paper from '@mui/material/Paper';
-
+import { Link } from 'react-router-dom';
 import img from './OIP.jpeg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -8,7 +8,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 const Glance = () => {
     return ( 
               <div className="main1"> 
-                           
+                           <Link to="/mainpage">
                    <div className="universe">
                      <Paper >
                             <div className="space">
@@ -28,7 +28,7 @@ const Glance = () => {
                               </Paper>
                    </div>
                  
-                    
+                    </Link>
                   
                    <div className="universe">
                          <Paper>
