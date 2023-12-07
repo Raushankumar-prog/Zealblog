@@ -11,35 +11,35 @@ const Left = () => {
     return (
          <div className="fr">
         <div className="category1" >
-             <div className="icon"><ExploreIcon  fontSize="small"  /></div> 
+             <div className="icon"><ExploreIcon  fontSize="small" color="error" /></div> 
               <div className="text"><p className="category">lastest</p></div>
        </div>    
         <div  className="category1">
-           <div className="icon"><SubscriptionsIcon fontSize="small"/></div> 
+           <div className="icon"><SubscriptionsIcon fontSize="small" color="error"/></div> 
            <div className="text"><p className="category">subscribe</p></div>
         </div>
         <div  className="category1">
-             <div className="icon"><TrendingUpIcon fontSize="small"/></div> 
+             <div className="icon"><TrendingUpIcon fontSize="small" color="error"/></div> 
              <div className="text"><p className="category">popular</p></div>
         </div>
         <div  className="category1">
-             <div className="icon"><Saved fontSize="small"/></div> 
+             <div className="icon"><Saved fontSize="small" color="error"/></div> 
              <div className="text"><p className="category">saved</p></div>
         </div>
         <div  className="category1">
-             <div className="icon"><ShareIcon fontSize="small"/></div> 
+             <div className="icon"><ShareIcon fontSize="small" color="error"/></div> 
              <div className="text"><p className="category">share</p></div>
         </div>
          <div  className="category1">
-             <div className="icon"><NotificationsIcon fontSize="small"/></div> 
+             <div className="icon"><NotificationsIcon fontSize="small" color="error"/></div> 
              <div className="text"><p className="category">Notification</p></div>
         </div>
         <div  className="category2">
-             <div className="icon"><AccountCircleIcon fontSize="small"/></div> 
+             <div className="icon"><AccountCircleIcon fontSize="small" color="error"/></div> 
               <div className="text"><p className="category">profile</p></div>
        </div>
        <div  className="category1">
-             <div className="icon"><SettingsIcon  fontSize="small"/></div> 
+             <div className="icon"><SettingsIcon  fontSize="small" color="error"/></div> 
               <div className="text"><p className="category">setting</p></div>
         
        </div>

@@ -19,11 +19,11 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large"/></div>
+                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" color="success"/></div>
                                                                        <div className="profile">profile</div>
                            </div>
-                                     <div className="like"><ThumbUpOffAltIcon/></div>
-                                     <div className="comment"><CommentIcon/></div>
+                                     <div className="like"><ThumbUpOffAltIcon color="primary"/></div>
+                                     <div className="comment"><CommentIcon  color="secondary"/></div>
                             </div>
                               </Paper>
                    </div>
@@ -31,7 +31,7 @@ const Glance = () => {
                     </Link>
                   
                    <div className="universe">
-                         <Paper>
+                     <Paper >
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
                                   <div className="glancecontent">
@@ -40,16 +40,15 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author"> 
-                                                     <div className="channelicon"><AccountCircleIcon fontSize="large"/></div>
+                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" color="success"/></div>
                                                                        <div className="profile">profile</div>
+                           </div>
+                                     <div className="like"><ThumbUpOffAltIcon color="primary"/></div>
+                                     <div className="comment"><CommentIcon  color="secondary"/></div>
                             </div>
-                                     <div className="like"><ThumbUpOffAltIcon/></div>
-                                     <div className="comment"><CommentIcon/></div>
-                            </div>
-                             </Paper>
+                              </Paper>
                    </div>
-                  
+                 
                     
                    
               </div>

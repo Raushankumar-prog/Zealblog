@@ -50,11 +50,9 @@ const Header = () => {
             <div className="right">
 
                 <div className='post'>
-               <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-  Upload file
-  <VisuallyHiddenInput type="file" />
-</Button>
-                   </div>  
+                         <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}> Upload file <VisuallyHiddenInput type="file" />
+                          </Button>
+                </div>  
             </div>
           </div>
     </div> );
