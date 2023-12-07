@@ -64,8 +64,8 @@
                 }
         
                 .glanceimage {
-                    width: 40%;
-                    height: 40%;
+                    width: 20%;
+                    height: 20%;
                     overflow: hidden;
         
                     margin-top: 1%;
@@ -175,8 +175,8 @@ height: 40%;
          
 }
 .glanceimage{
-      width:70%;
-      height:70%;
+      width:50%;
+      height:50%;
       overflow: hidden;
  
       margin-top:1%;
