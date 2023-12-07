@@ -24,9 +24,10 @@ function getRandomColor() {
 
     return ( 
               <div className="main1"> 
-                           <Link to="/mainpage" className="remove">
+                         
                    <div className="universe">
                      <Paper >
+                          <Link to="/mainpage" className="remove">
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
                                   <div className="glancecontent">
@@ -34,6 +35,7 @@ function getRandomColor() {
                                          <div className="glancebriefbox"><p className="glancebrieftext"> Artimis is plan of Nasa to land on MOON in 2024.<br></br>They are making rcoket which csn essily take them on moon.</p></div>
                                    </div>
                             </div>
+                              </Link>
                             <div className="little">
                                      <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
                                                                        <div className="profile">profile</div>
@@ -44,7 +46,7 @@ function getRandomColor() {
                               </Paper>
                    </div>
                  
-                    </Link>
+                  
                            <div className="universe">
                      <Paper >
                             <div className="space">
