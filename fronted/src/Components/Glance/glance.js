@@ -8,9 +8,19 @@ import CommentIcon from '@mui/icons-material/Comment';
 const Glance = () => {
      
    //   var randomcolor=color.random();
-  const color = () => {
-   return ["error", "success", "primary", "secondary"];
+  
+function getRandomColor() {
+  
+    const randomRed = Math.floor(Math.random() * 256);
+    const randomGreen = Math.floor(Math.random() * 256);
+    const randomBlue = Math.floor(Math.random() * 256);
+
+    
+    const randomColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+
+    return randomColor;
 }
+
 
     return ( 
               <div className="main1"> 
@@ -25,18 +35,17 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" color={color()[Math.floor(Math.random() * 4)]}/></div>
+                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
                                                                        <div className="profile">profile</div>
                            </div>
-                                     <div className="like"><ThumbUpOffAltIcon color={color()[Math.floor(Math.random() * 4)]}/></div>
-                                     <div className="comment"><CommentIcon  color={color()[Math.floor(Math.random() * 4)]}/></div>
+                                     <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
+                                     <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
                             </div>
                               </Paper>
                    </div>
                  
                     </Link>
-                  
-                  <div className="universe">
+                           <div className="universe">
                      <Paper >
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
@@ -46,11 +55,11 @@ const Glance = () => {
                                    </div>
                             </div>
                             <div className="little">
-                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" color={color()[Math.floor(Math.random() * 4)]}/></div>
+                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
                                                                        <div className="profile">profile</div>
                            </div>
-                                     <div className="like"><ThumbUpOffAltIcon color={color()[Math.floor(Math.random() * 4)]}/></div>
-                                     <div className="comment"><CommentIcon  color={color()[Math.floor(Math.random() * 4)]}/></div>
+                                     <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
+                                     <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
                             </div>
                               </Paper>
                    </div>
