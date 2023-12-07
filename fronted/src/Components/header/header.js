@@ -8,6 +8,23 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
+//import PostAddIcon from '@mui/icons-material/PostAdd';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
+
 
 const Header = () => {
     return ( <div>
@@ -31,7 +48,13 @@ const Header = () => {
                           </Paper>
             </div>
             <div className="right">
-                <div> </div>  
+
+                <div className='post'>
+               <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+  Upload file
+  <VisuallyHiddenInput type="file" />
+</Button>
+                   </div>  
             </div>
           </div>
     </div> );
