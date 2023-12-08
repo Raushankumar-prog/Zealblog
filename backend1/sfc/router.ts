@@ -2,10 +2,9 @@ import {Router} from 'express'
 
 const router = Router()
 
-
-router.get('/product',(req,res)=>{
-    
-})
-
+/**
+ * Product
+ */
+router.get('/product', (req,res)=>{})
 
 export default router

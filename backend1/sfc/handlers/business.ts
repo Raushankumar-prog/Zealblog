@@ -1,4 +1,4 @@
-
+import prisma from '../db'
 
 export const createPost=async(req,res)=>{
     const post=await prisma.Post.create({
