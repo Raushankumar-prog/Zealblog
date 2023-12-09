@@ -1,0 +1,1 @@
+import './lastest.css';
