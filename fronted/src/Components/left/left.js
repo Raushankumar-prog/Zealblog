@@ -13,14 +13,14 @@ const Left = () => {
 }
 
     return (
-         <div className="fr">
+  <div className="fr">
         <div className="category1" >
-             <div className="icon"><ExploreIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }}  /></div> 
+               <div className="icon"><ExploreIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }}  /></div> 
               <div className="text"><p className="category">lastest</p></div>
        </div>    
         <div  className="category1">
-           <div className="icon"><SubscriptionsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
-           <div className="text"><p className="category">subscribe</p></div>
+             <div className="icon"><SubscriptionsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
+             <div className="text"><p className="category">subscribe</p></div>
         </div>
         <div  className="category1">
              <div className="icon"><TrendingUpIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
@@ -47,7 +47,7 @@ const Left = () => {
               <div className="text"><p className="category">setting</p></div>
         
        </div>
-        </div>    
+  </div>    
 
 
     );

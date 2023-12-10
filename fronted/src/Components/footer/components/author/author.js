@@ -1,7 +1,9 @@
+import './author.css';
+
 const Author = () => {
-    return ( 
-        <div> efiurhefg</div>
-     );
+    return ( <div>
+        author
+    </div> );
 }
  
 export default Author;
