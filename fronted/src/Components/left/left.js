@@ -7,6 +7,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {Link} from 'react-router-dom';
 const Left = () => {
   const color = () => {
    return ["purple", "orange", "yellow"];
@@ -14,39 +15,57 @@ const Left = () => {
 
     return (
   <div className="fr">
+  <Link to="lastest" className='link'>
         <div className="category1" >
+       
                <div className="icon"><ExploreIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }}  /></div> 
               <div className="text"><p className="category">lastest</p></div>
        </div>    
+</Link>
+ <Link to="subscribe" className='link'>
         <div  className="category1">
              <div className="icon"><SubscriptionsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">subscribe</p></div>
         </div>
+ </Link>
+   <Link to="popular" className='link'>
         <div  className="category1">
              <div className="icon"><TrendingUpIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">popular</p></div>
         </div>
+   </Link>   
+   <Link to="saved" className='link'>
         <div  className="category1">
              <div className="icon"><Saved fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">saved</p></div>
         </div>
+     </Link>
+      <Link to="share" className='link'>
         <div  className="category1">
              <div className="icon"><ShareIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">share</p></div>
         </div>
+     </Link>
+      <Link to="notification" className='link'>
          <div  className="category1">
              <div className="icon"><NotificationsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">Notification</p></div>
         </div>
+        </Link>
+         <Link to="profile" className='link'>
         <div  className="category2">
              <div className="icon"><AccountCircleIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
               <div className="text"><p className="category">profile</p></div>
        </div>
+       </Link>
+         <Link to="setting" className='link'>
+       
        <div  className="category1">
              <div className="icon"><SettingsIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
               <div className="text"><p className="category">setting</p></div>
         
        </div>
+        </Link>
   </div>    
 
 
