@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="action">
                 <div className="first">
                    <Link to="/author" className="link"><div className="a1">Author</div></Link>
-                    <Link to="/cookiespolicy" className="link"><div className="a1">cookies policy</div></Link>
+                   <Link to="/cookiespolicy" className="link"><div className="a1">cookies policy</div></Link>
                     <Link to="/notification" className="link"><div className="a1">web notifications</div></Link>
                 </div>
                 <div className="second">
