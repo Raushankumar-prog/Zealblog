@@ -5,9 +5,11 @@ export const createComment = async (req, res) => {
     try {
         const comment = await prisma.comment.create({
             data: {
-                content: req.body.content
+                content: req.body.content,
+                 belongsiduser: req.body.belongsiduser,
+                belongsid: req.body.belongsid 
             }
-        });
+            });
         res.status(200).json({ success: true, comment });
     } catch (error) {
         console.error(error);
@@ -23,7 +25,9 @@ export const updateComment = async (req, res) => {
                 id: req.body.id
             },
             data: {
-               content: req.body.content
+               content: req.body.content, 
+               belongsiduser: req.body.belongsiduser,
+                belongsid: req.body.belongsid 
             }
         });
         res.status(200).json({ success: true, updatedComment });

@@ -7,7 +7,10 @@ export const createPost = async (req, res) => {
             data: {
                 title: req.body.title,
                 content: req.body.content,
-                nichetype: req.body.nichetype
+                nichetype: req.body.nichetype,
+                 belongsid: req.body.belongsid 
+              
+            
             }
         });
         res.status(200).json({ success: true, post });
@@ -27,7 +30,8 @@ export const updatePost = async (req, res) => {
             data: {
                 title: req.body.title,
                 content: req.body.content,
-                nichetype: req.body.nichetype
+                nichetype: req.body.nichetype,
+                 belongsid: req.body.belongsid 
             }
         });
         res.status(200).json({ success: true, updatedPost });
@@ -45,7 +49,8 @@ export const publish = async (req, res) => {
                 id: req.body.id
             },
             data: {
-                published: req.body.published
+                published: req.body.published,
+                 belongsid: req.body.belongsid 
             }
         });
         res.status(200).json({ success: true, publishedPost });
