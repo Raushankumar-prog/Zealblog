@@ -11,6 +11,7 @@ export const createNewUser = async (req, res) => {
 
   const token = createJWT(user)
   res.json({ token })
+
 }
 
 export const signin = async (req, res) => {

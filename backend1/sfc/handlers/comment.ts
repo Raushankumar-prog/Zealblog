@@ -6,8 +6,8 @@ export const createComment = async (req, res) => {
         const comment = await prisma.comment.create({
             data: {
                 content: req.body.content,
-                 belongsiduser: req.body.belongsiduser,
-                belongsid: req.body.belongsid 
+                 belongsiduser: req.user.id,
+                belongsid: req.post.belongsid 
             }
             });
         res.status(200).json({ success: true, comment });
@@ -26,8 +26,8 @@ export const updateComment = async (req, res) => {
             },
             data: {
                content: req.body.content, 
-               belongsiduser: req.body.belongsiduser,
-                belongsid: req.body.belongsid 
+               belongsiduser: req.user.id,
+                belongsid: req.post.belongsid 
             }
         });
         res.status(200).json({ success: true, updatedComment });

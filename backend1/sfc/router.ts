@@ -9,7 +9,7 @@ const router = Router()
  router.delete('/deleteComment/:id',deleteComment);
 router.put('/updatecomment',updateComment);
  router.post('/createpost',createPost);
-router.delete('/deletepost/:id',deletePost);
+router.delete('/deletepost',deletePost);
 router.put('/updatepost',updatePost);
 router.put('/publish',publish);
 

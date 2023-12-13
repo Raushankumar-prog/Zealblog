@@ -31,7 +31,7 @@ export const updatePost = async (req, res) => {
                 title: req.body.title,
                 content: req.body.content,
                 nichetype: req.body.nichetype,
-                 belongsid: req.body.belongsid 
+                 belongsid: req.user.id
             }
         });
         res.status(200).json({ success: true, updatedPost });
@@ -50,7 +50,7 @@ export const publish = async (req, res) => {
             },
             data: {
                 published: req.body.published,
-                 belongsid: req.body.belongsid 
+                  belongsid: req.user.id 
             }
         });
         res.status(200).json({ success: true, publishedPost });
@@ -63,10 +63,10 @@ export const publish = async (req, res) => {
 // deleting the post
 export const deletePost = async (req, res) => {
     try {
-        const id = req.params.id;
+       
         const deletedPost = await prisma.post.delete({
             where: {
-                id: id
+                id: req.post.id
             }
         });
         res.status(200).json({ success: true, message: 'Post deleted successfully' });
