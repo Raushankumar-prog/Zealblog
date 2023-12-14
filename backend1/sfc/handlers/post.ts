@@ -24,14 +24,15 @@ export const createPost = async (req, res) => {
 export const updatePost = async (req, res) => {
     try {
         const updatedPost = await prisma.post.update({
+            
             where: {
-                id: req.body.id
+                id: 4,
             },
             data: {
-                title: req.body.title,
-                content: req.body.content,
-                nichetype: req.body.nichetype,
-                 belongsid: req.user.id
+                title:"the title",
+                content: "i don't know what is content",
+                nichetype: "technolof",
+                 belongsid: "1c918eb2-43ec-40dd-a639-f6114243c0c9",
             }
         });
         res.status(200).json({ success: true, updatedPost });

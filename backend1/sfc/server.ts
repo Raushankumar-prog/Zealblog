@@ -18,7 +18,7 @@ app.get('/', (req, res, next) => {
   },1)
 })
 
-app.use('/api', protect, router)
+app.use('/api',router)
 
 app.post('/user', createNewUser)
 app.post('/signin', signin)
