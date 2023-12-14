@@ -14,6 +14,7 @@ export const createPost = async (req, res) => {
             }
         });
         res.status(200).json({ success: true, post });
+
     } catch (error) {
         console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });
@@ -26,13 +27,13 @@ export const updatePost = async (req, res) => {
         const updatedPost = await prisma.post.update({
             
             where: {
-                id: 4,
+                id:req.body.id,
             },
             data: {
-                title:"the title",
-                content: "i don't know what is content",
-                nichetype: "technolof",
-                 belongsid: "1c918eb2-43ec-40dd-a639-f6114243c0c9",
+                title:req.body.title,
+                content: req.body.content,
+                nichetype:req.body.nichetype,
+                 belongsid:req.body.belongsid,
             }
         });
         res.status(200).json({ success: true, updatedPost });
@@ -45,15 +46,18 @@ export const updatePost = async (req, res) => {
 // updating the publish timing
 export const publish = async (req, res) => {
     try {
+       
+
         const publishedPost = await prisma.post.update({
             where: {
-                id: req.body.id
+                id:req.body.id,
             },
             data: {
-                published: req.body.published,
-                  belongsid: req.user.id 
+                published:req.body.publish,
+                belongsid:req.body.belongsid,
             }
         });
+        console.log('Published Post:', publishedPost);
         res.status(200).json({ success: true, publishedPost });
     } catch (error) {
         console.error(error);
@@ -65,11 +69,16 @@ export const publish = async (req, res) => {
 export const deletePost = async (req, res) => {
     try {
        
-        const deletedPost = await prisma.post.delete({
+        const user= await prisma.post.findUnique({
             where: {
-                id: req.post.id
+                id:5,
             }
         });
+        const deletedPost=await prisma.post.delete({
+            data:{
+                id:user,
+            }
+        })
         res.status(200).json({ success: true, message: 'Post deleted successfully' });
     } catch (error) {
         console.error(error);

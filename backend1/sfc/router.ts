@@ -6,10 +6,10 @@ const router = Router()
 
 
  router.post('/createcomment',createComment);
- router.delete('/deleteComment/:id',deleteComment);
+ router.delete('/deleteComment',deleteComment);
 router.put('/updatecomment',updateComment);
  router.post('/createpost',createPost);
-router.delete('/deletepost',deletePost);
+//router.delete('/deletepost/:id',deletePost);
 router.put('/updatepost',updatePost);
 router.put('/publish',publish);
 
