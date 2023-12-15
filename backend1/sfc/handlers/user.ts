@@ -37,7 +37,7 @@ export const signin = async (req, res) => {
 // deleting the user
 export const deleteuser = async (req, res) => {
     try {
-         //const {id}=req.params
+         
         const deletedpost= await prisma.user.delete({
             where: {
                 id:req.body.id,

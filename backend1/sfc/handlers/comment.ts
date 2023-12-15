@@ -6,7 +6,7 @@ export const createComment = async (req, res) => {
         const comment = await prisma.comment.create({
             data: {
                 content:req.body.content,
-                // belongsiduser:"1c918eb2-43ec-40dd-a639-f6114243c0c9",
+                
                 belongsid:req.body.id,
             }
             });
@@ -39,7 +39,7 @@ export const updateComment = async (req, res) => {
 // deleting the comment
 export const deleteComment = async (req, res) => {
     try {
-        //const id = req.params.id;
+       
         const deletedComment = await prisma.comment.delete({
             where: {
                 id: req.body.id,
