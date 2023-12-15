@@ -13,6 +13,7 @@ import Advertising from '../Components/footer/components/advertising/advertising
 import Careers from '../Components/footer/components/careers/careers';
 import Cookiespolicy from '../Components/footer/components/cookies policy/cookies';
 import Terms from '../Components/footer/components/terms/terms';
+import Home from '../Components/left/leftcomponent/home/home';
 
 
 const Routing = () => {
@@ -32,6 +33,7 @@ const Routing = () => {
       <Route path="/careers" element={<Careers/>}/>
       <Route path="/cookiespolicy" element={<Cookiespolicy/>}/>
       <Route path="/terms&conditions" element={<Terms/>}/>
+      <Route path="/" element={<Home/>}/>
        </Routes>
     </div> );
 }
