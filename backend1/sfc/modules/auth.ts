@@ -35,9 +35,8 @@ export const protect = (req, res, next) => {
     res.send("Not authorized");
     return;
   }
-  
-
-  try {
+    
+   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.user = payload;
     console.log(payload);

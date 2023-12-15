@@ -8,7 +8,7 @@ export const createPost = async (req, res) => {
                 title: req.body.title,
                 content: req.body.content,
                 nichetype: req.body.nichetype,
-                 belongsid: req.body.belongsid 
+                 belongsid: req.body.id,
               
             
             }
@@ -68,18 +68,14 @@ export const publish = async (req, res) => {
 // deleting the post
 export const deletePost = async (req, res) => {
     try {
-       
-        const user= await prisma.post.findUnique({
+         //const {id}=req.params
+        const deletedpost= await prisma.post.delete({
             where: {
-                id:5,
-            }
-        });
-        const deletedPost=await prisma.post.delete({
-            data:{
-                id:user,
-            }
+                id:req.body.id,
+            },
         })
-        res.status(200).json({ success: true, message: 'Post deleted successfully' });
+            
+        res.status(200).json({ success: true, deletedpost});
     } catch (error) {
         console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });

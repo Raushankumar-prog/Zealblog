@@ -5,9 +5,9 @@ export const createComment = async (req, res) => {
     try {
         const comment = await prisma.comment.create({
             data: {
-                content: req.body.content,
-                 belongsiduser: req.user.id,
-                belongsid: req.post.belongsid 
+                content:req.body.content,
+                // belongsiduser:"1c918eb2-43ec-40dd-a639-f6114243c0c9",
+                belongsid:req.body.id,
             }
             });
         res.status(200).json({ success: true, comment });
@@ -22,12 +22,11 @@ export const updateComment = async (req, res) => {
     try {
         const updatedComment = await prisma.comment.update({
             where: {
-                id: req.body.id
+                id:req.body.id,
             },
             data: {
                content: req.body.content, 
-               belongsiduser: req.user.id,
-                belongsid: req.post.belongsid 
+               belongsid: req.body.belongsid,
             }
         });
         res.status(200).json({ success: true, updatedComment });
@@ -40,10 +39,10 @@ export const updateComment = async (req, res) => {
 // deleting the comment
 export const deleteComment = async (req, res) => {
     try {
-        const id = req.params.id;
+        //const id = req.params.id;
         const deletedComment = await prisma.comment.delete({
             where: {
-                id: id
+                id: req.body.id,
             }
         });
         res.status(200).json({ success: true, message: 'Comment deleted successfully' });

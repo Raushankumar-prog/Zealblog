@@ -18,30 +18,29 @@ model user {
   like      Int      @default(autoincrement())
   dislike   Int      @default(autoincrement())
 
-  post    post[]
-  comment comment[]
+  post post[]
 }
 
 model post {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   title     String?
   content   String?
-  nichetype  String?
-  like      Int       @default(autoincrement())
-  dislike   Int       @default(autoincrement())
-  published Boolean   @default(false)
+  nichetype String?
+  like      Int      @default(autoincrement())
+  dislike   Int      @default(autoincrement())
+  published Boolean  @default(false)
   belongsid String
-  beongsto  user      @relation(fields: [belongsid], references: [id])
-  comment   comment[]
+  beongsto  user     @relation(fields: [belongsid], references: [id])
+
+  comment comment[]
 }
 
 model comment {
-  id            Int     @id @default(autoincrement())
-  content       String?
-  belongsiduser String
-  belongstouser user    @relation(fields: [belongsiduser], references: [id])
-  belongsid     Int
-  belongstopost post    @relation(fields: [belongsid], references: [id])
+  id      String  @id @default(uuid())
+  content String?
+
+  belongsid     String
+  belongstopost post   @relation(fields: [belongsid], references: [id])
 }
