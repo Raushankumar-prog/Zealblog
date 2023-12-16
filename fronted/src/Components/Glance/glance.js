@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import './glance.css';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
@@ -22,19 +21,11 @@ function getRandomColor() {
     return randomColor;
 }
 
-useEffect(() => {
-    const elements = document.getElementsByClassName("remove");
-
-    for (const element of elements) {
-      element.style.color = "blue";
-    }
-  }, []);
-
 
     return ( 
               <div className="main1"> 
                          
-                   <div className="universe" >
+                   <div className="universe">
                      <Paper >
                           <Link to="/mainpage" className="remove">
                             <div className="space">
