@@ -10,14 +10,19 @@ const Profile = () => {
   const getdata = () => {
     const url = new URL(str);
     const req = new Request(url, {
-      headers: { 'x-steve': 'hello' },
-      method: 'POST',
-      cache: 'reload',
-      body: JSON.stringify({
-        'username': username,
-        'password': password
-      })
-    });
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-steve': 'hello'
+  },
+  mode:"no-cors",
+  cache:"no-store",
+  body: JSON.stringify({
+    'username': username,
+    'password': password,
+  }),
+});
+
 
     fetch(req)
       .then((res) => {

@@ -18,9 +18,9 @@ app.get('/', (req, res, next) => {
   },1)
 })
 
-app.use('/api',router)
+app.use('/api',protect,router)
 
-app.post('/user', createNewUser)
+app.post('/user',createNewUser)
 app.post('/signin', signin)
 
 app.use((err, req, res, next) => {
