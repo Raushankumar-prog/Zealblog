@@ -6,21 +6,21 @@ const str = "http://localhost:4001/user";
 const Profile = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  let user={
+     username:username,
+     password:password
+  };
 
   const getdata = () => {
     const url = new URL(str);
     const req = new Request(url, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'x-steve': 'hello'
+    'Content-Type': 'application/json;charset=utf-8'
+  
   },
-  mode:"no-cors",
-  cache:"no-store",
-  body: JSON.stringify({
-    'username': username,
-    'password': password,
-  }),
+ 
+  body: JSON.stringify(user),
 });
 
 
