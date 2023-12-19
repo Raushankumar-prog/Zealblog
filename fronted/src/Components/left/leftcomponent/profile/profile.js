@@ -34,17 +34,30 @@ const Profile = () => {
       })
       .then((data) => {
         const token = data.token;
+        const usernam=data.user.username;
+        const id=data.user.id;
         Cookies.set('token', token, { expires: 7, secure: true });
-        console.log(data);
+         Cookies.set('usernam',usernam,{ expires: 7, secure: true });
+         Cookies.set('id',id,{expires:7,secure:true});
       })
       .catch((err) => {
         console.warn(err.message);
       });
   }
 
+const checkusername=Cookies.get('usernam');
+
+if(checkusername){
+  const form=document.getElementById("form");
+  form.style.display='none';
+}else{
+      const content=document.getElementById("content");
+      content.style.display='block';
+}
 
   return (
     <div>
+      <div id="form">
       <form>
         <label>username:</label>
         <input
@@ -63,6 +76,8 @@ const Profile = () => {
         />
         <button type='button' onClick={getdata}>submit</button>
       </form>
+      </div>
+      <div id="content" >hdjd</div>
     </div>
   );
 }
