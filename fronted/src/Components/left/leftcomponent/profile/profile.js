@@ -48,9 +48,9 @@ const Profile = () => {
   useEffect(() => {
     // Check if the username is present in cookies
     const checkUsername = Cookies.get('usernam');
-    if (checkUsername) {
+     if (checkUsername) {
       setCheckUsername(true);
-    }
+     }
   }, []);
 
   return (
