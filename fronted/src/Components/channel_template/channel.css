@@ -5,6 +5,8 @@
 
 .upper{
      display:grid;
+     width: 100%;
+
 }
 
 .lower{
@@ -17,7 +19,8 @@
 }
 .channelnamebox{
     display: flex;
-    margin-top: 1%;
+    margin-top: -1px;
+   
 }
 
 .userprofiletext{
@@ -29,13 +32,19 @@
 }
 
 .bannerbox{
-    height:60%;
-    width:fit-content;
-    margin-bottom: 0%;
+    height: 250px;
+    background-size: contain;
+        background-position: center;
+    margin-bottom: 0px;
  overflow: hidden;
 
 }
 
+#imagebanner{
+    height: 60%;
+        width: 100%;
+        min-width: 100%;
+}
 .profileimagebox{
     height:45%;
     width:30%;
@@ -46,6 +55,7 @@
    padding-top: 0%;
    height:20%;
    text-align: left;
+   margin-top: 0%;
 }
 .userworkplace{
     margin-top:1%;
