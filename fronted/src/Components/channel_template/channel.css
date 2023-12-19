@@ -1,0 +1,24 @@
+#channel{
+    display:grid;
+
+}
+
+.upper{
+     display:grid;
+}
+
+.lower{
+    display:flex;
+}
+
+
+.channelheading{
+    display: flex;
+}
+.channelnamebox{
+    display: flex;
+}
+
+.userprofiletext{
+   display:grid;
+}

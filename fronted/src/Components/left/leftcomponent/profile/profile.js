@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './profile.css';
 import Cookies from 'js-cookie';
+import Channel from '../../../channel_template/channel';
 
 const apiUrl = "http://localhost:4001/user";
 
@@ -56,7 +57,7 @@ const Profile = () => {
   return (
     <div>
       {checkusername ? (
-        <div id="content">if the person is login in , then show this profile</div>
+        <div id="content"><Channel/></div>
       ) : (
         <div id="form">
           <form>
