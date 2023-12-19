@@ -1,16 +1,17 @@
 import './channel.css';
-
+import img from '../Glance/OIP.jpeg';
 const Channel = () => {
     return ( 
-        <div id="channel">
+        <div className="channel">
                <div className="upper">
-                   <div id="bannerbox"><img src="" id="imagebanner"></img>  </div>
+                   <div className="bannerbox"><img src={img} id="imagebanner"></img>  </div>
                       
-                      <div id="channelnamebox">
-                             <div className="profileimagebox"><img src=" "className="profileimage"/></div>
+                      <div className="channelnamebox">
+                             <div className="profileimagebox"><img src={img} className="profileimage"/></div>
                              <div className="userprofiletext">
-                                <div className="profilenamebox"><p>username</p></div>
-                                 <div className="userworkplace"><p>scientist at CERN  LAB</p></div>
+                                <div className="profilenamebox"><p className="mainheading">RAUSHAN KUMAR</p>
+                                </div>
+                                 <div className="userworkplace">scientist,CERN  LAB</div>
                              </div>
                       </div>
                                  
