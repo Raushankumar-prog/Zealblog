@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './profile.css';
+import Cookies from 'js-cookie';
 
 const str = "http://localhost:4001/user";
 
@@ -32,13 +33,15 @@ const Profile = () => {
         return res.json();
       })
       .then((data) => {
-        // Handle the data received from the server
+        const token = data.token;
+        Cookies.set('token', token, { expires: 7, secure: true });
         console.log(data);
       })
       .catch((err) => {
         console.warn(err.message);
       });
   }
+const gettoken = Cookies.get('token');
 
   return (
     <div>
