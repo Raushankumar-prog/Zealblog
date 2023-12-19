@@ -15,8 +15,8 @@ model user {
   username  String   @unique
   password  String
   createdAt DateTime @default(now())
-  like      Int      @default(autoincrement())
-  dislike   Int      @default(autoincrement())
+  like      Int      @default(0)
+  dislike   Int      @default(0)
 
   post post[]
 }
@@ -28,8 +28,8 @@ model post {
   title     String?
   content   String?
   nichetype String?
-  like      Int      @default(autoincrement())
-  dislike   Int      @default(autoincrement())
+  like      Int      @default(0)
+  dislike   Int      @default(0)
   published Boolean  @default(false)
   belongsid String
   beongsto  user     @relation(fields: [belongsid], references: [id])

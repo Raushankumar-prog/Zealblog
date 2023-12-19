@@ -41,7 +41,7 @@ const Profile = () => {
         console.warn(err.message);
       });
   }
-const gettoken = Cookies.get('token');
+
 
   return (
     <div>
