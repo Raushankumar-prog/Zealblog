@@ -1,10 +1,12 @@
 import './channel.css';
 import img from '../Glance/OIP.jpeg';
+import solar from './solar.jpg';
+
 const Channel = () => {
     return ( 
         <div className="channel">
                <div className="upper">
-                   <div className="bannerbox"><img src={img} id="imagebanner"></img>  </div>
+                   <div className="bannerbox"><img src={solar} id="imagebanner"/></div>
                       
                       <div className="channelnamebox">
                              <div className="profileimagebox"><img src={img} className="profileimage"/></div>
@@ -15,13 +17,17 @@ const Channel = () => {
                              </div>
                       </div>
                                  
+
+                                
                       <div className="channelheading">
-                          <div className="profilehome"><p>home</p></div>
-                          <div className="userniche"><p>niche</p></div>
-                          <div className="about"><p> about</p></div>
-
-
+                        
+                          <span className="userniche">Home</span>
+                           <span  className="userniche">Article</span>
+                          <span  className="userniche">Niche</span>
+                          <span className="userniche">About</span>
                      </div>
+                     <div className="hr"><hr/></div>
+                       
                    
                 </div>
               <div className="lower">
