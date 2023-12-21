@@ -6,6 +6,7 @@ import img from './OIP.jpeg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
+
 const Glance = () => {
      
    //   var randomcolor=color.random();

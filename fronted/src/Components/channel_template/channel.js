@@ -1,7 +1,7 @@
 import './channel.css';
 import img from '../Glance/OIP.jpeg';
 import solar from './solar.jpg';
-
+import Authorpost from '../channel_template/channel_component/authorpost/authorpost';
 const Channel = () => {
     return ( 
         <div className="channel">
@@ -21,8 +21,8 @@ const Channel = () => {
                                 
                       <div className="channelheading">
                         
-                          <span className="userniche">Home</span>
-                           <span  className="userniche">Article</span>
+                        
+                           <span  className="userniche">Post</span>
                           <span  className="userniche">Niche</span>
                           <span className="userniche">About</span>
                      </div>
@@ -31,7 +31,7 @@ const Channel = () => {
                    
                 </div>
               <div className="lower">
-
+                           <Authorpost/>
               </div>
            
 
