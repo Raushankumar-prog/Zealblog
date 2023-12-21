@@ -14,7 +14,7 @@ import Careers from '../Components/footer/components/careers/careers';
 import Cookiespolicy from '../Components/footer/components/cookies policy/cookies';
 import Terms from '../Components/footer/components/terms/terms';
 import Home from '../Components/left/leftcomponent/home/home';
-
+import ShareButton from '../Components/left/leftcomponent/share/share';
 
 const Routing = () => {
     return ( <div>
@@ -28,6 +28,7 @@ const Routing = () => {
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/savedpost" element={<Saved/>}/>
       <Route path="/setting"  element={<Setting/>}/>
+      <Route path='/share'   element={<ShareButton/>}/>
       <Route path="/subscribe" element={<Subscribe/>}/>
       <Route path="/advertising"  element={<Advertising/>}/>
       <Route path="/careers" element={<Careers/>}/>
