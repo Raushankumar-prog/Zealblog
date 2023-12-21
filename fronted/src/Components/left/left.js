@@ -48,12 +48,7 @@ const Left = () => {
              <div className="text"><p className="category">saved</p></div>
         </div>
      </Link>
-      <Link to="share" className='link'>
-        <div  className="category1">
-             <div className="icon"><ShareIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
-             <div className="text"><p className="category">share</p></div>
-        </div>
-     </Link>
+    
       <Link to="notification" className='link'>
          <div  className="category1">
              <div className="icon"><NotificationsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
@@ -66,14 +61,7 @@ const Left = () => {
               <div className="text"><p className="category">profile</p></div>
        </div>
        </Link>
-         <Link to="setting" className='link'>
        
-       <div  className="category1">
-             <div className="icon"><SettingsIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
-              <div className="text"><p className="category">setting</p></div>
-        
-       </div>
-        </Link>
   </div>    
 
 
