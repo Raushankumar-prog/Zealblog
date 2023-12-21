@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import img from '../../../Glance/OIP.jpeg';
 
 const Authorpost = () => {
-    return ( <div className="authorposting">
+    return (
+         <div className="authorposting">
                             <div className='posted'>
                                
                                    <div className='postimage'><img src={img}/></div>

@@ -9,8 +9,7 @@
 
 .postimage{
           height:100%;
-
-        overflow:hidden;
+          overflow:hidden;
 }
 
 
@@ -75,5 +74,6 @@
         margin: 0;
 }
 .postline{
-    margin-left:4%;
+    margin-left:3%;
+    margin-right: 3%;
 }
