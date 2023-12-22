@@ -55,6 +55,7 @@ const Left = () => {
              <div className="text"><p className="category">Notification</p></div>
         </div>
         </Link>
+        
          <Link to="profile" className='link'>
         <div  className="category2">
              <div className="icon"><AccountCircleIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
