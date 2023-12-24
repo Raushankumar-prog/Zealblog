@@ -101,3 +101,26 @@ export const latestPost = async (req, res) => {
         await prisma.$disconnect();
     }
 };
+
+// fetching popular posts
+export const popularPosts = async (req, res) => {
+    try {
+        const sortOrder = req.query.sortOrder || 'desc'; 
+
+        const popularPosts = await prisma.post.findMany({
+            where: {
+                id: req.body.id,
+            },
+            orderBy: {
+                like: sortOrder,
+            },
+        });
+
+        res.status(200).json({ popularPosts });
+    } catch (error) {
+        console.error(error);
+        res.status(404).json({ success: false, error: 'Internal Server Error' });
+    } finally {
+        await prisma.$disconnect();
+    }
+};

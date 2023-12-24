@@ -30,12 +30,12 @@ const Left = () => {
               <div className="text"><p className="category">lastest</p></div>
        </div>    
 </Link>
- <Link to="subscribe" className='link'>
+ {/*<Link to="subscribe" className='link'>
         <div  className="category1">
              <div className="icon"><SubscriptionsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">subscribe</p></div>
         </div>
- </Link>
+    </Link>*/}
    <Link to="popular" className='link'>
         <div  className="category1">
              <div className="icon"><TrendingUpIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
@@ -49,13 +49,13 @@ const Left = () => {
         </div>
      </Link>
     
-      <Link to="notification" className='link'>
+      {/*<Link to="notification" className='link'>
          <div  className="category1">
              <div className="icon"><NotificationsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">Notification</p></div>
         </div>
         </Link>
-        
+*/}
          <Link to="profile" className='link'>
         <div  className="category2">
              <div className="icon"><AccountCircleIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
