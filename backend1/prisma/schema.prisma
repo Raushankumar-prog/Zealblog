@@ -18,7 +18,8 @@ model user {
   like      Int      @default(0)
   dislike   Int      @default(0)
 
-  post post[]
+  post  post[]
+  saved saved[]
 }
 
 model post {
@@ -43,4 +44,10 @@ model comment {
 
   belongsid     String
   belongstopost post   @relation(fields: [belongsid], references: [id])
+}
+
+model saved {
+  id        String @id @default(uuid())
+  belongsid String
+  belongsto user   @relation(fields: [belongsid], references: [id])
 }

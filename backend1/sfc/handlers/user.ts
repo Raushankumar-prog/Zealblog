@@ -50,3 +50,35 @@ export const deleteuser = async (req, res) => {
         res.status(404).json({ success: false, error: 'Internal Server Error' });
     }
 };
+
+
+// fetching saved posts for a user
+export const getSavedPosts = async (req, res) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.body.id,
+            },
+            include: {
+                saved: {
+                    include: {
+                        belongsto: true,
+                    },
+                },
+            },
+        });
+
+        if (!user) {
+            return res.status(404).json({ success: false, error: 'User not found' });
+        }
+
+        const savedPosts = user.saved.map((saved) => saved.belongsto);
+
+        res.status(200).json({ savedPosts });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
+    } finally {
+        await prisma.$disconnect();
+    }
+};
