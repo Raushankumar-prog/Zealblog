@@ -29,6 +29,8 @@ model post {
   title     String?
   content   String?
   nichetype String?
+  imageName String?
+  caption   String?
   like      Int      @default(0)
   dislike   Int      @default(0)
   published Boolean  @default(false)
