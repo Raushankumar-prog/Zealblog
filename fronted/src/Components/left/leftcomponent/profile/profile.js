@@ -44,8 +44,8 @@ const Profile = () => {
       .catch((err) => {
         console.warn(err.message);
       });
+  
   }
-
   useEffect(() => {
     // Check if the username is present in cookies
     const checkUsername = Cookies.get('usernam');
