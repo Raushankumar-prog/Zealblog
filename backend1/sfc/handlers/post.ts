@@ -1,14 +1,28 @@
 import prisma from '../db';
+import sharp from 'sharp';
+import crypto from 'crypto';
+import { uploadFile, getObjectSignedUrl, deleteFile } from './s3.js'
+const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex')
+
 
 // creating the post
 export const createPost = async (req, res) => {
     try {
+        const imageName = generateFileName()
+
+  const fileBuffer = await sharp(req.file.buffer)
+    .resize({ height: 1920, width: 1080, fit: "contain" })
+    .toBuffer()
+
+  await uploadFile(fileBuffer, imageName, req.file.mimetype)
         const post = await prisma.post.create({
             data: {
                 title: req.body.title,
                 content: req.body.content,
                 nichetype: req.body.nichetype,
                 belongsid: req.body.id,
+                 imageName
+            
             }
         });
         res.status(200).json({ success: true, post });
@@ -68,11 +82,15 @@ export const publish = async (req, res) => {
 // deleting the post
 export const deletePost = async (req, res) => {
     try {
+       
         const deletedpost = await prisma.post.delete({
             where: {
                 id: req.body.id,
+                
             },
         });
+          await deleteFile(deletedpost.imageName)
+
         res.status(200).json({ success: true, deletedpost });
     } catch (error) {
         console.error(error);
