@@ -40,8 +40,6 @@ export async function getObjectSignedUrl(key) {
     Bucket: bucketName,
     Key: key
   }
-
-  
   const command = new GetObjectCommand(params);
   const seconds = 60
   const url = await getSignedUrl(s3Client, command, { expiresIn: seconds });

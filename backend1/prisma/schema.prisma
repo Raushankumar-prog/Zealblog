@@ -30,12 +30,12 @@ model post {
   content   String?
   nichetype String?
   imageName String?
-  caption   String?
-  like      Int      @default(0)
-  dislike   Int      @default(0)
-  published Boolean  @default(false)
+
+  like      Int     @default(0)
+  dislike   Int     @default(0)
+  published Boolean @default(false)
   belongsid String
-  beongsto  user     @relation(fields: [belongsid], references: [id])
+  beongsto  user    @relation(fields: [belongsid], references: [id])
 
   comment comment[]
 }

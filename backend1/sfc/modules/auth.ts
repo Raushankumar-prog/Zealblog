@@ -22,8 +22,7 @@ export const createJWT=(user)=>{
 export const protect = (req, res, next) => {
     //authorization header
   const bearer = req.headers.authorization;
-
-  if (!bearer) {
+ if (!bearer) {
     res.status(401);
     res.send("Not authorized");
     return;
@@ -35,8 +34,7 @@ export const protect = (req, res, next) => {
     res.send("Not authorized");
     return;
   }
-    
-   try {
+  try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.user = payload;
     console.log(payload);

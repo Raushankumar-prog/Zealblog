@@ -39,10 +39,17 @@ useEffect(() => {
                      <Paper >
                           <Link to="/mainpage" className="remove">
                             <div className="space">
-                                   <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
+                                   <div className="headingglance"><p className="headingtext">Nasa has launched a new satellite for analyzing the oceans.</p></div>
                                   <div className="glancecontent">
                                         <div className="glanceimage"><img src={img} ></img></div>
-                                         <div className="glancebriefbox"><p className="glancebrieftext"> Artimis is plan of Nasa to land on MOON in 2024.<br></br>They are making rcoket which csn essily take them on moon.</p></div>
+                                         <div className="glancebriefbox"><p className="glancebrieftext"> NASA recently launched a cutting-edge satellite dedicated to ocean analysis.<br></br> The mission aims to enhance our understanding of Earth's oceans,<br></br> offering valuable insights into climate patterns, <br></br>sea level rise, and marine ecosystems.
+
+
+
+
+
+
+</p></div>
                                    </div>
                             </div>
                               </Link>
@@ -61,10 +68,10 @@ useEffect(() => {
                      <Paper >
                           <Link to="/mainpage" className="remove">
                             <div className="space">
-                                   <div className="headingglance"><p className="headingtext">Nasa is launching a new rocket for it Artimis mission.</p></div>
+                                   <div className="headingglance"><p className="headingtext">Nasa has launched a new satellite for analyzing the oceans..</p></div>
                                   <div className="glancecontent">
                                         <div className="glanceimage"><img src={img} ></img></div>
-                                         <div className="glancebriefbox"><p className="glancebrieftext"> Artimis is plan of Nasa to land on MOON in 2024.<br></br>They are making rcoket which csn essily take them on moon.</p></div>
+                                         <div className="glancebriefbox"><p className="glancebrieftext"></p></div>
                                    </div>
                             </div>
                               </Link>

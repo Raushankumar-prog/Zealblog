@@ -11,7 +11,7 @@ export const createPost = async (req, res) => {
         const imageName = generateFileName()
 
   const fileBuffer = await sharp(req.file.buffer)
-    .resize({ height: 1920, width: 1080, fit: "contain" })
+    .resize({ height:147, width: 233, fit: "contain" })
     .toBuffer()
 
   await uploadFile(fileBuffer, imageName, req.file.mimetype)
@@ -21,7 +21,8 @@ export const createPost = async (req, res) => {
                 content: req.body.content,
                 nichetype: req.body.nichetype,
                 belongsid: req.body.id,
-                 imageName
+
+               imageName:imageName,
             
             }
         });
@@ -46,6 +47,7 @@ export const updatePost = async (req, res) => {
                 content: req.body.content,
                 nichetype: req.body.nichetype,
                 belongsid: req.body.belongsid,
+
             }
         });
         res.status(200).json({ success: true, updatedPost });
