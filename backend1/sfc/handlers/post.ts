@@ -22,7 +22,7 @@ export const createPost = async (req, res) => {
                 nichetype: req.body.nichetype,
                 belongsid: req.body.id,
 
-               imageName:imageName,
+               imageName,
             
             }
         });
