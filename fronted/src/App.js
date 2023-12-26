@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="hu">
 
- 
- 
- <Heading/>
+
+
+<Heading/>
  <div className="main">
  <Left/>
  

@@ -102,9 +102,13 @@ export const deletePost = async (req, res) => {
     }
 };
 
-// fetching the latest posts
 export const latestPost = async (req, res) => {
     try {
+        // Input validation
+        if (!req.body.id) {
+            return res.status(400).json({ success: false, error: 'Invalid input data' });
+        }
+
         const latestPosts = await prisma.post.findMany({
             where: {
                 id: req.body.id,
@@ -112,8 +116,26 @@ export const latestPost = async (req, res) => {
             orderBy: {
                 createdAt: 'desc',
             },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                nichetype: true,
+                belongsid: true,
+                imageName: true,
+                createdAt: true,
+            },
         });
-        res.status(200).json({ latestPosts });
+
+        // Generate image URLs and include them in the response
+        const postsWithImageUrls = await Promise.all(
+            latestPosts.map(async (post) => {
+                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
+                return { ...post, imageUrl };
+            })
+        );
+
+        res.status(200).json({ latestPosts: postsWithImageUrls });
     } catch (error) {
         console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });
@@ -122,10 +144,14 @@ export const latestPost = async (req, res) => {
     }
 };
 
-// fetching popular posts
 export const popularPosts = async (req, res) => {
     try {
-        const sortOrder = req.query.sortOrder || 'desc'; 
+        const sortOrder = req.query.sortOrder || 'desc';
+
+        // Input validation
+        if (!req.body.id) {
+            return res.status(400).json({ success: false, error: 'Invalid input data' });
+        }
 
         const popularPosts = await prisma.post.findMany({
             where: {
@@ -134,11 +160,28 @@ export const popularPosts = async (req, res) => {
             orderBy: {
                 like: sortOrder,
             },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                nichetype: true,
+                belongsid: true,
+                imageName: true,
+                createdAt: true,
+            },
         });
 
-        res.status(200).json({ popularPosts });
+        // Generate image URLs and include them in the response
+        const postsWithImageUrls = await Promise.all(
+            popularPosts.map(async (post) => {
+                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
+                return { ...post, imageUrl };
+            })
+        );
+
+        res.status(200).json({ popularPosts: postsWithImageUrls });
     } catch (error) {
-        console.error(error);
+         console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });
     } finally {
         await prisma.$disconnect();
