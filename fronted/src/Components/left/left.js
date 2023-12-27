@@ -9,10 +9,14 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import {Link} from 'react-router-dom';
+import Cookies from 'js-cookie';
 const Left = () => {
   const color = () => {
    return ["purple", "orange", "yellow"];
 }
+
+const profile=Cookies.get('usernam');
+console.log(profile);
 
     return (
   <div className="fr">

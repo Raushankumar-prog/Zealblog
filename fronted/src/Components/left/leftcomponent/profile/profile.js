@@ -60,24 +60,33 @@ const Profile = () => {
         <div id="content"><Channel/></div>
       ) : (
         <div id="form">
-          <form>
-            <label>username:</label>
-            <input
-              type="text"
-              placeholder='username'
-              id='username'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <label>password:</label>
-            <input
-              type='password'
-              placeholder='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type='button' onClick={getdata}>submit</button>
-          </form>
+         <form>
+  <div className="form-group">
+    <label htmlFor="username">Username:</label>
+    <input
+      type="text"
+      placeholder="username"
+      id="username"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      className="form-control"
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="password">Password:</label>
+    <input
+      type="password"
+      placeholder="password"
+      id="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="form-control"
+    />
+  </div>
+  <button type="button" onClick={getdata} className="btn-primary">
+    Submit
+  </button>
+</form>
         </div>
       )}
     </div>
