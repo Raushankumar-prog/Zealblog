@@ -1,7 +1,7 @@
 import prisma from '../db';
 import sharp from 'sharp';
 import crypto from 'crypto';
-import { uploadFile, getObjectSignedUrl, deleteFile } from './s3.js'
+
 const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex')
 
 
@@ -10,11 +10,9 @@ export const createPost = async (req, res) => {
     try {
         const imageName = generateFileName()
 
-  const fileBuffer = await sharp(req.file.buffer)
-    .resize({ height:147, width: 233, fit: "contain" })
-    .toBuffer()
+  const fileBuffer = await req.file.buffer
 
-  await uploadFile(fileBuffer, imageName, req.file.mimetype)
+  //await uploadFile(fileBuffer, imageName, req.file.mimetype)
         const post = await prisma.post.create({
             data: {
                 title: req.body.title,
@@ -91,7 +89,7 @@ export const deletePost = async (req, res) => {
                 
             },
         });
-          await deleteFile(deletedpost.imageName)
+       //   await deleteFile(deletedpost.imageName)
 
         res.status(200).json({ success: true, deletedpost });
     } catch (error) {
@@ -128,14 +126,14 @@ export const latestPost = async (req, res) => {
         });
 
         // Generate image URLs and include them in the response
-        const postsWithImageUrls = await Promise.all(
-            latestPosts.map(async (post) => {
-                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
-                return { ...post, imageUrl };
-            })
-        );
+        // const postsWithImageUrls = await Promise.all(
+        //     latestPosts.map(async (post) => {
+        //         const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
+        //         return { ...post, imageUrl };
+        //     })
+        // );
 
-        res.status(200).json({ latestPosts: postsWithImageUrls });
+        res.status(200).json({ latestPosts: latestPosts });
     } catch (error) {
         console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });
@@ -171,15 +169,15 @@ export const popularPosts = async (req, res) => {
             },
         });
 
-        // Generate image URLs and include them in the response
-        const postsWithImageUrls = await Promise.all(
-            popularPosts.map(async (post) => {
-                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
-                return { ...post, imageUrl };
-            })
-        );
+        // // Generate image URLs and include them in the response
+        // const postsWithImageUrls = await Promise.all(
+        //     popularPosts.map(async (post) => {
+        //         const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
+        //         return { ...post, imageUrl };
+        //     })
+        // );
 
-        res.status(200).json({ popularPosts: postsWithImageUrls });
+        res.status(200).json({ popularPosts:popularPosts });
     } catch (error) {
          console.error(error);
         res.status(404).json({ success: false, error: 'Internal Server Error' });
