@@ -1,6 +1,7 @@
 import './footer.css';
 import {Link} from 'react-router-dom';
 
+
 const Footer = () => {
     return ( <div className="footer">
             <div className="size">
