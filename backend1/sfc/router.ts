@@ -8,10 +8,10 @@ const router = Router()
 
 router.post('/createcomment',createComment);
 router.delete('/deletecomment',deleteComment);
-router.put('/updatecomment',updateComment);
+router.patch('/updatecomment',updateComment);
 router.post('/createpost',createPost);
 router.delete('/deletepost',deletePost);
-router.put('/updatepost',updatePost);
+router.patch('/updatepost',updatePost);
 router.put('/publish',publish);
 router.get('/popularpost',popularPosts);
 router.get('/lastestpost',latestPost);

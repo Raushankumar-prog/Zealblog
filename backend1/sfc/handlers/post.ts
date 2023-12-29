@@ -20,9 +20,7 @@ export const createPost = async (req, res) => {
                 content: req.body.content,
                 nichetype: req.body.nichetype,
                 belongsid: req.body.id,
-
-               imageName,
-            
+                 imageName,
             }
         });
         res.status(200).json({ success: true, post });
