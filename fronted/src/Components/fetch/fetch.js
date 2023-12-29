@@ -1,6 +1,6 @@
 const apiUrl = "http://localhost:4001";
 
-const makeRequest = async (endpoint, method, data = null) => {
+ export const makeRequest = async (endpoint, method, data = null) => {
   const url = new URL(endpoint, apiUrl); // Use URL constructor for more reliable URL construction
   
   const headers = {

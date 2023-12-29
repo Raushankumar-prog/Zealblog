@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './profile.css';
 import Cookies from 'js-cookie';
 import Channel from '../../../channel_template/channel';
-import { makeRequest } from '../../../fetch/fetch';
+import  {makeRequest}  from '../../../fetch/fetch';
 
 
 
@@ -16,15 +16,15 @@ const Profile = () => {
     password: password
   };
 
+
   const getdata = async () => {
     try {
       const data = await makeRequest('/user', 'POST', user);
-
       const token = data.token;
       const usernam = data.user.username;
       const id = data.user.id;
 
-      Cookies.set('token', token, { expires: 7, secure: true });
+       Cookies.set('token', token, { expires: 7, secure: true });
       Cookies.set('usernam', usernam, { expires: 7, secure: true });
       Cookies.set('id', id, { expires: 7, secure: true });
 
