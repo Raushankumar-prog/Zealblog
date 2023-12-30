@@ -27,7 +27,6 @@ const Profile = () => {
        Cookies.set('token', token, { expires: 7, secure: true });
       Cookies.set('usernam', usernam, { expires: 7, secure: true });
       Cookies.set('id', id, { expires: 7, secure: true });
-
       setCheckUsername(true);
     } catch (error) {
       console.warn(error.message);
@@ -50,7 +49,7 @@ const Profile = () => {
         <div id="form">
           <form>
             <div className="form-group">
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username">Username:</label><br/>
               <input
                 type="text"
                 placeholder="username"
@@ -61,7 +60,7 @@ const Profile = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">Password:</label><br/>
               <input
                 type="password"
                 placeholder="password"

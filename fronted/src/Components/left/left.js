@@ -6,6 +6,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ShareIcon from '@mui/icons-material/Share';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
+import PostAddSharpIcon from '@mui/icons-material/PostAddSharp';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import {Link} from 'react-router-dom';
@@ -20,11 +21,11 @@ console.log(profile);
 
     return (
   <div className="fr">
-<Link to="/" className='link'>
+<Link to="/createpost" className='link'>
         <div className="category1" >
        
-               <div className="icon"><HomeTwoToneIcon  fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }}  /></div> 
-              <div className="text"><p className="category">Home</p></div>
+               <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }}  /></div> 
+              <div className="text"><p className="category">Post</p></div>
        </div>    
 </Link>
   <Link to="lastest" className='link'>

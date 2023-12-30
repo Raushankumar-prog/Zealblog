@@ -34,7 +34,7 @@ const Routing = () => {
       <Route path="/careers" element={<Careers/>}/>
       <Route path="/cookiespolicy" element={<Cookiespolicy/>}/>
       <Route path="/terms&conditions" element={<Terms/>}/>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/createpost" element={<Home/>}/>
        </Routes>
     </div> );
 }

@@ -10,9 +10,9 @@ const Lastest = () => {
       try {
         // Make a request to fetch the latest posts
         const response = await makeRequest('/lastestpost', 'GET', {
-          id: '',
+            createdAt:12-23-23,
         });
-
+console.log(response);
     
         setLatestPosts(response.latestPosts);
       } catch (error) {
