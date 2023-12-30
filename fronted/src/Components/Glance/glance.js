@@ -6,12 +6,8 @@ import img from './OIP.jpeg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
-
-const Glance = () => {
-     
-   //   var randomcolor=color.random();
   
-function getRandomColor() {
+ export const getRandomColor=()=>{
   
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
@@ -22,6 +18,10 @@ function getRandomColor() {
 
     return randomColor;
 }
+
+const Glance = () => {
+     
+   //   var randomcolor=color.random();
 
 useEffect(() => {
     const elements = document.getElementsByClassName("remove");
@@ -43,11 +43,6 @@ useEffect(() => {
                                   <div className="glancecontent">
                                         <div className="glanceimage"><img src={img} ></img></div>
                                          <div className="glancebriefbox"><p className="glancebrieftext"> NASA recently launched a cutting-edge satellite dedicated to ocean analysis.<br></br> The mission aims to enhance our understanding of Earth's oceans,<br></br> offering valuable insights into climate patterns, <br></br>sea level rise, and marine ecosystems.
-
-
-
-
-
 
 </p></div>
                                    </div>
