@@ -42,11 +42,11 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
+    <div id="profilebox">
       {checkusername ? (
         <div id="content"><Channel /></div>
       ) : (
-        <div id="form">
+        <div id="formlogin">
           <form>
             <div className="form-group">
               <label htmlFor="username">Username:</label><br/>

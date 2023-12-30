@@ -47,5 +47,7 @@
 
 .glance{
      padding-top: 3%;
-     padding-left:3%
+     padding-left:3%;
+     width:90%;
+     overflow: hidden;
 }

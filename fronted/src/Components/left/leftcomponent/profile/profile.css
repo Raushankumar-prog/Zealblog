@@ -1,10 +1,20 @@
 #form{
     border:2px solid red;
-   margin:60%;
-   width:400%;
+   margin-left:5%;
+   width:85%;
    height:100%;
-    padding:30%;
-    border-radius: 20%;
+    padding:2%;
+    border-radius:8%;
+    background-color: blanchedalmond;
+}
+#formlogin{
+    border: 2px solid red;
+    margin-left: 22%;
+    width: 85%;
+    height: 100%;
+    padding: 2%;
+    margin-top: 20%;
+    border-radius: 8%;
     background-color: blanchedalmond;
 }
 .form-control{
@@ -20,4 +30,7 @@ padding-top: 2%;
     width:100%;
     padding-top:2%;
     padding-bottom: 2%;
+}
+#profilebox{
+     width:60%;
 }
