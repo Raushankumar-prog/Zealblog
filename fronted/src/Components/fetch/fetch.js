@@ -16,7 +16,7 @@ export const makeRequest = async (endpoint, method, data = null) => {
   const requestOptions = {
     method,
     headers,
-    body: data ? JSON.stringify(data) : null,
+      ...(method !== 'GET' && { body: JSON.stringify(data) }),
   };
 
   try {

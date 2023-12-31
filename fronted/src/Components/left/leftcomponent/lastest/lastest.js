@@ -14,9 +14,7 @@ const Lastest = () => {
     const fetchData = async () => {
       try {
         // Make a request to fetch the latest posts
-        const response = await makeRequest('/lastestpost', 'GET', {
-            createdAt:78,
-        });
+        const response = await makeRequest('/api/lastestpost', 'GET');
 console.log(response);
     
         setLatestPosts(response.latestPosts);

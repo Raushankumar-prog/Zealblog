@@ -15,7 +15,7 @@ const Popular = () => {
     const fetchData = async () => {
       try {
         // Make a request to fetch popular posts
-        const response = await makeRequest('/popularpost', 'GET', {
+        const response = await makeRequest('/api/popularpost', 'GET', {
           id: '',
         });
 
