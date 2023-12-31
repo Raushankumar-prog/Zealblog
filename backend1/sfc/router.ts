@@ -15,7 +15,7 @@ router.patch('/updatepost',updatePost);
 router.put('/publish',publish);
 router.get('/popularpost',popularPosts);
 router.get('/lastestpost',latestPost);
-router.get('savedpost',getSavedPosts);
+router.get('/savedpost', getSavedPosts);
 router.delete('/deleteuser',deleteuser);
 
 

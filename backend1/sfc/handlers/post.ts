@@ -5,33 +5,33 @@ import { uploadFile, getObjectSignedUrl, deleteFile } from './s3';
 
 const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex')
 
-
-// creating the post
 export const createPost = async (req, res) => {
     try {
-        const imageName = generateFileName()
+       
+        const imageName = generateFileName();
+        const fileBuffer = req.file.buffer;
 
-  const fileBuffer = await req.file.buffer
+         await uploadFile(fileBuffer, imageName, req.file.mimetype);
 
-  await uploadFile(fileBuffer, imageName, req.file.mimetype)
-        const post = await prisma.post.create({
+          const post = await prisma.post.create({
             data: {
                 title: req.body.title,
                 content: req.body.content,
                 nichetype: req.body.nichetype,
                 belongsid: req.body.id,
-                 imageName,
+                imageName,
             }
         });
+
         res.status(200).json({ success: true, post });
     } catch (error) {
         console.error(error);
-        res.status(404).json({ success: false, error: 'Internal Server Error' });
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
     } finally {
         await prisma.$disconnect();
     }
 };
-
+        
 // updating the post
 export const updatePost = async (req, res) => {
     try {
@@ -98,18 +98,9 @@ export const deletePost = async (req, res) => {
         await prisma.$disconnect();
     }
 };
-
 export const latestPost = async (req, res) => {
     try {
-        // Input validation
-        if (!req.body.id) {
-            return res.status(400).json({ success: false, error: 'Invalid input data' });
-        }
-
         const latestPosts = await prisma.post.findMany({
-            where: {
-                id: req.body.id,
-            },
             orderBy: {
                 createdAt: 'desc',
             },
@@ -132,10 +123,10 @@ export const latestPost = async (req, res) => {
             })
         );
 
-        res.status(200).json({ latestPosts: postsWithImageUrls});
+        res.status(200).json({ latestPosts: postsWithImageUrls });
     } catch (error) {
         console.error(error);
-        res.status(404).json({ success: false, error: 'Internal Server Error' });
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
     } finally {
         await prisma.$disconnect();
     }
@@ -145,15 +136,7 @@ export const popularPosts = async (req, res) => {
     try {
         const sortOrder = req.query.sortOrder || 'desc';
 
-        // Input validation
-        if (!req.body.id) {
-            return res.status(400).json({ success: false, error: 'Invalid input data' });
-        }
-
         const popularPosts = await prisma.post.findMany({
-            where: {
-                id: req.body.id,
-            },
             orderBy: {
                 like: sortOrder,
             },
@@ -165,10 +148,11 @@ export const popularPosts = async (req, res) => {
                 belongsid: true,
                 imageName: true,
                 createdAt: true,
+                like: true, 
             },
         });
 
-        // // Generate image URLs and include them in the response
+        // Generate image URLs and include them in the response
         const postsWithImageUrls = await Promise.all(
             popularPosts.map(async (post) => {
                 const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
@@ -176,10 +160,10 @@ export const popularPosts = async (req, res) => {
             })
         );
 
-        res.status(200).json({ popularPosts:postsWithImageUrls});
+        res.status(200).json({ popularPosts: postsWithImageUrls });
     } catch (error) {
-         console.error(error);
-        res.status(404).json({ success: false, error: 'Internal Server Error' });
+        console.error(error);
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
     } finally {
         await prisma.$disconnect();
     }
