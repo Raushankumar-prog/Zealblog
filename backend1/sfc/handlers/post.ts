@@ -9,7 +9,7 @@ export const createPost = async (req, res) => {
     try {
        
         const imageName = generateFileName();
-        const fileBuffer = req.file.buffer;
+        const fileBuffer = await  req.file.buffer;
 
          await uploadFile(fileBuffer, imageName, req.file.mimetype);
 
@@ -97,7 +97,15 @@ export const deletePost = async (req, res) => {
     } finally {
         await prisma.$disconnect();
     }
+};const generateImageUrls = async (posts) => {
+    return Promise.all(
+        posts.map(async (post) => {
+            const imageUrl = await getObjectSignedUrl(post.imageName);
+            return { ...post, imageUrl };
+        })
+    );
 };
+
 export const latestPost = async (req, res) => {
     try {
         const latestPosts = await prisma.post.findMany({
@@ -115,13 +123,7 @@ export const latestPost = async (req, res) => {
             },
         });
 
-        // Generate image URLs and include them in the response
-        const postsWithImageUrls = await Promise.all(
-            latestPosts.map(async (post) => {
-                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
-                return { ...post, imageUrl };
-            })
-        );
+        const postsWithImageUrls = await generateImageUrls(latestPosts);
 
         res.status(200).json({ latestPosts: postsWithImageUrls });
     } catch (error) {
@@ -138,6 +140,7 @@ export const popularPosts = async (req, res) => {
 
         const popularPosts = await prisma.post.findMany({
             orderBy: {
+                
                 like: sortOrder,
             },
             select: {
@@ -148,17 +151,12 @@ export const popularPosts = async (req, res) => {
                 belongsid: true,
                 imageName: true,
                 createdAt: true,
+                
                 like: true, 
             },
         });
 
-        // Generate image URLs and include them in the response
-        const postsWithImageUrls = await Promise.all(
-            popularPosts.map(async (post) => {
-                const imageUrl = await getObjectSignedUrl(post.imageName); // Use your S3 URL generation function
-                return { ...post, imageUrl };
-            })
-        );
+        const postsWithImageUrls = await generateImageUrls(popularPosts);
 
         res.status(200).json({ popularPosts: postsWithImageUrls });
     } catch (error) {
