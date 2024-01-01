@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { makeRequest } from '../../../fetch/fetch';
 
 const Author = () => {
   const [authors, setAuthors] = useState([]);
@@ -6,7 +7,7 @@ const Author = () => {
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
-        const response = await fetch('/api/getauthors'); 
+        const response = await makeRequest('/api/getauthors','GET');
         const data = await response.json();
 
         if (data.success) {
@@ -28,7 +29,7 @@ const Author = () => {
       <ul>
         {authors.map((author) => (
           <li key={author.id}>
-            {author.username} - Post Count: {author.post.length}
+            {author.username} - Post Count: {author.post?.length || 0}
           </li>
         ))}
       </ul>
