@@ -5,9 +5,11 @@ import { bucket } from './firebase';
 const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex');
 
 export const createPost = async (req, res) => {
+  
   try {
     const imageName = generateFileName();
-    const fileBuffer = req.file.buffer;
+    const fileBuffer =  await req.file.buffer;
+ 
 
     // Uploading image to Firebase Storage
     await bucket.file(imageName).save(fileBuffer, {
