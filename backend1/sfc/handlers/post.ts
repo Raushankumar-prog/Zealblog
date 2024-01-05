@@ -1,28 +1,48 @@
 import prisma from '../db';
-import crypto from 'crypto';
-import { bucket } from './firebase';
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import multer from "multer";
+import config from "../config/firebase.config";
 
-const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex');
+
+
+const giveCurrentDateTime = () => {
+    const today = new Date();
+    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const dateTime = date + ' ' + time;
+    return dateTime;
+}
+
+//Initialize a firebase application
+initializeApp(config.firebaseConfig);
+
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage();
+
+// Setting up multer as a middleware to grab photo uploads
+export const upload = multer({ storage: multer.memoryStorage() });
+
 
 export const createPost = async (req, res) => {
   try {
-    const imageName = generateFileName();
-     const mimeType = req.body?.mimeType;
+    const dateTime = giveCurrentDateTime();
+    const imageName = req.files[0].originalname;
 
-      const fileBuffer = req.file?.buffer;
-   
-    if (!fileBuffer || !mimeType) {
+    const storageRef = ref(storage, `files/${imageName + " " + dateTime}`);
+
+    const metadata = {
+      contentType: req.files[0].mimetype || 'application/octet-stream',
+    };
+
+    const fileBuffer = req.files[0].buffer;
+
+    const snapshot = await uploadBytesResumable(storageRef, fileBuffer, metadata);
+    const downloadURL = await getDownloadURL(snapshot.ref);
+
+    if (!fileBuffer || !metadata) {
       throw new Error('Invalid file data');
     }
-
-
-    // Uploading image to Firebase Storage
-    await bucket.file(imageName).save(fileBuffer, {
-      metadata: {
-        contentType: mimeType,
-      },
-      resumable: false,
-    });
 
     const post = await prisma.post.create({
       data: {
@@ -30,7 +50,7 @@ export const createPost = async (req, res) => {
         content: req.body.content,
         nichetype: req.body.nichetype,
         belongsid: req.body.id,
-        imageName,
+        imageName: downloadURL,
       },
     });
 
@@ -42,6 +62,7 @@ export const createPost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
 
 export const updatePost = async (req, res) => {
   try {
@@ -74,7 +95,7 @@ export const deletePost = async (req, res) => {
       },
     });
 
-    await bucket.file(deletedPost.imageName).delete();
+    
 
     res.status(200).json({ success: true, deletedPost });
   } catch (error) {
@@ -108,18 +129,6 @@ export const publish = async (req, res) => {
 };
 
 
-const generateImageUrls = async (posts) => {
-  return Promise.all(
-    posts.map(async (post) => {
-      const imageUrl = await bucket.file(post.imageName).getSignedUrl({
-        action: 'read',
-        expires: '2030-01-01',
-      });
-      return { ...post, imageUrl };
-    })
-  );
-};
-
 export const latestPost = async (req, res) => {
   try {
     const latestPosts = await prisma.post.findMany({
@@ -137,9 +146,9 @@ export const latestPost = async (req, res) => {
       },
     });
 
-    const postsWithImageUrls = await generateImageUrls(latestPosts);
+    
 
-    res.status(200).json({ latestPosts: postsWithImageUrls });
+    res.status(200).json({ latestPosts});
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
@@ -168,9 +177,7 @@ export const popularPosts = async (req, res) => {
       },
     });
 
-    const postsWithImageUrls = await generateImageUrls(popularPosts);
-
-    res.status(200).json({ popularPosts: postsWithImageUrls });
+    res.status(200).json({ popularPosts });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
