@@ -2,29 +2,17 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { makeRequest } from '../../../fetch/fetch';
+import { nichetype } from './nichetype/nichetype';
 
-const nichetype = [
-  { label: 'Space' },
-  { label: 'war' },
-  { label: 'ocean' },
-  { label: 'island' },
-  { label: 'animal' },
-  { label: 'world record' },
-  { label: 'rocket' },
-  { label: 'educational institute' },
-  { label: 'vehicle' },
-  { label: 'job' },
-  { label: 'sports' },
-  { label: 'IPL' },
-];
 
 const Home = () => {
+  // Change 1: Include 'buffer' for file uploads
   const [formData, setFormData] = useState({
     title: '',
     content: '',
     nichetypeValue: '',
-    imageFile: null,
-    textFile: null,
+    buffer: null,
+    mimeType:'' 
   });
 
   const handleInputChange = (field, value) => {
@@ -34,12 +22,22 @@ const Home = () => {
     });
   };
 
+  // Change 2: New function to handle file changes
+  const handleFileChange = (file) => {
+    setFormData({
+      ...formData,
+      buffer: file, // Changed from 'imageFile' to 'buffer'
+      mimeType:file.type,
+    });
+  };
+
   const handleSubmit = async () => {
     try {
-      const formDataObject = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataObject.append(key, value);
-      });
+     const formDataObject = new FormData();
+formDataObject.append('title', formData.title);
+formDataObject.append('content', formData.content);
+formDataObject.append('nichetype', formData.nichetypeValue); // Add this line
+formDataObject.append('buffer', formData.buffer);
 
       const response = await makeRequest('/api/createpost', 'POST', formDataObject);
 
@@ -96,7 +94,7 @@ const Home = () => {
           id="postimage"
           className="form-control-image"
           accept='image/*'
-          onChange={(e) => handleInputChange('imageFile', e.target.files[0])}
+          onChange={(e) => handleFileChange(e.target.files[0])} // Changed from 'imageFile' to 'buffer'
         />
       </div>
       <div className="form-group">
@@ -107,7 +105,7 @@ const Home = () => {
           id="fileuploaded"
           className="form-control-image"
           accept='.txt'
-          onChange={(e) => handleInputChange('textFile', e.target.files[0])}
+          onChange={(e) => handleFileChange(e.target.files[0])} // Changed from 'textFile' to 'buffer'
         />
         <button type="button" className="btn-primary" onClick={handleSubmit}>
           Submit
