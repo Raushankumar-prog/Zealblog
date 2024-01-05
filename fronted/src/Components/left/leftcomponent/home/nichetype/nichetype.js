@@ -1,5 +1,5 @@
 
-export const nichetype = [
+export  const nichetype = [
   { label: 'Space' },
   { label: 'war' },
   { label: 'ocean' },
@@ -13,12 +13,11 @@ export const nichetype = [
   {label:'solar system'},
   {label:'mars'},
   {label:'exoplanet'},
-  {lable:'country'},
+  {label:'country'},
   {label:'ISRO'},
   {label:'foreign country'},
   {label:'satellite'},
   {label:'scientist'},
-  {label:'Prime minister'},
   { label: 'sports' },
-  { label: 'IPL' },
+  { label: 'IPL' }
 ];

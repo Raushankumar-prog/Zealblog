@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import { makeRequest } from '../../../fetch/fetch';
 import { nichetype } from './nichetype/nichetype';
 
-
 const Home = () => {
-  // Change 1: Include 'buffer' for file uploads
   const [formData, setFormData] = useState({
     title: '',
     content: '',
-    nichetypeValue: '',
-    buffer: null,
-    mimeType:'' 
+    nichetypeValue:'',
+    imageName: null,
+    mimeType: '',
   });
 
   const handleInputChange = (field, value) => {
@@ -21,23 +17,25 @@ const Home = () => {
       [field]: value,
     });
   };
-
-  // Change 2: New function to handle file changes
   const handleFileChange = (file) => {
-    setFormData({
-      ...formData,
-      buffer: file, // Changed from 'imageFile' to 'buffer'
-      mimeType:file.type,
-    });
-  };
+  setFormData({
+    ...formData,
+    imageName: file,
+   
+  });
+};
+
 
   const handleSubmit = async () => {
     try {
-     const formDataObject = new FormData();
-formDataObject.append('title', formData.title);
-formDataObject.append('content', formData.content);
-formDataObject.append('nichetype', formData.nichetypeValue); // Add this line
-formDataObject.append('buffer', formData.buffer);
+      const formDataObject = new FormData();
+      formDataObject.append('title', formData.title);
+      formDataObject.append('content', formData.content);
+       
+        formDataObject.append('nichetype', formData.nichetypeValue);
+     
+      formDataObject.append('imageName', formData.imageName, formData.imageName.name);
+
 
       const response = await makeRequest('/api/createpost', 'POST', formDataObject);
 
@@ -50,6 +48,7 @@ formDataObject.append('buffer', formData.buffer);
       console.error('Error submitting the form:', error);
     }
   };
+  
 
   return (
     <div id="form">
@@ -75,17 +74,21 @@ formDataObject.append('buffer', formData.buffer);
           onChange={(e) => handleInputChange('content', e.target.value)}
         />
       </div>
-      <div className="form-group">
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={nichetype}
-          sx={{ width: '30%' }}
-          renderInput={(params) => <TextField {...params} label="NICHE" />}
-          value={formData.nichetypeValue}
-          onChange={(_, newValue) => handleInputChange('nichetypeValue', newValue)}
-        />
-      </div>
+     <div className="form-group">
+  <label htmlFor="nichetype">NICHE:</label><br />
+  <select
+    id="nichetype"
+    className="form-control"
+    value={formData.nichetypeValue}
+    onChange={(e) => handleInputChange('nichetypeValue', e.target.value)}
+  >
+    <option value="" disabled>Select NICHE</option>
+    {nichetype.map(option => (
+      <option key={option.value} value={option.value}>{option.label}</option>
+    ))}
+  </select>
+</div>
+
       <div className="form-group">
         <label htmlFor="postimage" className='postlabel'>Image:</label><br/>
         <input
@@ -94,23 +97,13 @@ formDataObject.append('buffer', formData.buffer);
           id="postimage"
           className="form-control-image"
           accept='image/*'
-          onChange={(e) => handleFileChange(e.target.files[0])} // Changed from 'imageFile' to 'buffer'
+          onChange={(e) => handleFileChange(e.target.files[0])}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="fileuploaded" className='postlabel'>File:</label><br/>
-        <input
-          type="file"
-          placeholder="Heading of post"
-          id="fileuploaded"
-          className="form-control-image"
-          accept='.txt'
-          onChange={(e) => handleFileChange(e.target.files[0])} // Changed from 'textFile' to 'buffer'
-        />
-        <button type="button" className="btn-primary" onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
+
+      <button type="button" className="btn-primary" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 };

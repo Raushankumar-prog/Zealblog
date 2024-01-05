@@ -9,14 +9,21 @@ export const makeRequest = async (endpoint, method, data = null) => {
   const token = Cookies.get('token');
 
   const headers = {
-    'Content-Type': 'application/json;charset=utf-8',
-    'Authorization': `Bearer ${token}`, 
+    'Authorization': `Bearer ${token}`,
   };
+
+  // If it's a FormData request,Content-Type should be'multipart/form-data'
+  if (data instanceof FormData) {
+    headers['Content-Type'] = 'multipart/form-data';
+  } else {
+    headers['Content-Type'] = 'application/json;charset=utf-8';
+  }
 
   const requestOptions = {
     method,
     headers,
-      ...(method !== 'GET' && { body: JSON.stringify(data) }),
+    // stringifing the data for non-GET and non-FormData requests
+    ...(method !== 'GET' && !(data instanceof FormData) && { body: JSON.stringify(data) }),
   };
 
   try {
