@@ -17,7 +17,6 @@ model user {
   createdAt DateTime @default(now())
   like      Int      @default(0)
   dislike   Int      @default(0)
-
   post  post[]
   saved saved[]
 }

@@ -7,12 +7,19 @@ const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex
 export const createPost = async (req, res) => {
   try {
     const imageName = generateFileName();
-    const fileBuffer = req.file.buffer;
+     const mimeType = req.body?.mimeType;
+
+      const fileBuffer = req.file?.buffer;
+   
+    if (!fileBuffer || !mimeType) {
+      throw new Error('Invalid file data');
+    }
+
 
     // Uploading image to Firebase Storage
     await bucket.file(imageName).save(fileBuffer, {
       metadata: {
-        contentType: req.file.mimetype,
+        contentType: mimeType,
       },
       resumable: false,
     });
