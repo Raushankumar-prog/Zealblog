@@ -34,8 +34,7 @@ useEffect(() => {
 
     return ( 
               <div className="main1"> 
-                         
-                   <div className="universe" >
+                  <div className="universe" >
                      <Paper >
                           <Link to="/mainpage" className="remove">
                             <div className="space">

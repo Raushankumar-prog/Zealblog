@@ -26,13 +26,16 @@ export const upload = multer({ storage: multer.memoryStorage() });
 
 export const createPost = async (req, res) => {
   try {
+    console.log(req);
+    //console.log(req.body.imageName);
     const dateTime = giveCurrentDateTime();
-    const imageName = req.files[0].originalname;
+    const imageName = req?.file?.originalname;
 
+      
     const storageRef = ref(storage, `files/${imageName + " " + dateTime}`);
 
     const metadata = {
-      contentType: req.files[0].mimetype || 'application/octet-stream',
+      contentType: req?.files[0]?.mimetype ,
     };
 
     const fileBuffer = req.files[0].buffer;
@@ -52,15 +55,18 @@ export const createPost = async (req, res) => {
         belongsid: req.body.id,
         imageName: downloadURL,
       },
+      
     });
 
     res.status(200).json({ success: true, post });
   } catch (error) {
+    
     console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
   } finally {
     await prisma.$disconnect();
   }
+
 };
 
 

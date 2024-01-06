@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 
+
 const apiUrl = "http://localhost:4001";
 
 export const makeRequest = async (endpoint, method, data = null) => {
@@ -24,8 +25,10 @@ export const makeRequest = async (endpoint, method, data = null) => {
     headers,
     // stringifing the data for non-GET and non-FormData requests
     ...(method !== 'GET' && !(data instanceof FormData) && { body: JSON.stringify(data) }),
+    
   };
-
+  
+console.log(requestOptions);
   try {
     const response = await fetch(url, requestOptions);
 
