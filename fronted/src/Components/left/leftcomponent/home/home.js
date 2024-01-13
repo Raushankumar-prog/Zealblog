@@ -7,6 +7,7 @@ const Home = () => {
   const [content, setContent] = useState('');
   const [nichetype, setNichetypeValue] = useState('');
   const [image, setImage] = useState(null);
+  const [filepath,setfilepath]=useState('')
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -21,32 +22,36 @@ const Home = () => {
   };
 const handleFileChange = (event) => {
   const file = event.target.files[0];
-
+ setfilepath(file.name);
   if (file) {
+     
     const fr = new FileReader();
     fr.readAsArrayBuffer(file);
 
     fr.onload = function () {
       const blob = new Blob([fr.result], { type: file.type });
       setImage(blob);
+       console.log('Blob:', blob);
     };
   }
 };
-console.log(image);
 
+const imagety=("imageupload",image,filepath);
   const formDataObject = () => {
     return {
       title: title,
       content: content,
       nichetype: nichetype,
-     image:image
+      image:imagety
+   
     };
   };
 
   const handleSubmit = async () => {
     try {
       const formData = formDataObject();
- 
+
+  
       const response = await makeRequest('/api/createpost', 'POST', formData);
 
       if (response.success) {

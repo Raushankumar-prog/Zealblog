@@ -11,15 +11,12 @@ export const makeRequest = async (endpoint, method, data = null) => {
 
   const headers = {
     'Authorization': `Bearer ${token}`,
+   
+    'Content-Type':'multipart/form-data'
+  
   };
 
-  // If it's a FormData request,Content-Type should be'multipart/form-data'
-  if (data instanceof FormData) {
-    headers['Content-Type'] = 'multipart/form-data';
-  } else {
-    headers['Content-Type'] = 'application/json;charset=utf-8';
-  }
-
+  
   const requestOptions = {
     method,
     headers,
