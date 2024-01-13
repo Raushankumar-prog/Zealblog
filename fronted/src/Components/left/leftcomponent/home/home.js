@@ -1,43 +1,53 @@
 import React, { useState } from 'react';
 import { makeRequest } from '../../../fetch/fetch';
-import { nichetype } from './nichetype/nichetype';
+import { nichetype1 } from './nichetype/nichetype';
 
 const Home = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    nichetypeValue:'',
-    imageName: null,
-    mimeType: '',
-  });
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [nichetype, setNichetypeValue] = useState('');
+  const [image, setImage] = useState(null);
 
-  const handleInputChange = (field, value) => {
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
   };
-  const handleFileChange = (file) => {
-  setFormData({
-    ...formData,
-    imageName: file,
-   
-  });
-};
 
+  const handleContentChange = (event) => {
+    setContent(event.target.value);
+  };
+
+  const handleNichetypeChange = (event) => {
+    setNichetypeValue(event.target.value);
+  };
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+
+  if (file) {
+    const fr = new FileReader();
+    fr.readAsArrayBuffer(file);
+
+    fr.onload = function () {
+      const blob = new Blob([fr.result], { type: file.type });
+      setImage(blob);
+    };
+  }
+};
+console.log(image);
+
+  const formDataObject = () => {
+    return {
+      title: title,
+      content: content,
+      nichetype: nichetype,
+     image:image
+    };
+  };
 
   const handleSubmit = async () => {
     try {
-      const formDataObject = new FormData();
-      formDataObject.append('title', formData.title);
-      formDataObject.append('content', formData.content);
-       
-        formDataObject.append('nichetype', formData.nichetypeValue);
-     
-      formDataObject.append('imageName', formData.imageName, formData.imageName.name);
-
-
-      const response = await makeRequest('/api/createpost', 'POST', formDataObject);
+      const formData = formDataObject();
+ 
+      const response = await makeRequest('/api/createpost', 'POST', formData);
 
       if (response.success) {
         console.log('Post created successfully:', response.post);
@@ -48,56 +58,55 @@ const Home = () => {
       console.error('Error submitting the form:', error);
     }
   };
-  
 
   return (
     <div id="form">
       <div className="form-group">
-        <label htmlFor="posttitle">Title:</label><br/>
+        <label htmlFor="posttitle">Title:</label><br />
         <input
           type="text"
           placeholder="Heading of post"
           id="posttitle"
           className="form-control"
-          value={formData.title}
-          onChange={(e) => handleInputChange('title', e.target.value)}
+          value={title}
+          onChange={handleTitleChange}
         />
       </div>
       <div className="form-group">
-        <label htmlFor="content">Content:</label><br/>
+        <label htmlFor="content">Content:</label><br />
         <textarea
           placeholder="Write the brief description of your post"
           id="content"
           className="form-control"
           style={{ height: '6%' }}
-          value={formData.content}
-          onChange={(e) => handleInputChange('content', e.target.value)}
+          value={content}
+          onChange={handleContentChange}
         />
       </div>
-     <div className="form-group">
-  <label htmlFor="nichetype">NICHE:</label><br />
-  <select
-    id="nichetype"
-    className="form-control"
-    value={formData.nichetypeValue}
-    onChange={(e) => handleInputChange('nichetypeValue', e.target.value)}
-  >
-    <option value="" disabled>Select NICHE</option>
-    {nichetype.map(option => (
-      <option key={option.value} value={option.value}>{option.label}</option>
-    ))}
-  </select>
-</div>
+      <div className="form-group">
+        <label htmlFor="nichetype">NICHE:</label><br />
+        <select
+          id="nichetype"
+          className="form-control"
+          value={nichetype}
+          onChange={handleNichetypeChange}
+        >
+          <option value="" disabled>Select NICHE</option>
+          {nichetype1.map(option => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
 
       <div className="form-group">
-        <label htmlFor="postimage" className='postlabel'>Image:</label><br/>
+        <label htmlFor="postimage" className='postlabel'>Image:</label><br />
         <input
           type="file"
           placeholder="Heading of post"
           id="postimage"
           className="form-control-image"
           accept='image/*'
-          onChange={(e) => handleFileChange(e.target.files[0])}
+          onChange={handleFileChange}
         />
       </div>
 

@@ -1,5 +1,5 @@
 
-export  const nichetype = [
+export  const nichetype1 = [
   { label: 'Space' },
   { label: 'war' },
   { label: 'ocean' },
