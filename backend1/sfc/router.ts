@@ -10,7 +10,7 @@ const router = Router()
 router.post('/createcomment',createComment);
 router.delete('/deletecomment',deleteComment);
 router.patch('/updatecomment',updateComment);
-router.post('/createpost',upload.any(),createPost);
+router.post('/createpost',createPost);
 router.delete('/deletepost',deletePost);
 router.patch('/updatepost',updatePost);
 router.put('/publish',publish);

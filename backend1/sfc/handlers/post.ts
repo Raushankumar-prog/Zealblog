@@ -23,24 +23,22 @@ const storage = getStorage();
 // Setting up multer as a middleware to grab photo uploads
 export const upload = multer({ storage: multer.memoryStorage() });
 
-
 export const createPost = async (req, res) => {
   try {
-    console.log(req);
-    //console.log(req.body.imageName);
     const dateTime = giveCurrentDateTime();
-    const imageName = req?.file?.originalname;
+    
+    // Accessing image directly from the request body
+    const fileBuffer = req.body.image;
+    const imageName = `${dateTime}.jpg`; 
 
-      
-    const storageRef = ref(storage, `files/${imageName + " " + dateTime}`);
+    const storageRef = ref(storage, `files/${imageName}`);
 
     const metadata = {
-      contentType: req?.files[0]?.mimetype ,
+      contentType: req.body.imagetype,
     };
-
-    const fileBuffer = req.files[0].buffer;
-
+   
     const snapshot = await uploadBytesResumable(storageRef, fileBuffer, metadata);
+    
     const downloadURL = await getDownloadURL(snapshot.ref);
 
     if (!fileBuffer || !metadata) {
@@ -55,20 +53,17 @@ export const createPost = async (req, res) => {
         belongsid: req.body.id,
         imageName: downloadURL,
       },
-      
+    
     });
 
     res.status(200).json({ success: true, post });
   } catch (error) {
-    
     console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
   } finally {
     await prisma.$disconnect();
   }
-
 };
-
 
 export const updatePost = async (req, res) => {
   try {
@@ -191,3 +186,4 @@ export const popularPosts = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+ 

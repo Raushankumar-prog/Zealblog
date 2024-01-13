@@ -12,7 +12,7 @@ export const makeRequest = async (endpoint, method, data = null) => {
   const headers = {
     'Authorization': `Bearer ${token}`,
    
-    'Content-Type':'multipart/form-data'
+    'Content-Type':'application/json'
   
   };
 

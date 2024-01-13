@@ -8,7 +8,7 @@ const Home = () => {
   const [nichetype, setNichetypeValue] = useState('');
   const [image, setImage] = useState(null);
   const [filepath,setfilepath]=useState('')
-
+ const [imagetype,setimagetype]=useState( ' ');
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -31,6 +31,7 @@ const handleFileChange = (event) => {
     fr.onload = function () {
       const blob = new Blob([fr.result], { type: file.type });
       setImage(blob);
+      setimagetype(file.type);
        console.log('Blob:', blob);
     };
   }
@@ -42,7 +43,8 @@ const imagety=("imageupload",image,filepath);
       title: title,
       content: content,
       nichetype: nichetype,
-      image:imagety
+      image:imagety,
+      imagetype:imagetype
    
     };
   };
