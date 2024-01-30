@@ -6,8 +6,7 @@ export const createComment = async (req, res) => {
         const comment = await prisma.comment.create({
             data: {
                 content:req.body.content,
-                
-                belongsid:req.body.id,
+                 belongsid:req.body.id,
             }
             });
         res.status(200).json({ success: true, comment });

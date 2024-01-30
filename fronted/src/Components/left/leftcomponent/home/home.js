@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { makeRequest } from '../../../fetch/fetch';
 import { nichetype1 } from './nichetype/nichetype';
-
+import Cookies from 'js-cookie';
+const  id= Cookies.get('id');
+console.log(id);
 const Home = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [nichetype, setNichetypeValue] = useState('');
-  const [image, setImage] = useState(null);
-  const [filepath,setfilepath]=useState('')
- const [imagetype,setimagetype]=useState( ' ');
+  // const [image, setImage] = useState(null);
+  // const [filepath,setfilepath]=useState('')
+//  const [imagetype,setimagetype]=useState( ' ');
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -20,31 +22,32 @@ const Home = () => {
   const handleNichetypeChange = (event) => {
     setNichetypeValue(event.target.value);
   };
-const handleFileChange = (event) => {
-  const file = event.target.files[0];
- setfilepath(file.name);
-  if (file) {
+// const handleFileChange = (event) => {
+//   const file = event.target.files[0];
+//  setfilepath(file.name);
+//   if (file) {
      
-    const fr = new FileReader();
-    fr.readAsArrayBuffer(file);
+//     const fr = new FileReader();
+//     fr.readAsArrayBuffer(file);
 
-    fr.onload = function () {
-      const blob = new Blob([fr.result], { type: file.type });
-      setImage(blob);
-      setimagetype(file.type);
-       console.log('Blob:', blob);
-    };
-  }
-};
+//     fr.onload = function () {
+//       const blob = new Blob([fr.result], { type: file.type });
+//       setImage(blob);
+//       setimagetype(file.type);
+//        console.log('Blob:', blob);
+//     };
+//   }
+// };
 
-const imagety=("imageupload",image,filepath);
+// const imagety=("imageupload",image,filepath);
   const formDataObject = () => {
     return {
       title: title,
       content: content,
       nichetype: nichetype,
-      image:imagety,
-      imagetype:imagetype
+      id:id,
+      // image:imagety,
+      // imagetype:imagetype
    
     };
   };
@@ -105,18 +108,7 @@ const imagety=("imageupload",image,filepath);
         </select>
       </div>
 
-      <div className="form-group">
-        <label htmlFor="postimage" className='postlabel'>Image:</label><br />
-        <input
-          type="file"
-          placeholder="Heading of post"
-          id="postimage"
-          className="form-control-image"
-          accept='image/*'
-          onChange={handleFileChange}
-        />
-      </div>
-
+     
       <button type="button" className="btn-primary" onClick={handleSubmit}>
         Submit
       </button>

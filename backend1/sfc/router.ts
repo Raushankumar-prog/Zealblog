@@ -3,7 +3,7 @@ import { createComment, deleteComment, updateComment } from './handlers/comment'
 import { createPost, deletePost, latestPost, popularPosts, publish, updatePost } from './handlers/post';
 import { deleteuser, getSavedPosts } from './handlers/user';
 import { getAuthors } from './handlers/author';
-import {upload} from '../sfc/handlers/post';
+//import {upload} from '../sfc/handlers/post';
 const router = Router()
 
 

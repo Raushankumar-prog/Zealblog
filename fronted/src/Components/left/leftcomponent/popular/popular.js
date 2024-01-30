@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
-
+import Saved from '@mui/icons-material/BookmarkBorder';
 const Popular = () => {
   const [popularPosts, setPopularPosts] = useState([]);
 
@@ -15,9 +15,7 @@ const Popular = () => {
     const fetchData = async () => {
       try {
         // Make a request to fetch popular posts
-        const response = await makeRequest('/api/popularpost', 'GET', {
-          id: '',
-        });
+        const response = await makeRequest('/api/popularpost', 'GET');
 
         
         setPopularPosts(response.popularPosts);
@@ -31,17 +29,18 @@ const Popular = () => {
 
   return (
     <div>
-      <h2>Popular Posts</h2>
+      <h2>popular Posts</h2>
       {popularPosts.map((post) => (
        <div className="universe" key={post.id} >
-                     <Paper >
+                     <Paper className="papersClass" >
                           <Link to="/mainpage" className="remove">
                             <div className="space">
                                    <div className="headingglance"><p className="headingtext">{post.title}</p></div>
-                                  <div className="glancecontent">
-                                        <div className="glanceimage"><img src={post.imageUrl}></img></div>
+                               {/*<div className="glancecontent">*/}
+                                          {/*<div className="glanceimage"><img src={post.imageUrl}></img></div>*/}
                                          <div className="glancebriefbox"><p className="glancebrieftext">{ post.content}</p></div>
-                                   </div>
+                                  {/* </div>*/}
+                                  
                             </div>
                               </Link>
                             <div className="little">
@@ -50,6 +49,7 @@ const Popular = () => {
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
+                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}/></div>
                             </div>
                               </Paper>
                    </div>
