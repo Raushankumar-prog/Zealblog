@@ -1,31 +1,44 @@
+import React, { useState } from 'react';
+import { Paper, Snackbar, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import './notification.css';
-import React from 'react';
 
-const NotificationButton = () => {
-  const showNotification = () => {
-    if (Notification.permission === 'granted') {
-      new Notification('Hello, World!');
-    } else if (Notification.permission !== 'denied') {
-      Notification.requestPermission().then((permission) => {
-        if (permission === 'granted') {
-          new Notification('Hello, World!');
-        }
-      });
+const Notification = () => {
+  const [open, setOpen] = useState(true);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
     }
+
+    setOpen(false);
   };
 
   return (
-    <button onClick={showNotification}>
-      Show Notification
-    </button>
-  );
-};
-
-const Notification = () => {
-  return (
     <div>
       <h1>Notification Example</h1>
-      <NotificationButton />
+      <Paper>
+        <p className='note'>Welcome to zealblog</p>
+      </Paper>
+
+      {/* Welcome Notification */}
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={open}
+        autoHideDuration={7000}
+        onClose={handleClose}
+        message="Welcome to zealblog!"
+        action={
+          <>
+            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </>
+        }
+      />
     </div>
   );
 };
