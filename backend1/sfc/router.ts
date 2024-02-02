@@ -19,7 +19,7 @@ router.get('/getauthors',getAuthors);
 router.get('/lastestpost',latestPost);
 router.get('/savaedpost', getSavedPosts);
 router.delete('/deleteuser',deleteuser);
-router.get('/profilepost',profilePost);
+router.get('/profilepost/:id',profilePost);
 
 
 export default router

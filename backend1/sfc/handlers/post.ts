@@ -166,9 +166,11 @@ export const latestPost = async (req, res) => {
 };
 export const profilePost = async (req, res) => {
   try {
+     const id = req.params.id;
+
     const profilePosts = await prisma.post.findMany({
       where: {
-        belongsid: req.body.username,
+        belongsid:id,
       },
       orderBy: {
         createdAt: 'desc',

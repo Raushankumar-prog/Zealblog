@@ -11,14 +11,20 @@ import Cookies from 'js-cookie';
 
 
 const username=Cookies.get('usernam');
+
 const AuthorPost = () => {
   const [profilePosts, setprofilePosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+  
+
+    const fetchData = async (id) => {
       try {
         // Make a request to fetch the latest posts
-        const response = await makeRequest('/api/profilePost', 'GET');
+          const id=Cookies.get('id');
+        console.log(id);
+        const response = await makeRequest(`/api/profilePost/${id}`, 'GET');
+
          console.log(response);
     
         setprofilePosts(response.profilePosts);
