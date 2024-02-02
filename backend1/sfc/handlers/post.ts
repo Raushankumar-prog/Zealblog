@@ -142,14 +142,53 @@ export const latestPost = async (req, res) => {
         content: true,
         nichetype: true,
         belongsid: true,
+        
+      
        // imageName: true,
         createdAt: true,
+        beongsto:{
+          select:{
+            username:true,
+          }
+        }
       },
     });
 
     
 
     res.status(200).json({ latestPosts});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+export const profilePost = async (req, res) => {
+  try {
+    const profilePosts = await prisma.post.findMany({
+      where: {
+        belongsid: req.body.username,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        nichetype: true,
+        belongsid: true,
+        createdAt: true,
+        beongsto: {
+          select: {
+            username: true,
+          },
+        },
+      },
+    });
+
+    res.status(200).json({ profilePosts });
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
@@ -175,6 +214,11 @@ export const popularPosts = async (req, res) => {
        // imageName: true,
         createdAt: true,
         like: true,
+         beongsto:{
+          select:{
+            username:true,
+          }
+        }
       },
     });
 

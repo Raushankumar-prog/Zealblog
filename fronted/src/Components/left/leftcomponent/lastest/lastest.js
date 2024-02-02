@@ -8,6 +8,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
+import Cookies from 'js-cookie';
+
+
+const username=Cookies.get('usernam');
 const Lastest = () => {
   const [latestPosts, setLatestPosts] = useState([]);
 
@@ -16,7 +20,7 @@ const Lastest = () => {
       try {
         // Make a request to fetch the latest posts
         const response = await makeRequest('/api/lastestpost', 'GET');
-console.log(response);
+         console.log(response);
     
         setLatestPosts(response.latestPosts);
       } catch (error) {
@@ -45,7 +49,7 @@ console.log(response);
                               </Link>
                             <div className="little">
                                      <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
-                                                                       <div className="profile">profile</div>
+                                                                       <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>

@@ -9,7 +9,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
 const Popular = () => {
-  const [popularPosts, setPopularPosts] = useState([]);
+const [popularPosts, setPopularPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +45,7 @@ const Popular = () => {
                               </Link>
                             <div className="little">
                                      <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
-                                                                       <div className="profile">profile</div>
+                                                                       <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>

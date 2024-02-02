@@ -31,10 +31,10 @@ const Header = () => {
     return ( <div>
           <div className="heading">
 
-            <div className="left">
+           {/*<div className="left">
                  <div  className="appicon"><div className="re"><MenuIcon/></div></div>
                
-            </div>
+           </div>*/}
             <div className="center">
                          <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }} >
                           <IconButton sx={{ p: '10px' }} aria-label="menu"></IconButton>
@@ -48,13 +48,13 @@ const Header = () => {
                             </IconButton>
                           </Paper>
             </div>
-            <div className="right">
+           {/* <div className="right">
 
                 <div className='post'>
                          <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}> Upload file <VisuallyHiddenInput type="file" />
                           </Button>
-                </div>  
-            </div>
+          </div>  
+          </div>*/}
           </div>
     </div> );
 }

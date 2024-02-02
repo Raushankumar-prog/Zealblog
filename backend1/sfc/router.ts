@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import { createComment, deleteComment, updateComment } from './handlers/comment'
-import { createPost, deletePost, latestPost, popularPosts, publish, updatePost } from './handlers/post';
+import { createPost, deletePost, latestPost, popularPosts, profilePost, publish, updatePost } from './handlers/post';
 import { deleteuser, getSavedPosts } from './handlers/user';
 import { getAuthors } from './handlers/author';
 //import {upload} from '../sfc/handlers/post';
@@ -19,7 +19,7 @@ router.get('/getauthors',getAuthors);
 router.get('/lastestpost',latestPost);
 router.get('/savaedpost', getSavedPosts);
 router.delete('/deleteuser',deleteuser);
-
+router.get('/profilepost',profilePost);
 
 
 export default router

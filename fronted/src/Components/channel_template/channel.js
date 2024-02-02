@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './channel.css';
 import img from '../Glance/OIP.jpeg';
 import solar from './solar.jpg';
 import Authorpost from '../channel_template/channel_component/authorpost/authorpost';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-
+import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({
   customButton: {
@@ -16,7 +16,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 const Channel = () => {
+  
+
+    // Check if the username is present in cookies
+    const username= Cookies.get('usernam');
+ 
   const [showAuthorPost, setShowAuthorPost] = useState(false);
  const classes = useStyles(); 
   const authoro = () => {
@@ -36,9 +42,9 @@ const Channel = () => {
           </div>
           <div className="userprofiletext">
             <div className="profilenamebox">
-              <p className="mainheading">RAUSHAN KUMAR</p>
+              <p className="mainheading">{username}</p>
             </div>
-            <div className="userworkplace">scientist, CERN LAB</div>
+          {/*<div className="userworkplace">scientist, CERN LAB</div>*/}
           </div>
         </div>
 

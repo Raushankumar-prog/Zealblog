@@ -58,27 +58,7 @@ useEffect(() => {
                    </div>
                  
                   
-                            <div className="universe">
-                     <Paper >
-                          <Link to="/mainpage" className="remove">
-                            <div className="space">
-                                   <div className="headingglance"><p className="headingtext">Nasa has launched a new satellite for analyzing the oceans..</p></div>
-                                  <div className="glancecontent">
-                                        <div className="glanceimage"><img src={img} ></img></div>
-                                         <div className="glancebriefbox"><p className="glancebrieftext"></p></div>
-                                   </div>
-                            </div>
-                              </Link>
-                            <div className="little">
-                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
-                                                                       <div className="profile">profile</div>
-                           </div>
-                                     <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
-                                     <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                            </div>
-                              </Paper>
-                   </div>
-                 
+                         
                   
                    
               </div>
