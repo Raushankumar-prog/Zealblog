@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './home.css'
 import { makeRequest } from '../../../fetch/fetch';
 import { nichetype1 } from './nichetype/nichetype';
 import Cookies from 'js-cookie';
@@ -71,8 +72,8 @@ const Home = () => {
 
   return (
     <div id="form">
-      <div className="form-group">
-        <label htmlFor="posttitle">Title:</label><br />
+      <div className="form-group-1">
+        <label htmlFor="posttitle" className='labeltext'>Title:</label><br />
         <input
           type="text"
           placeholder="Heading of post"
@@ -82,8 +83,8 @@ const Home = () => {
           onChange={handleTitleChange}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="content">Content:</label><br />
+      <div className="form-group-1">
+        <label htmlFor="content" className='labeltext'>Content:</label><br />
         <textarea
           placeholder="Write the brief description of your post"
           id="content"
@@ -93,8 +94,8 @@ const Home = () => {
           onChange={handleContentChange}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="nichetype">NICHE:</label><br />
+      <div className="form-group-1">
+        <label htmlFor="nichetype" className='labeltext'>NICHE:</label><br />
         <select
           id="nichetype"
           className="form-control"

@@ -1,21 +1,24 @@
 #form{
-    border:2px solid red;
+    
    margin-left:5%;
-   width:85%;
+   width:65%;
    height:100%;
     padding:2%;
-    border-radius:8%;
-    background-color: blanchedalmond;
+   
+    background-color: rgb(250, 245, 245);
 }
 #formlogin{
-    border: 2px solid red;
-    margin-left: 22%;
-    width: 85%;
+   
+    margin-left: 5%;
+    width: 45%;
     height: 100%;
     padding: 2%;
-    margin-top: 20%;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding-top: 8%;
+    padding-bottom: 8%;
     border-radius: 8%;
-    background-color: blanchedalmond;
+    background-color: rgb(254, 254, 253);
 }
 .form-control{
    width:100%;
@@ -33,4 +36,20 @@ padding-top: 2%;
 }
 #profilebox{
      width:100%;
+}
+.form-group{
+    padding-top: 10%;
+    padding-left: 2%;
+}
+.form-group-1 {
+    padding-top:5%;
+    padding-left: 2%;
+}
+.labeltext{
+    font-size: larger;
+    font-family:cursive;
+}
+#username::placeholder,
+#password::placeholder {
+    font-family: cursive;
 }

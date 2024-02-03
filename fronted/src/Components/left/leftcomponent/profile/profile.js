@@ -3,6 +3,7 @@ import './profile.css';
 import Cookies from 'js-cookie';
 import Channel from '../../../channel_template/channel';
 import  {makeRequest}  from '../../../fetch/fetch';
+import { Paper } from '@mui/material';
 
 
 
@@ -46,10 +47,13 @@ const Profile = () => {
       {checkusername ? (
         <div id="content"><Channel /></div>
       ) : (
+      <Paper style={{ width: '50%',marginLeft:'14%',marginTop:'6%' }}>
+
         <div id="formlogin">
+           
           <form>
             <div className="form-group">
-              <label htmlFor="username">Username:</label><br/>
+              <label htmlFor="username" className='labeltext'>Username:</label><br/>
               <input
                 type="text"
                 placeholder="username"
@@ -60,7 +64,7 @@ const Profile = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password:</label><br/>
+              <label htmlFor="password"  className='labeltext'>Password:</label><br/>
               <input
                 type="password"
                 placeholder="password"
@@ -73,8 +77,12 @@ const Profile = () => {
             <button type="button" onClick={getdata} className="btn-primary">
               Submit
             </button>
+              
           </form>
+          
         </div>
+         </Paper>
+     
       )}
     </div>
   );

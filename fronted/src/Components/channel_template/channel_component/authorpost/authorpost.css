@@ -20,3 +20,10 @@
     padding-left: 1%;
     margin-left: 20%;
 }
+/* Reset default button styles */
+#button1{
+   text-decoration: none;
+}
+#button1:focus {
+    outline: none !important;
+}

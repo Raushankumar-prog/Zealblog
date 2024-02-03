@@ -7,6 +7,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Cookies from 'js-cookie';
 
 
@@ -36,6 +37,17 @@ const AuthorPost = () => {
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
 
+const handleDelete = async (postId) => {
+ 
+    try {
+      const response = await makeRequest(`/api/deletepost/${postId}`, 'DELETE');
+      console.log('Deleting post with ID:', postId);
+      // After successful deletion, you may want to update the state or perform other actions
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
+    }
+  };
+
   return (
     <div>
       <h2>Your Posts</h2>
@@ -56,9 +68,8 @@ const AuthorPost = () => {
                                      <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
                                                                        <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
                            </div>
-                                     <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
-                                     <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}/></div>
+                                     <div className="like"><DeleteIcon color="error" onClick={() => handleDelete(post.id)}/></div>
+                                    
                             </div>
                               </Paper>
                    </div>

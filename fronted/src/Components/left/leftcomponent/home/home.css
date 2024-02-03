@@ -6,3 +6,8 @@
       margin-top:1%;
 
 }
+#posttitle::placeholder,
+#content::placeholder,
+#nichetype::placeholder {
+      font-family: cursive;
+}
