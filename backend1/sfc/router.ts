@@ -11,7 +11,7 @@ router.post('/createcomment',createComment);
 router.delete('/deletecomment',deleteComment);
 router.patch('/updatecomment',updateComment);
 router.post('/createpost',createPost);
-router.delete('/deletepost',deletePost);
+router.delete('/deletepost/:PostId',deletePost);
 router.patch('/updatepost',updatePost);
 router.put('/publish',publish);
 router.get('/popularpost',popularPosts);
