@@ -17,8 +17,10 @@ model user {
   createdAt DateTime @default(now())
   like      Int      @default(0)
   dislike   Int      @default(0)
-  post  post[]
-  saved saved[]
+
+  post      post[]
+  saving    saving[]
+  subscribe subscribe[]
 }
 
 model post {
@@ -29,25 +31,32 @@ model post {
   content   String?
   nichetype String?
   imageName String?
-
-  like      Int     @default(0)
-  dislike   Int     @default(0)
-  published Boolean @default(false)
+  like      Int      @default(0)
+  dislike   Int      @default(0)
+  published Boolean  @default(false)
   belongsid String
-  beongsto  user    @relation(fields: [belongsid], references: [id])
+  beongsto  user     @relation(fields: [belongsid], references: [id])
 
   comment comment[]
+  saving  saving[]
 }
 
 model comment {
-  id      String  @id @default(uuid())
-  content String?
-
+  id            String  @id @default(uuid())
+  content       String?
   belongsid     String
-  belongstopost post   @relation(fields: [belongsid], references: [id])
+  belongstopost post    @relation(fields: [belongsid], references: [id])
 }
 
-model saved {
+model saving {
+  id             String @id @default(uuid())
+  postid         String
+  belongstoposts post   @relation(fields: [postid], references: [id])
+  belongsid      String
+  belongsto      user   @relation(fields: [belongsid], references: [id])
+}
+
+model subscribe {
   id        String @id @default(uuid())
   belongsid String
   belongsto user   @relation(fields: [belongsid], references: [id])

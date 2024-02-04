@@ -3,6 +3,7 @@ import { createComment, deleteComment, updateComment } from './handlers/comment'
 import { createPost, deletePost, latestPost, popularPosts, profilePost, publish, updatePost } from './handlers/post';
 import { deleteuser, getSavedPosts } from './handlers/user';
 import { getAuthors } from './handlers/author';
+import { deletingsavedPost, savedPost, savingPost } from './handlers/save';
 //import {upload} from '../sfc/handlers/post';
 const router = Router()
 
@@ -20,6 +21,8 @@ router.get('/lastestpost',latestPost);
 router.get('/savaedpost', getSavedPosts);
 router.delete('/deleteuser',deleteuser);
 router.get('/profilepost/:id',profilePost);
-
+router.post('/savingpost',savingPost);
+router.get('/savedpost',savedPost);
+router.delete('deletingsavedpost',deletingsavedPost);
 
 export default router

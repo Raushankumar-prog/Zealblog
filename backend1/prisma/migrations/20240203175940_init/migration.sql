@@ -4,8 +4,8 @@ CREATE TABLE "user" (
     "username" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "like" SERIAL NOT NULL,
-    "dislike" SERIAL NOT NULL,
+    "like" INTEGER NOT NULL DEFAULT 0,
+    "dislike" INTEGER NOT NULL DEFAULT 0,
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
@@ -18,8 +18,9 @@ CREATE TABLE "post" (
     "title" TEXT,
     "content" TEXT,
     "nichetype" TEXT,
-    "like" SERIAL NOT NULL,
-    "dislike" SERIAL NOT NULL,
+    "imageName" TEXT,
+    "like" INTEGER NOT NULL DEFAULT 0,
+    "dislike" INTEGER NOT NULL DEFAULT 0,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "belongsid" TEXT NOT NULL,
 
@@ -35,6 +36,23 @@ CREATE TABLE "comment" (
     CONSTRAINT "comment_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "saving" (
+    "id" TEXT NOT NULL,
+    "postid" TEXT NOT NULL,
+    "belongsid" TEXT NOT NULL,
+
+    CONSTRAINT "saving_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "subscribe" (
+    "id" TEXT NOT NULL,
+    "belongsid" TEXT NOT NULL,
+
+    CONSTRAINT "subscribe_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_username_key" ON "user"("username");
 
@@ -43,3 +61,12 @@ ALTER TABLE "post" ADD CONSTRAINT "post_belongsid_fkey" FOREIGN KEY ("belongsid"
 
 -- AddForeignKey
 ALTER TABLE "comment" ADD CONSTRAINT "comment_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "saving" ADD CONSTRAINT "saving_postid_fkey" FOREIGN KEY ("postid") REFERENCES "post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "saving" ADD CONSTRAINT "saving_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "subscribe" ADD CONSTRAINT "subscribe_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

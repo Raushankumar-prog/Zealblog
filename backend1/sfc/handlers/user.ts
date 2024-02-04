@@ -60,7 +60,7 @@ export const getSavedPosts = async (req, res) => {
                 id: req.body.id,
             },
             include: {
-                saved: {
+                saving: {
                     include: {
                         belongsto: true,
                     },
@@ -72,7 +72,7 @@ export const getSavedPosts = async (req, res) => {
             return res.status(404).json({ success: false, error: 'User not found' });
         }
 
-        const savedPosts = user.saved.map((saved) => saved.belongsto);
+        const savedPosts = user.saving.map((saved) => saved.belongsto);
 
         res.status(200).json({ savedPosts });
     } catch (error) {
