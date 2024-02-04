@@ -30,6 +30,19 @@ const Lastest = () => {
 
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
+const handleSavePost = async (postId) => {
+  try {
+    const id = Cookies.get('id');
+    const data = { postid: postId, belongsid: id };
+    
+    // Make a request to save the post
+    const response = await makeRequest('/api/savingpost', 'POST', data);
+    console.log(response);
+    // Handle the response or update the UI accordingly
+  } catch (error) {
+    console.error('Error saving the post:', error.message);
+  }
+};
 
   return (
     <div>
@@ -53,7 +66,7 @@ const Lastest = () => {
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}/></div>
+                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}   onClick={() => handleSavePost(post.id)}  /></div>
                             </div>
                               </Paper>
                    </div>

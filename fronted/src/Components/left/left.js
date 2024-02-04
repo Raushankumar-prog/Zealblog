@@ -48,13 +48,13 @@ console.log(profile);
              <div className="text"><p className="category">popular</p></div>
         </div>
    </Link>   
-   {/*<Link to="saved" className='link'>
+   <Link to="savedpost" className='link'>
         <div  className="category1">
              <div className="icon"><Saved fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
              <div className="text"><p className="category">saved</p></div>
         </div>
      </Link>
-    */}
+    
       <Link to="notification" className='link'>
          <div  className="category1">
              <div className="icon"><NotificationsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
