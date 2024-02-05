@@ -10,14 +10,13 @@ import Saved from '@mui/icons-material/BookmarkBorder';
 import Cookies from 'js-cookie';
 
 const Savedd = () => {
-  const [popularPosts, setPopularPosts] = useState([]);
-  const id=Cookies.get('id');
-const userIdToFilter=id; 
+  const [popularPosts, setPopularPosts] = useState([]); 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Make a request to fetch popular posts
-        const response = await makeRequest('/api/savedpost', 'GET');   
+         const id=Cookies.get('id');
+        const response = await makeRequest(`/api/savedpost/${id}`, 'GET');   
         setPopularPosts(response.saved || []); // Ensure 'saved' array exists in the response
       } catch (error) {
         console.error('Error fetching popular posts:', error.message);
@@ -30,7 +29,7 @@ const userIdToFilter=id;
   return (
     <div>
       <h2>Saved Posts</h2>
-      {popularPosts.filter(post => post.belongsid === userIdToFilter).map((post) => (
+      {popularPosts?.map((post) => (
         <div className="universe" key={post.belongstoposts.id}>
           <Paper className="papersClass">
             <Link to="/mainpage" className="remove">

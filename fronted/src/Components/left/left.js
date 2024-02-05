@@ -68,6 +68,12 @@ console.log(profile);
               <div className="text"><p className="category">profile</p></div>
        </div>
        </Link>
+         <Link to="setting" className='link'>
+        <div  className="category1">
+             <div className="icon"><SettingsIcon fontSize="small" style={{ color: color()[Math.floor(Math.random() * 3)] }} /></div> 
+              <div className="text"><p className="category">setting</p></div>
+       </div>
+       </Link>
        
   </div>    
 
