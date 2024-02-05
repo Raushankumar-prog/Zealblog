@@ -24,10 +24,10 @@ export const savingPost = async (req, res) => {
 
 export const savedPost=async (req,res)=>{
     try{
-         const id = req.params.postid;
+         const id = req.params.id;
        const saved=await prisma.saving.findMany({
         where:{
-            postid:id,
+            belongsid:id,
         },
         select:{
             belongsid:true,
@@ -49,6 +49,7 @@ export const savedPost=async (req,res)=>{
 },
        });
          res.status(200).json({ saved});
+         console.log(res);
     }catch(error){
          console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
