@@ -1,6 +1,6 @@
 import './left.css';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import Saved from '@mui/icons-material/BookmarkBorder';
+import Saved from '@mui/icons-material/Bookmark';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ShareIcon from '@mui/icons-material/Share';
