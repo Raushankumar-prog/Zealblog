@@ -21,6 +21,7 @@ model user {
   post      post[]
   saving    saving[]
   subscribe subscribe[]
+  liked     liked[]
 }
 
 model post {
@@ -39,6 +40,7 @@ model post {
 
   comment comment[]
   saving  saving[]
+  liked   liked[]
 }
 
 model comment {
@@ -60,4 +62,12 @@ model subscribe {
   id        String @id @default(uuid())
   belongsid String
   belongsto user   @relation(fields: [belongsid], references: [id])
+}
+
+model liked {
+  id             String @id @default(uuid())
+  postid         String
+  belongstoposts post   @relation(fields: [postid], references: [id])
+  belongsid      String
+  belongsto      user   @relation(fields: [belongsid], references: [id])
 }

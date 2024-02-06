@@ -4,6 +4,7 @@ import { createPost, deletePost, latestPost, popularPosts, profilePost, publish,
 import { deleteuser } from './handlers/user';
 import { getAuthors } from './handlers/author';
 import { deletingsavedPost, savedPost, savingPost } from './handlers/save';
+import { deletinglikedPost, likedPost, likingPost } from './handlers/like';
 //import {upload} from '../sfc/handlers/post';
 const router = Router()
 
@@ -23,5 +24,9 @@ router.get('/profilepost/:id',profilePost);
 router.post('/savingpost',savingPost);
 router.get('/savedpost/:id',savedPost);
 router.delete('/deletingsavedpost/:id',deletingsavedPost);
+router.post('/likingpost',likingPost);
+router.get('/likedpost/:id',likedPost);
+router.delete('/deletinglikedpost/:id',deletinglikedPost);
+
 
 export default router
