@@ -8,6 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
+import BSaved from '@mui/icons-material/Bookmark';
 import Cookies from 'js-cookie';
 
 
@@ -30,6 +31,22 @@ const Lastest = () => {
 
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
+   const [savedPosts, setsavedPosts] = useState([]); 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make a request to fetch popular posts
+         const id=Cookies.get('id');
+        const response = await makeRequest(`/api/savedpost/${id}`, 'GET');   
+        console.log(response);
+        setsavedPosts(response.saved || []); // Ensure 'saved' array exists in the response
+      } catch (error) {
+        console.error('Error fetching popular posts:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []); 
 const handleSavePost = async (postId) => {
   try {
     const id = Cookies.get('id');
@@ -66,7 +83,15 @@ const handleSavePost = async (postId) => {
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}   onClick={() => handleSavePost(post.id)}  /></div>
+                                   <div className="comment">
+                                                    {savedPosts.some((last) => last.belongstoposts.id === post.id) ? (
+                                                     <BSaved />
+                                                        ) : (
+                                                    <Saved style={{ color: getRandomColor() }} onClick={() => handleSavePost(post.id)} />
+                                                      )}
+                                       </div>
+
+
                             </div>
                               </Paper>
                    </div>

@@ -37,11 +37,13 @@ const AuthorPost = () => {
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
 
-const handleDelete = async (postId) => {
+const handleDelete = async (id) => {
  
     try {
-      const response = await makeRequest(`/api/deletepost/${postId}`, 'DELETE');
-      console.log('Deleting post with ID:', postId);
+      console.log('Deleting post with ID:', id);
+      const response = await makeRequest(`/api/deletepost/${id}`, 'DELETE');
+      
+     
       // After successful deletion, you may want to update the state or perform other actions
     } catch (error) {
       console.error('Error deleting post:', error.message);

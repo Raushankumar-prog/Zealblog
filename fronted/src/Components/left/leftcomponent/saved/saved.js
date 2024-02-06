@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
-import Saved from '@mui/icons-material/BookmarkBorder';
+import Saved from '@mui/icons-material/Bookmark';
 import Cookies from 'js-cookie';
 
 const Savedd = () => {
@@ -17,6 +17,7 @@ const Savedd = () => {
         // Make a request to fetch popular posts
          const id=Cookies.get('id');
         const response = await makeRequest(`/api/savedpost/${id}`, 'GET');   
+        
         setPopularPosts(response.saved || []); // Ensure 'saved' array exists in the response
       } catch (error) {
         console.error('Error fetching popular posts:', error.message);
@@ -25,6 +26,18 @@ const Savedd = () => {
 
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
+
+const handleDelete = async (id) => {
+ 
+    try {
+      const response = await makeRequest(`/api/deletingsavedpost/${id}`, 'DELETE');
+      
+     
+      // After successful deletion, you may want to update the state or perform other actions
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
+    }
+  };
 
   return (
     <div>
@@ -58,7 +71,7 @@ const Savedd = () => {
                 <CommentIcon style={{ color: getRandomColor() }} />
               </div>
               <div className="comment">
-                <Saved style={{ color: getRandomColor() }} />
+                <Saved style={{ color: getRandomColor() }} onClick={() => handleDelete(post.id)} />
               </div>
             </div>
           </Paper>

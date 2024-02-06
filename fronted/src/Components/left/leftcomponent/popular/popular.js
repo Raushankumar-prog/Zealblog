@@ -8,9 +8,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
+import BSaved from '@mui/icons-material/Bookmark';
+import Cookies from 'js-cookie';
+
 const Popular = () => {
 const [popularPosts, setPopularPosts] = useState([]);
-
+const [savedPosts, setsavedPosts] = useState([]); 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,6 +29,34 @@ const [popularPosts, setPopularPosts] = useState([]);
 
     fetchData();
   }, []); // Empty dependency array to run the effect only once on mount
+  useEffect(() => {
+    const fetchDat = async () => {
+      try {
+        // Make a request to fetch popular posts
+         const id=Cookies.get('id');
+        const response = await makeRequest(`/api/savedpost/${id}`, 'GET');   
+        console.log(response);
+        setsavedPosts(response.saved || []); // Ensure 'saved' array exists in the response
+      } catch (error) {
+        console.error('Error fetching popular posts:', error.message);
+      }
+    };
+
+    fetchDat();
+  }, []); 
+  const handleSavePost = async (postId) => {
+  try {
+    const id = Cookies.get('id');
+    const data = { postid: postId, belongsid: id };
+    
+    // Make a request to save the post
+    const response = await makeRequest('/api/savingpost', 'POST', data);
+    console.log(response);
+    // Handle the response or update the UI accordingly
+  } catch (error) {
+    console.error('Error saving the post:', error.message);
+  }
+};
 
   return (
     <div>
@@ -49,7 +80,11 @@ const [popularPosts, setPopularPosts] = useState([]);
                            </div>
                                      <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
                                      <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                                      <div className="comment"><Saved  style={{ color: getRandomColor() }}/></div>
+                                      <div className="comment"> {savedPosts.some((last) => last.belongstoposts.id === post.id) ? (
+                                                     <BSaved />
+                                                        ) : (
+                                                    <Saved style={{ color: getRandomColor() }} onClick={() => handleSavePost(post.id)} />
+                                                      )}</div>
                             </div>
                               </Paper>
                    </div>
