@@ -12,7 +12,7 @@ router.post('/createcomment',createComment);
 router.delete('/deletecomment',deleteComment);
 router.patch('/updatecomment',updateComment);
 router.post('/createpost',createPost);
-router.delete('/deletepost/:PostId',deletePost);
+router.delete('/deletepost/:id',deletePost);
 router.patch('/updatepost',updatePost);
 router.put('/publish',publish);
 router.get('/popularpost',popularPosts);
@@ -22,6 +22,6 @@ router.delete(`/deleteuser/:id`,deleteuser);
 router.get('/profilepost/:id',profilePost);
 router.post('/savingpost',savingPost);
 router.get('/savedpost/:id',savedPost);
-router.delete('deletingsavedpost',deletingsavedPost);
+router.delete('/deletingsavedpost/:id',deletingsavedPost);
 
 export default router

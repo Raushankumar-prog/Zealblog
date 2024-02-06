@@ -30,6 +30,7 @@ export const savedPost=async (req,res)=>{
             belongsid:id,
         },
         select:{
+          id:true,
             belongsid:true,
          belongstoposts: {
             select: {
@@ -62,16 +63,13 @@ export const savedPost=async (req,res)=>{
 
 export const deletingsavedPost = async (req, res) => {
   try {
-     const id = req.params.postid;
+     const id = req.params.id;
     const deletedPost = await prisma.saving.delete({
       where: {
         id:id,
       },
     });
-
-    
-
-    res.status(200).json({ success: true, deletedPost });
+   res.status(200).json({ success: true, deletedPost });
   } catch (error) {
     console.error(error);
     res.status(404).json({ success: false, error: 'Internal Server Error' });

@@ -90,16 +90,13 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
-     const id = req.params.PostId;
+     const id = req.params.id;
     const deletedPost = await prisma.post.delete({
       where: {
         id:id,
       },
     });
-
-    
-
-    res.status(200).json({ success: true, deletedPost });
+   res.status(200).json({ success: true, deletedPost });
   } catch (error) {
     console.error(error);
     res.status(404).json({ success: false, error: 'Internal Server Error' });
