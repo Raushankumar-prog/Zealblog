@@ -117,7 +117,7 @@ export const publish = async (req, res) => {
       },
     });
 
-    console.log('Published Post:', publishedPost);
+   
     res.status(200).json({ success: true, publishedPost });
   } catch (error) {
     console.error(error);

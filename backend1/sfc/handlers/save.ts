@@ -50,7 +50,7 @@ export const savedPost=async (req,res)=>{
 },
        });
          res.status(200).json({ saved});
-         console.log(res);
+         
     }catch(error){
          console.error(error);
     res.status(500).json({ success: false, error: 'Internal Server Error' });

@@ -1,94 +1,63 @@
+// Popular.js
 import React, { useEffect, useState } from 'react';
 import './popular.css';
-import { makeRequest } from '../../../fetch/fetch';
-import { getRandomColor } from '../../../Glance/glance';
-import Paper from '@mui/material/Paper';
-import { Link } from 'react-router-dom';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import CommentIcon from '@mui/icons-material/Comment';
-import Saved from '@mui/icons-material/BookmarkBorder';
-import BSaved from '@mui/icons-material/Bookmark';
-import Cookies from 'js-cookie';
+import PostCard from '../../../postcard/postcard';
+import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts } from '../../../services/apiService';
 
 const Popular = () => {
-const [popularPosts, setPopularPosts] = useState([]);
-const [savedPosts, setsavedPosts] = useState([]); 
+  const [popularPosts, setPopularPosts] = useState([]);
+  const [savedPosts, setsavedPosts] = useState([]);
+  const [likePosts, setlikePosts] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        // Make a request to fetch popular posts
-        const response = await makeRequest('/api/popularpost', 'GET');
-
-        
-        setPopularPosts(response.popularPosts);
-      } catch (error) {
-        console.error('Error fetching popular posts:', error.message);
-      }
+      const popularPostsData = await fetchPopularPosts();
+      setPopularPosts(popularPostsData);
     };
 
     fetchData();
-  }, []); // Empty dependency array to run the effect only once on mount
+  }, []);
+
   useEffect(() => {
-    const fetchDat = async () => {
-      try {
-        // Make a request to fetch popular posts
-         const id=Cookies.get('id');
-        const response = await makeRequest(`/api/savedpost/${id}`, 'GET');   
-        console.log(response);
-        setsavedPosts(response.saved || []); // Ensure 'saved' array exists in the response
-      } catch (error) {
-        console.error('Error fetching popular posts:', error.message);
-      }
+    const fetchData = async () => {
+      const savedPostsData = await fetchSavedPosts();
+      setsavedPosts(savedPostsData);
     };
 
-    fetchDat();
-  }, []); 
+    fetchData();
+  }, []);
+
   const handleSavePost = async (postId) => {
-  try {
-    const id = Cookies.get('id');
-    const data = { postid: postId, belongsid: id };
-    
-    // Make a request to save the post
-    const response = await makeRequest('/api/savingpost', 'POST', data);
-    console.log(response);
-    // Handle the response or update the UI accordingly
-  } catch (error) {
-    console.error('Error saving the post:', error.message);
-  }
-};
+    await savePost(postId);
+   
+  };
+
+  const handleLikePost = async (postId) => {
+    await likePost(postId);
+   
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const likedPostsData = await fetchLikedPosts();
+      setlikePosts(likedPostsData);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <h2>popular Posts</h2>
+      <h2>Popular Posts</h2>
       {popularPosts.map((post) => (
-       <div className="universe" key={post.id} >
-                     <Paper className="papersClass" >
-                          <Link to="/mainpage" className="remove">
-                            <div className="space">
-                                   <div className="headingglance"><p className="headingtext">{post.title}</p></div>
-                               {/*<div className="glancecontent">*/}
-                                          {/*<div className="glanceimage"><img src={post.imageUrl}></img></div>*/}
-                                         <div className="glancebriefbox"><p className="glancebrieftext">{ post.content}</p></div>
-                                  {/* </div>*/}
-                                  
-                            </div>
-                              </Link>
-                            <div className="little">
-                                     <div className="author">   <div className="channelicon"><AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }}/></div>
-                                                                       <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
-                           </div>
-                                     <div className="like"><ThumbUpOffAltIcon style={{ color: getRandomColor() }}/></div>
-                                     <div className="comment"><CommentIcon  style={{ color: getRandomColor() }}/></div>
-                                      <div className="comment"> {savedPosts.some((last) => last.belongstoposts.id === post.id) ? (
-                                                     <BSaved />
-                                                        ) : (
-                                                    <Saved style={{ color: getRandomColor() }} onClick={() => handleSavePost(post.id)} />
-                                                      )}</div>
-                            </div>
-                              </Paper>
-                   </div>
-    
+        <PostCard
+          key={post.id}
+          post={post}
+          isSaved={savedPosts.some((last) => last.belongstoposts.id === post.id)}
+          handleSavePost={handleSavePost}
+          handleLikePost={handleLikePost}
+          isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.id)}
+        />
       ))}
     </div>
   );
