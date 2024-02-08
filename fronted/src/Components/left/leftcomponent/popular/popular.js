@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './popular.css';
 import PostCard from '../../../postcard/postcard';
-import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts } from '../../../services/apiService';
+import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost,deleteLikedPost } from '../../../services/apiService';
 
 const Popular = () => {
   const [popularPosts, setPopularPosts] = useState([]);
@@ -36,6 +36,11 @@ const Popular = () => {
     await likePost(postId);
    
   };
+  
+const handleDeletelike= async (likeId) => {
+  console.log(likeId)
+  await deleteLikedPost(likeId);
+};
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +51,11 @@ const Popular = () => {
     fetchData();
   }, []);
 
+  const handleDelete = async (postId) => {
+    console.log(postId);
+    await deleteSavedPost(postId);
+   
+  };
   return (
     <div>
       <h2>Popular Posts</h2>
@@ -57,6 +67,8 @@ const Popular = () => {
           handleSavePost={handleSavePost}
           handleLikePost={handleLikePost}
           isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.id)}
+            handleDelete={() => handleDelete(post.saving[0].id)}
+             handleDeletelike={() => handleDeletelike(post.liked[0].id)}
         />
       ))}
     </div>

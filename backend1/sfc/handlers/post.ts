@@ -129,6 +129,7 @@ export const publish = async (req, res) => {
 
 
 export const latestPost = async (req, res) => {
+  const providedId = req.params.providedId;
   try {
     const latestPosts = await prisma.post.findMany({
       orderBy: {
@@ -140,8 +141,26 @@ export const latestPost = async (req, res) => {
         content: true,
         nichetype: true,
         belongsid: true,
-        
-      
+         saving: {
+          select: { 
+            id: true,
+            postid:true,
+          belongsid:true,
+          },
+          where: {
+            belongsid: providedId, 
+             },
+         },
+         liked:{
+               select: { 
+            id: true,
+            postid:true,
+          belongsid:true,
+          },
+          where: {
+            belongsid: providedId, 
+             },
+         },
        // imageName: true,
         createdAt: true,
         beongsto:{
@@ -163,6 +182,7 @@ export const latestPost = async (req, res) => {
   }
 };
 export const profilePost = async (req, res) => {
+ 
   try {
      const id = req.params.id;
 
@@ -180,6 +200,7 @@ export const profilePost = async (req, res) => {
         nichetype: true,
         belongsid: true,
         createdAt: true,
+        
         beongsto: {
           select: {
             username: true,
@@ -196,8 +217,8 @@ export const profilePost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
-
 export const popularPosts = async (req, res) => {
+  const providedId = req.params.providedId;
   try {
     const sortOrder = req.query.sortOrder || 'desc';
 
@@ -211,12 +232,31 @@ export const popularPosts = async (req, res) => {
         content: true,
         nichetype: true,
         belongsid: true,
-       // imageName: true,
+        saving: {
+          select: { 
+            id: true,
+            postid: true,
+            belongsid: true,
+          },
+          where: {
+            belongsid: providedId, 
+          },
+        },
+        liked: {
+          select: { 
+            id: true,
+            postid: true,
+            belongsid: true,
+          },
+          where: {
+            belongsid: providedId, 
+          },
+        },
         createdAt: true,
         like: true,
-         beongsto:{
-          select:{
-            username:true,
+        beongsto: {
+          select: {
+            username: true,
           }
         }
       },
@@ -230,4 +270,3 @@ export const popularPosts = async (req, res) => {
     await prisma.$disconnect();
   }
 };
- 

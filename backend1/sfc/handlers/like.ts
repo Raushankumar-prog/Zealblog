@@ -4,10 +4,12 @@ import prisma from '../db';
 
 export const likingPost = async (req, res) => {
   try {
+    
      const  liking = await prisma.liked.create({
       data: {
         postid: req.body.postid,
         belongsid: req.body.belongsid,
+        belongslikeid:req.body.postid,
       },
     
     });
@@ -32,6 +34,7 @@ export const likedPost=async (req,res)=>{
         select:{
           id:true,
             belongsid:true,
+            
          belongstoposts: {
             select: {
         id: true,
@@ -40,6 +43,7 @@ export const likedPost=async (req,res)=>{
         nichetype: true,
         belongsid: true,
         createdAt: true,
+        
         beongsto: {
           select: {
             username: true,

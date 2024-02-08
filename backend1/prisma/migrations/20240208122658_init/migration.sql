@@ -53,6 +53,16 @@ CREATE TABLE "subscribe" (
     CONSTRAINT "subscribe_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "liked" (
+    "id" TEXT NOT NULL,
+    "postid" TEXT NOT NULL,
+    "belongsid" TEXT NOT NULL,
+    "belongslikeid" TEXT NOT NULL,
+
+    CONSTRAINT "liked_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_username_key" ON "user"("username");
 
@@ -70,3 +80,12 @@ ALTER TABLE "saving" ADD CONSTRAINT "saving_belongsid_fkey" FOREIGN KEY ("belong
 
 -- AddForeignKey
 ALTER TABLE "subscribe" ADD CONSTRAINT "subscribe_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "liked" ADD CONSTRAINT "liked_postid_fkey" FOREIGN KEY ("postid") REFERENCES "post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "liked" ADD CONSTRAINT "liked_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "liked" ADD CONSTRAINT "liked_belongslikeid_fkey" FOREIGN KEY ("belongslikeid") REFERENCES "saving"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

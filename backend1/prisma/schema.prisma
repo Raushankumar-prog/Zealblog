@@ -56,6 +56,8 @@ model saving {
   belongstoposts post   @relation(fields: [postid], references: [id])
   belongsid      String
   belongsto      user   @relation(fields: [belongsid], references: [id])
+
+  liked liked[]
 }
 
 model subscribe {
@@ -70,4 +72,6 @@ model liked {
   belongstoposts post   @relation(fields: [postid], references: [id])
   belongsid      String
   belongsto      user   @relation(fields: [belongsid], references: [id])
+  belongslikeid  String
+  belongstolike  saving @relation(fields: [belongslikeid], references: [id])
 }

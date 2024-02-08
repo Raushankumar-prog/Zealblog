@@ -1,14 +1,14 @@
 import './left.css';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+//import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import Saved from '@mui/icons-material/Bookmark';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import ShareIcon from '@mui/icons-material/Share';
+//import ShareIcon from '@mui/icons-material/Share';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
 import PostAddSharpIcon from '@mui/icons-material/PostAddSharp';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
+//import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import {Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
 const Left = () => {

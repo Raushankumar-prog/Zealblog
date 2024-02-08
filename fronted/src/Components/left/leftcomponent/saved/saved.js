@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import './saved.css';
 import PostCard from '../../../postcard/postcard';
-import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts } from '../../../services/apiService';
+import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts,deleteLikedPost } from '../../../services/apiService';
 
 const Savedd = () => {
   const [savedPosts, setsavedPosts] = useState([]);
@@ -16,7 +16,7 @@ const Savedd = () => {
 
     fetchData();
   }, []);
-
+                   
   const handleDelete = async (postId) => {
     await deleteSavedPost(postId);
    
@@ -30,6 +30,11 @@ const Savedd = () => {
 
     fetchData();
   }, []);
+ 
+const handleDeletelike= async (likeId) => {
+  console.log(likeId)
+  await deleteLikedPost(likeId);
+};
 
   return (
     <div>
@@ -41,6 +46,7 @@ const Savedd = () => {
           isSaved
           handleDelete={() => handleDelete(post.id)}
           isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.belongstoposts.id)}
+           handleDeletelike={() => handleDeletelike(post.beongsto.liked[0].id)}
         />
       ))}
     </div>

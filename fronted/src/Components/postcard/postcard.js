@@ -10,7 +10,7 @@ import Saved from '@mui/icons-material/BookmarkBorder';
 import BSaved from '@mui/icons-material/Bookmark';
 import { getRandomColor } from '../Glance/glance';
 
-const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked}) => {
+const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked,handleDeletelike}) => {
   return (
     <div className="universe" key={post.id}>
       <Paper className="papersClass">
@@ -33,14 +33,14 @@ const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
           </div>
           <div className="like">
             {isLiked ? (
-              <Bliked />
+              <Bliked onClick={() => handleDeletelike(post.id)} />
             ) : (
               <Liked style={{ color: getRandomColor() }} onClick={() => handleLikePost(post.id)} />
             )}
           </div>
-          <div className="comment">
+         {/*<div className="comment">
             <CommentIcon style={{ color: getRandomColor() }} />
-          </div>
+            </div>*/}
           <div className="comment">
             {isSaved ? (
               <BSaved onClick={() => handleDelete(post.id)}  />
