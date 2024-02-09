@@ -9,7 +9,7 @@ export const likingPost = async (req, res) => {
       data: {
         postid: req.body.postid,
         belongsid: req.body.belongsid,
-        belongslikeid:req.body.postid,
+      
       },
     
     });

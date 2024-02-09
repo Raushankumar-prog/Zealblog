@@ -32,11 +32,7 @@ export const savedPost=async (req,res)=>{
         select:{
           id:true,
             belongsid:true,
-          liked:{
-            select:{
-              id:true,
-            },
-          },
+         
          belongstoposts: {
             select: {
         id: true,
