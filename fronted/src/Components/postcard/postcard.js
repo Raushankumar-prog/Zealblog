@@ -11,6 +11,7 @@ import BSaved from '@mui/icons-material/Bookmark';
 import { getRandomColor } from '../Glance/glance';
 
 const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked,handleDeletelike}) => {
+  console.log("post.beongsto:", post.beongsto);
   return (
     <div className="universe" key={post.id}>
       <Paper className="papersClass">
@@ -25,12 +26,15 @@ const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
           </div>
         </Link>
         <div className="little">
-          <div className="author">
-            <div className="channelicon">
-              <AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }} />
-            </div>
-            <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
-          </div>
+       <Link to={post.beongsto ? `/${post.beongsto.id}` : '/unknownUser'} className='link'>
+  <div className="author">
+    <div className="channelicon">
+      <AccountCircleIcon fontSize="large" style={{ color: getRandomColor() }} />
+    </div>
+    <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
+  </div>
+</Link>
+
           <div className="like">
             {isLiked ? (
               <Bliked onClick={() => handleDeletelike(post.id)} />

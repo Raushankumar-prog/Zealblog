@@ -16,11 +16,12 @@ import Terms from '../Components/footer/components/terms/terms';
 import Home from '../Components/left/leftcomponent/home/home';
 import ShareButton from '../Components/left/leftcomponent/share/share';
 import Savedd from '../Components/left/leftcomponent/saved/saved';
-
+import U from '../Components/ui/userprofile';
 const Routing = () => {
     return ( <div>
         <Routes>
       <Route path="/author" element={<Author/>}/>
+      <Route path="/:userId" element={<U/>}/>
       <Route path="/" element={<Lastest/>}/>
       <Route path="/mainpage" element={<Mainpage/>}/>
       <Route path="/lastest" element={<Lastest/>}/>
