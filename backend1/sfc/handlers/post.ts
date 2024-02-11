@@ -166,6 +166,7 @@ export const latestPost = async (req, res) => {
         beongsto:{
           select:{
             username:true,
+              id:true,
           }
         }
       },
@@ -204,6 +205,8 @@ export const profilePost = async (req, res) => {
         beongsto: {
           select: {
             username: true,
+            id:true,
+
           },
         },
       },
@@ -256,6 +259,7 @@ export const popularPosts = async (req, res) => {
         like: true,
         beongsto: {
           select: {
+            id:true,
             username: true,
           }
         }

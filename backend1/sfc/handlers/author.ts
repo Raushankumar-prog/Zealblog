@@ -1,6 +1,5 @@
 import prisma from '../db';
 
-
 export const getAuthors = async (req, res) => {
   try {
     const authorsWithPostCount = await prisma.user.findMany({
@@ -22,7 +21,7 @@ export const getAuthors = async (req, res) => {
         post: {
           some: {
             id: {
-              not: null,
+              not: null, // Adjust this condition based on your requirements
             },
           },
         },

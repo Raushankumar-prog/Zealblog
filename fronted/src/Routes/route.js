@@ -17,9 +17,11 @@ import Home from '../Components/left/leftcomponent/home/home';
 import ShareButton from '../Components/left/leftcomponent/share/share';
 import Savedd from '../Components/left/leftcomponent/saved/saved';
 import U from '../Components/ui/userprofile';
+import Searchpost from '../Components/header/searchpost/searchpost';
 const Routing = () => {
     return ( <div>
         <Routes>
+       <Route path="/search" element={<Searchpost/>}/>
       <Route path="/author" element={<Author/>}/>
       <Route path="/:userId" element={<U/>}/>
       <Route path="/" element={<Lastest/>}/>

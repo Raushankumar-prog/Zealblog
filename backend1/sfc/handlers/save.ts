@@ -44,6 +44,7 @@ export const savedPost=async (req,res)=>{
         beongsto: {
           select: {
             username: true,
+            id:true,
           
           },
         },

@@ -5,6 +5,7 @@ import { deleteuser } from './handlers/user';
 import { getAuthors } from './handlers/author';
 import { deletingsavedPost, savedPost, savingPost } from './handlers/save';
 import { deletinglikedPost, likedPost, likingPost } from './handlers/like';
+import { search } from './handlers/search';
 //import {upload} from '../sfc/handlers/post';
 const router = Router()
 
@@ -27,6 +28,6 @@ router.delete('/deletingsavedpost/:id',deletingsavedPost);
 router.post('/likingpost',likingPost);
 router.get('/likedpost/:id',likedPost);
 router.delete('/deletinglikedpost/:id',deletinglikedPost);
-
+router.get('/search',search)
 
 export default router
