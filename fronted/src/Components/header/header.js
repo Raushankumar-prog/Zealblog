@@ -1,6 +1,6 @@
 import './header.css';
 import MenuIcon from '@mui/icons-material/Menu';
-import * as React from 'react';
+import React, { useState,createContext} from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
@@ -12,24 +12,13 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-
+import { handleSearch } from '../services/apiService';
+export const SearchContext = createContext();
 const Header = () => {
-  const [query, setQuery] = React.useState('');
-
-  const handleSearch = async (e) => {
-    try {
-      e.preventDefault(); 
-      
-      const response = await makeRequest(`/api/search?q=${query}`, 'GET');
-      
-      
-      console.log(response);
-    } catch (error) {
-      console.error('Error during search:', error);
-    }
-  };
+ const [query, setQuery] = useState('');
 
   return (
+     <SearchContext.Provider value={{ query, setQuery }}>
     <div>
       <div className="heading">
         <div className="center">
@@ -54,20 +43,21 @@ const Header = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <IconButton
-              type="button"
-              sx={{ p: '10px' }}
-              aria-label="search"
-              onClick={handleSearch}
-            >
-            <Link to="search"> <SearchIcon /></Link> 
-            </IconButton>
-           
+               <IconButton
+                type="button"
+               sx={{ p: '10px' }}
+                aria-label="search"
+               onClick={() => handleSearch(query)}
+                   >
+                  <Link to="search"><SearchIcon /></Link>
+              </IconButton>
+
            
           </Paper>
         </div>
       </div>
     </div>
+    </SearchContext.Provider>
   );
 };
 

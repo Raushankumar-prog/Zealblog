@@ -110,3 +110,14 @@ export const deleteLikedPost = async (likeId) => {
     console.error('Error deleting saved post:', error.message);
   }
 };
+
+export const handleSearch = async (query) => {
+   
+  try {
+    const response = await makeRequest(`/api/search?q=${query}`, 'GET');
+    console.log(response);
+   
+  } catch (error) {
+    console.error('Error during search:', error);
+  }
+};
