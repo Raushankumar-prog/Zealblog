@@ -1,8 +1,8 @@
 // Popular.js
 import React, { useEffect, useState } from 'react';
 import './popular.css';
-import PostCard from '../../../postcard/postcard';
-import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost,deleteLikedPost } from '../../../services/apiService';
+import PostCard from '../../../ui/postcard/postcard';
+import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost,deleteLikedPost } from '../../../services/httprequest/apiService';
 
 const Popular = () => {
   const [popularPosts, setPopularPosts] = useState([]);

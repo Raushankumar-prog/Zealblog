@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { makeRequest } from '../../../fetch/fetch';
+import { makeRequest } from '../../../services/fetch/fetch';
 import { getRandomColor } from '../../../Glance/glance';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';

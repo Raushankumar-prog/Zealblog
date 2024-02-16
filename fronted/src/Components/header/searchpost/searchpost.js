@@ -1,80 +1,69 @@
+// // searchpost.js
 
-import * as React from 'react';
-import { useState,useEffect,createContext, useContext } from 'react';
-import PostCard from "../../postcard/postcard";
-import { fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost, deleteLikedPost, handleSearch} from '../../services/apiService';
-import { SearchContext } from '../header';
+// import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
+// import PostCard from "../../postcard/postcard";
+// import { fetchSavedPosts, savePost, likePost, fetchLikedPosts, deleteSavedPost, deleteLikedPost } from '../../services/apiService';
 
-const Searchpost = () => {
-     const { query } = useContext(SearchContext); // Consume the context
-      
-  const [SearchPosts, setSearchPosts] = useState([]);
-  const [savedPosts, setsavedPosts] = useState([]);
-  const [likePosts, setlikePosts] = useState([]);
+// const Searchpost = ({ searchPosts }) => {
+//   const [savedPosts, setsavedPosts] = useState([]);
+//   const [likePosts, setlikePosts] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const latestPostsData = await handleSearch(query);
-      setSearchPosts(latestPostsData);
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const savedPostsData = await fetchSavedPosts();
+//       setsavedPosts(savedPostsData);
+//     };
 
-    fetchData();
-  }, [query]);
+//     fetchData();
+//   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const savedPostsData = await fetchSavedPosts();
-      setsavedPosts(savedPostsData);
-    };
+//   const handleSavePost = async (postId) => {
+//     await savePost(postId);
+//   };
 
-    fetchData();
-  }, []);
+//   const handleLikePost = async (postId) => {
+//     await likePost(postId);
+//   };
 
-  const handleSavePost = async (postId) => {
-    await savePost(postId);
-   
-  };
+//   const handleDelete = async (postId) => {
+//     await deleteSavedPost(postId);
+//   };
 
-  const handleLikePost = async (postId) => {
-    await likePost(postId);
-   
-  };
+//   const handleDeletelike = async (likeId) => {
+//     console.log(likeId);
+//     await deleteLikedPost(likeId);
+//   };
 
-  const handleDelete = async (postId) => {
-    
-    await deleteSavedPost(postId);
-   
-  };
-const handleDeletelike= async (likeId) => {
-  console.log(likeId)
-  await deleteLikedPost(likeId);
-};
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const likedPostsData = await fetchLikedPosts();
+//       setlikePosts(likedPostsData);
+//     };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const likedPostsData = await fetchLikedPosts();
-      setlikePosts(likedPostsData);
-    };
+//     fetchData();
+//   }, []);
 
-    fetchData();
-  }, []);
-  return (
-    <div>
-        {SearchPosts.map((post) => (
-    <PostCard
-     key={post.id}
-          post={post}
-          isSaved={savedPosts.some((last) => last.belongstoposts.id === post.id)}
-          handleSavePost={handleSavePost}
-          handleLikePost={handleLikePost}
-          isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.id)}
-          handleDelete={() => handleDelete(post.saving[0].id)}
-          handleDeletelike={() => handleDeletelike(post.liked[0].id)}
-          />
-          ))}
-    </div>
-      
-  );
-};
+//   return (
+//     <div>
+//       {searchPosts.map((post) => (
+//         <PostCard
+//           key={post.id}
+//           post={post}
+//           isSaved={savedPosts.some((last) => last.belongstoposts.id === post.id)}
+//           handleSavePost={() => handleSavePost(post.id)}
+//           handleLikePost={() => handleLikePost(post.id)}
+//           isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.id)}
+//           handleDelete={() => handleDelete(post.saving[0].id)}
+//           handleDeletelike={() => handleDeletelike(post.liked[0].id)}
+//         />
+//       ))}
+//     </div>
+//   );
+// };
 
-export default Searchpost;
+// Searchpost.propTypes = {
+//   searchPosts: PropTypes.array.isRequired,
+// };
+
+// export default Searchpost;

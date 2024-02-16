@@ -8,7 +8,7 @@ import Bliked from '@mui/icons-material/ThumbUpAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import Saved from '@mui/icons-material/BookmarkBorder';
 import BSaved from '@mui/icons-material/Bookmark';
-import { getRandomColor } from '../Glance/glance';
+import { getRandomColor } from '../../Glance/glance';
 
 const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked,handleDeletelike}) => {
   console.log("post.beongsto:", post.beongsto);

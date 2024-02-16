@@ -1,8 +1,8 @@
 // Lastest.js
 import React, { useEffect, useState } from 'react';
 import './lastest.css';
-import PostCard from '../../../postcard/postcard';
-import { fetchLatestPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost,handleDeletelike, deleteLikedPost} from '../../../services/apiService';
+import PostCard from '../../../ui/postcard/postcard';
+import { fetchLatestPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,deleteSavedPost,handleDeletelike, deleteLikedPost} from '../../../services/httprequest/apiService';
 
 const Lastest = () => {
   const [latestPosts, setLatestPosts] = useState([]);

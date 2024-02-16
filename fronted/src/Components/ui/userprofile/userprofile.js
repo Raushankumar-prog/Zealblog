@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from 'react';
-import '../channel_template/channel.css';
-import img from '../Glance/OIP.jpeg';
-import solar from '../channel_template/solar.jpg';
-import Authorpost from '../channel_template/channel_component/authorpost/authorpost';
+import '../../channel_template/channel.css';
+import img from '../../Glance/OIP.jpeg';
+import solar from '../../channel_template/solar.jpg';
+import Authorpost from '../../channel_template/channel_component/authorpost/authorpost';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
 import Cookies from 'js-cookie';

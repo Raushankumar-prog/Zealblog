@@ -1,8 +1,8 @@
 // Saved.js
 import React, { useEffect, useState } from 'react';
 import './saved.css';
-import PostCard from '../../../postcard/postcard';
-import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts, deleteLikedPost, likePost,handleDeletelike } from '../../../services/apiService';
+import PostCard from '../../../ui/postcard/postcard';
+import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts, deleteLikedPost, likePost,handleDeletelike } from '../../../services/httprequest/apiService';
 
 const Savedd = () => {
   const [savedPosts, setsavedPosts] = useState([]);

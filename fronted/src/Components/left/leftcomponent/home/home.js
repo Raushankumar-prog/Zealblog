@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './home.css'
-import { makeRequest } from '../../../fetch/fetch';
+import { makeRequest } from '../../../services/fetch/fetch';
 import { nichetype1 } from './nichetype/nichetype';
 import Cookies from 'js-cookie';
 const  id= Cookies.get('id');

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './profile.css';
 import Cookies from 'js-cookie';
 import Channel from '../../../channel_template/channel';
-import { makeRequest } from '../../../fetch/fetch';
+import { makeRequest } from '../../../services/fetch/fetch';
 import { Paper } from '@mui/material';
 import Button from '@mui/material/Button';
 
