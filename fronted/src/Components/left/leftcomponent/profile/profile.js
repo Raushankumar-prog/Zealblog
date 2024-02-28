@@ -40,11 +40,11 @@ const Profile = () => {
       const token = data.token;
       const usernam = data.user.username;
       const id = data.user.id;
-
+         
       Cookies.set('token', token, { expires: 7, secure: true });
       Cookies.set('usernam', usernam, { expires: 7, secure: true });
       Cookies.set('id', id, { expires: 7, secure: true });
-
+      
       // Update the local state
       setLocalCheckUsername(true);
     } catch (error) {
@@ -55,6 +55,7 @@ const Profile = () => {
   useEffect(() => {
     // Check if the username is present in cookies
     const checkUsername = Cookies.get('usernam');
+  
     if (checkUsername) {
       setLocalCheckUsername(true);
     }

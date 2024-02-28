@@ -1,0 +1,15 @@
+/* Custom styles for the button */
+.paginationbutton {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 1%;
+}
+
+.paginationbutton:hover {
+    background-color: rgb(73, 58, 58);
+}

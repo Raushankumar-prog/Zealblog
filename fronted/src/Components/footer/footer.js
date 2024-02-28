@@ -1,3 +1,4 @@
+import Pagination from '../ui/pagination/pagination';
 import './footer.css';
 import {Link} from 'react-router-dom';
 
@@ -5,6 +6,7 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
     return ( <div className="footer">
             <div className="size">
+              
               <p className="line">Zealblog is platform where author can post the article.</p> 
              <hr></hr>
           

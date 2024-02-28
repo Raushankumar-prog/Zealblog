@@ -11,10 +11,10 @@ import BSaved from '@mui/icons-material/Bookmark';
 import { getRandomColor } from '../../Glance/glance';
 
 const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked,handleDeletelike}) => {
-  console.log("post.beongsto:", post.beongsto);
+  
   return (
     <div className="universe" key={post.id}>
-      <Paper className="papersClass">
+      <Paper className="papersClass"  sx={{ width: '100%',margin:'0%',padding:'0%'}}>
         <Link to="/mainpage" className="remove">
           <div className="space">
             <div className="headingglance">
