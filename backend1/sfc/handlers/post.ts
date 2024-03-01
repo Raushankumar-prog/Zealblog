@@ -127,66 +127,67 @@ export const publish = async (req, res) => {
   }
 };
 
-
 export const latestPost = async (req, res) => {
   const providedId = req.params.providedId;
+  const { page = 1, pageSize = 5 } = req.query;
+
   try {
+    const skip = (page - 1) * pageSize;
+
     const latestPosts = await prisma.post.findMany({
       orderBy: {
         createdAt: 'desc',
       },
+      skip,
+      take: pageSize,
       select: {
         id: true,
         title: true,
         content: true,
         nichetype: true,
         belongsid: true,
-         saving: {
+        saving: {
           select: { 
             id: true,
-            postid:true,
-          belongsid:true,
+            postid: true,
+            belongsid: true,
           },
           where: {
             belongsid: providedId, 
-             },
-         },
-         liked:{
-               select: { 
+          },
+        },
+        liked: {
+          select: { 
             id: true,
-            postid:true,
-          belongsid:true,
+            postid: true,
+            belongsid: true,
           },
           where: {
             belongsid: providedId, 
-             },
-         },
-       // imageName: true,
+          },
+        },
         createdAt: true,
-        beongsto:{
-          select:{
-            username:true,
-              id:true,
-          }
-        }
+        beongsto: {
+          select: {
+            username: true,
+            id: true,
+          },
+        },
       },
     });
 
-    
-
-    res.status(200).json({ latestPosts});
+    res.status(200).json({ latestPosts });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ success: false, error: 'Internal Server Error' });
-  } finally {
-    await prisma.$disconnect();
+    console.error('Error fetching latest posts:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 export const profilePost = async (req, res) => {
  
   try {
      const id = req.params.id;
-
+        
     const profilePosts = await prisma.post.findMany({
       where: {
         belongsid:id,
