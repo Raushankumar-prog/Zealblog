@@ -222,14 +222,20 @@ export const profilePost = async (req, res) => {
   }
 };
 export const popularPosts = async (req, res) => {
-  const providedId = req.params.providedId;
+  
+   
   try {
+    const providedId = req.params.providedId;
+     const { page = 1, pageSize = 2 } = req.query;
+     const skip = (page - 1) * pageSize;
     const sortOrder = req.query.sortOrder || 'desc';
 
     const popularPosts = await prisma.post.findMany({
       orderBy: {
         like: sortOrder,
       },
+       skip,
+      take: pageSize,
       select: {
         id: true,
         title: true,
