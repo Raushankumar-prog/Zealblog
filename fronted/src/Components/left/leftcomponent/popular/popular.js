@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react';
 import './popular.css';
 import PostCard from '../../../ui/postcard/postcard';
 import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts, deleteSavedPost, deleteLikedPost } from '../../../services/httprequest/apiService';
-
+import Pagination from '../../../ui/pagination/pagination';
 const Popular = () => {
   const [popularPosts, setPopularPosts] = useState([]);
   const [savedPosts, setsavedPosts] = useState([]);
   const [likePosts, setlikePosts] = useState([]);
 
+ const [pagenumber, setpagenumber] = useState(1);
+
+  function previouspage() {
+    setpagenumber((prevPage) => (prevPage !== 1 ? prevPage - 1 : prevPage));
+  }
+    console.log(pagenumber);
+
+ function nextpage() {
+    setpagenumber((prevPage) => ( prevPage + 1));
+  }
   useEffect(() => {
     const fetchData = async () => {
-      const popularPostsData = await fetchPopularPosts();
+      const popularPostsData = await fetchPopularPosts(pagenumber);
       setPopularPosts(popularPostsData);
     };
 
     fetchData();
-  }, []);
+  }, [pagenumber]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +85,7 @@ const Popular = () => {
 
   return (
     <div>
-      <h2>Popular Posts</h2>
+      <h2  align="center">Popular Posts</h2>
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
           {row.map((post) => (
@@ -92,6 +102,8 @@ const Popular = () => {
           ))}
         </div>
       ))}
+           <Pagination  pagenumber={pagenumber} previouspage={previouspage} nextpage={nextpage} />
+   
     </div>
   );
 };

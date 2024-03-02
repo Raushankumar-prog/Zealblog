@@ -19,10 +19,9 @@
 }
 
 .postcard {
-    /* Add any additional styling for your PostCard component */
+  
     width: 48%;
-    /* Adjust the width to leave space for margins and paddings */
     box-sizing: border-box;
     margin-bottom: 10px;
-    /* Adjust the margin based on your design */
+    
 }

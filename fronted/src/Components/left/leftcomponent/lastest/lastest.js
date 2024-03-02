@@ -2,21 +2,39 @@ import React, { useEffect, useState } from 'react';
 import './lastest.css';
 import PostCard from '../../../ui/postcard/postcard';
 import { fetchLatestPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts, deleteSavedPost, deleteLikedPost } from '../../../services/httprequest/apiService';
+import Pagination from '../../../ui/pagination/pagination';
 
 const Lastest = () => {
   const [latestPosts, setLatestPosts] = useState([]);
   const [savedPosts, setsavedPosts] = useState([]);
   const [likePosts, setlikePosts] = useState([]);
 
-  useEffect(() => {
+ const [pagenumber, setpagenumber] = useState(1);
+
+  function previouspage() {
+    setpagenumber((prevPage) => (prevPage !== 1 ? prevPage - 1 : prevPage));
+  }
+   
+
+ function nextpage() {
+    setpagenumber((prevPage) => ( prevPage + 1));
+  }
+useEffect(() => {
     const fetchData = async () => {
-      const latestPostsData = await fetchLatestPosts();
-      setLatestPosts(latestPostsData);
+      try {
+        
+        const latestPostsData = await fetchLatestPosts(pagenumber );
+        setLatestPosts(latestPostsData);
+      } catch (error) {
+        console.error('Error fetching latest posts:', error.message);
+      } 
     };
 
     fetchData();
-  }, []);
+  }, [pagenumber]);
 
+
+  
   useEffect(() => {
     const fetchData = async () => {
       const savedPostsData = await fetchSavedPosts();
@@ -74,7 +92,7 @@ const Lastest = () => {
 
   return (
     <div>
-      <h2>Latest Posts</h2>
+      <h2 align="center">Latest Posts</h2>
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
           {row.map((post) => (
@@ -91,6 +109,10 @@ const Lastest = () => {
           ))}
         </div>
       ))}
+      
+      
+      <Pagination  pagenumber={pagenumber} previouspage={previouspage} nextpage={nextpage} />
+   
     </div>
   );
 };

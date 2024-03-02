@@ -1,10 +1,11 @@
 // apiService.js
 import { makeRequest } from '../fetch/fetch';
 import Cookies from 'js-cookie';
-export const fetchLatestPosts = async () => {
+
+export const fetchLatestPosts = async (pagenumber) => {
   try {
     const providedId = Cookies.get('id');
-    const response = await makeRequest(`/api/lastestpost/${providedId}`, 'GET');
+    const response = await makeRequest(`/api/lastestpost/${providedId}?page=${pagenumber}`, 'GET');
 
     const latestPosts = response.latestPosts.map(post => {
       const filteredSaving = post.saving.filter(s => s.postid === post.id);
@@ -24,10 +25,10 @@ export const fetchLatestPosts = async () => {
 };
 
 
-export const fetchPopularPosts = async () => {
+export const fetchPopularPosts = async (pagenumber) => {
   try {
      const providedId = Cookies.get('id');
-    const response = await makeRequest(`/api/popularpost/${providedId}`, 'GET');
+    const response = await makeRequest(`/api/popularpost/${providedId}?page=${pagenumber}`, 'GET');
    
       const popularPosts= response.popularPosts.map(post => {
       const filteredSaving = post.saving.filter(s => s.postid === post.id);
@@ -47,7 +48,7 @@ export const fetchPopularPosts = async () => {
   }
 };
 
-export const fetchSavedPosts = async () => {
+export const fetchSavedPosts = async (pagenumber) => {
   try {
     const id = Cookies.get('id');
     const response = await makeRequest(`/api/savedpost/${id}`, 'GET');

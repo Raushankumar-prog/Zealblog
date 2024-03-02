@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 import './saved.css';
 import PostCard from '../../../ui/postcard/postcard';
 import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts, deleteLikedPost, likePost } from '../../../services/httprequest/apiService';
-
+import Pagination from '../../../ui/pagination/pagination';
 const Savedd = () => {
+
   const [savedPosts, setsavedPosts] = useState([]);
   const [likePosts, setlikePosts] = useState([]);
+  
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +63,7 @@ const Savedd = () => {
 
   return (
     <div>
-      <h2>Saved Posts</h2>
+      <h2 align="center">Saved Posts</h2>
 
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
@@ -77,6 +80,8 @@ const Savedd = () => {
           ))}
         </div>
       ))}
+      
+   
     </div>
   );
 };
