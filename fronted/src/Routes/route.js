@@ -17,12 +17,14 @@ import Home from '../Components/left/leftcomponent/home/home';
 import ShareButton from '../Components/left/leftcomponent/share/share';
 import Savedd from '../Components/left/leftcomponent/saved/saved';
 import U from '../Components/ui/userprofile/userprofile';
+import Paymentsystem from '../Components/ui/payment/payment';
 // import Searchpost from '../Components/header/searchpost/searchpost';
 const Routing = () => {
     return ( <div>
         <Routes>
      
       <Route path="/author" element={<Author/>}/>
+      <Route path="/paymentsystem" element={<Paymentsystem/>}/>
       <Route path="/:userId" element={<U/>}/>
       <Route path="/" element={<Lastest/>}/>
       <Route path="/mainpage" element={<Mainpage/>}/>

@@ -10,14 +10,12 @@ import Cookies from 'js-cookie';
 const AuthorPost = (props) => {
   const { userId } = props;
   const [profilePosts, setProfilePosts] = useState([]);
-  const id = Cookies.get('id');
-  const deleteuserpost = id === userId;
-
+  const loggedInUserId = Cookies.get('id');
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Make a request to fetch the latest posts
-        const response = await makeRequest(`/api/profilePost/${userId}`, 'GET');
+        const response = await makeRequest(`/api/profilePost/${loggedInUserId}`, 'GET');
         setProfilePosts(response.profilePosts);
       } catch (error) {
         console.error('Error fetching latest posts:', error.message);
@@ -25,7 +23,9 @@ const AuthorPost = (props) => {
     };
 
     fetchData();
-  }, [userId]);
+  }, [userId, loggedInUserId]);
+
+  const deleteuserpost = (postUserId) => loggedInUserId === postUserId;
 
   const handleDelete = async (postId) => {
     try {
@@ -60,7 +60,7 @@ const AuthorPost = (props) => {
                 </div>
                 <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
               </div>
-              {deleteuserpost && <div className="like"><DeleteIcon color="error" onClick={() => handleDelete(post.id)} /></div>}
+              {deleteuserpost(post.beongsto.id) && <div className="like"><DeleteIcon color="error" onClick={() => handleDelete(post.id)} /></div>}
             </div>
           </Paper>
         </div>

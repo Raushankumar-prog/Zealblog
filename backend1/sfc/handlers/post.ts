@@ -226,7 +226,7 @@ export const popularPosts = async (req, res) => {
    
   try {
     const providedId = req.params.providedId;
-     const { page = 1, pageSize = 2 } = req.query;
+     const { page = 1, pageSize = 4 } = req.query;
      const skip = (page - 1) * pageSize;
     const sortOrder = req.query.sortOrder || 'desc';
 

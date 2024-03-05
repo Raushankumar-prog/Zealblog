@@ -1,0 +1,23 @@
+[
+  {
+    "type": "Credit/Debit/ATM card",
+    "icon": "CiCreditCard1",
+    "brieftype": "Visa,Mastercard,Amex,Rupey And More"
+  },
+  {
+    "type": "Net Banking",
+    "icon": "CiBank", 
+    "brieftype": "All Major Banks Available"
+  },
+  {
+    "type": "UPI Options",
+      "icon": "UPI",
+    "brieftype": "Pay Directly From Your Bank Account"
+  },
+  
+  {
+    "type": "GooglePay",
+    "icon": "GooglePay",
+    "brieftype": "Pay with Google Pay"
+  }
+]

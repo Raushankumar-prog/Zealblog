@@ -59,7 +59,7 @@ const Channel = () => {
         </div>
       </div>
       <div className="lower">
-        {showAuthorPost && <Authorpost />}
+        {showAuthorPost && <Authorpost  />}
       </div>
     </div>
   );
