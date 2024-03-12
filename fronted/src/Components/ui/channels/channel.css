@@ -87,14 +87,19 @@
     font-size: 1vw;
     padding-left: 4%;
     font-family: cursive;
+    
 }
 
 .mainheading {
     font-size: 1.67vw;
+    font-weight:700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .userniche {
     margin-left: 3%;
     margin-top: 2%;
+    font-weight: 700;
 }
+
+

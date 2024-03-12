@@ -7,16 +7,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Cookies from 'js-cookie';
 
-const AuthorPost = () => {
- 
+const AuthorPost = (props) => {
+  const { userId } = props;
   const [profilePosts, setProfilePosts] = useState([]);
   const loggedInUserId = Cookies.get('id');
-  
   
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await makeRequest(`/api/profilePost/${loggedInUserId}`, 'GET');
+        const response = await makeRequest(`/api/profilePost/${userId}`, 'GET');
         setProfilePosts(response.profilePosts);
       } catch (error) {
         console.error('Error fetching latest posts:', error.message);
@@ -24,7 +23,9 @@ const AuthorPost = () => {
     };
 
     fetchData();
-  }, [ loggedInUserId]);
+  }, [userId, loggedInUserId]);
+  
+ 
 
 
   const deleteuserpost = (postUserId) => loggedInUserId === postUserId;

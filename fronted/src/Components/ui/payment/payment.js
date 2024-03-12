@@ -29,20 +29,31 @@ const Paymentsystem = () => {
       }}>
         <div className='paymentsystemoptions'>
           <div className='paymentoptionsheading'>Payment options</div><hr></hr>
+          
           {paymentsystem.map((data) => (
-            <div display="grid" key={data.type} onClick={() => data.type === 'Credit/Debit/ATM card' && handleOpenModal()}>
+            
+            <div display="grid" key={data.type} onClick={() => data.type === 'Credit/Debit/ATM card' && handleOpenModal()}  style={{ cursor: 'pointer', border: 'none', background: 'none', padding: '0', margin: '0', outline: 'none' }}>
+              
               <div className="paymentsystembox">
+                  
                 <div className='paymentsystemicon'>
+                 
                   {data.icon === 'GooglePay' && <img src={googlePayImage} alt="Google Pay" className="googlePayImage" />}
                   {data.icon === 'UPI' && <img src={UPI} alt="UNIFIED PAYMENT INTERFACE" className="upi" />}
                   {ciIconComponents[data.icon] && ciIconComponents[data.icon]()}
                   {faIconComponents[data.icon] && faIconComponents[data.icon]()}
+
                 </div>
+               
                 <div className='paymentsystemtype'>{data.type}</div>
+             
               </div>
+            
               <div className='paymentsystembrief'>{data.brieftype}</div><hr></hr>
+                  
             </div>
           ))}
+          
         </div>
       </Paper>
       {/* Render StripeCheckout component conditionally */}

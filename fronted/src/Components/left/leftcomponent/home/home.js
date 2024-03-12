@@ -3,6 +3,7 @@ import './home.css'
 import { makeRequest } from '../../../services/fetch/fetch';
 import { nichetype1 } from './nichetype/nichetype';
 import Cookies from 'js-cookie';
+import { Modal, Paper } from '@mui/material';
 const  id= Cookies.get('id');
 console.log(id);
 const Home = () => {
@@ -71,6 +72,7 @@ const Home = () => {
   };
 
   return (
+    <Paper  sx={{marginTop:'10%'}}>
     <div id="form">
       <div className="form-group-1">
         <label htmlFor="posttitle" className='labeltext'>Title:</label><br />
@@ -114,6 +116,7 @@ const Home = () => {
         Submit
       </button>
     </div>
+    </Paper>
   );
 };
 

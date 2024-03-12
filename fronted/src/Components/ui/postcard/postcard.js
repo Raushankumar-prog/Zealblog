@@ -1,5 +1,6 @@
 // PostCard.js
 import React from 'react';
+import './postcard.css';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -15,7 +16,8 @@ const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
   return (
     <div className="universe" key={post.id}>
       <Paper className="papersClass"  sx={{ width: '100%',margin:'0%',padding:'0%'}}>
-        <Link to="/mainpage" className="remove">
+        <div className="postbinder">
+      
           <div className="space">
             <div className="headingglance">
               <p className="headingtext">{post.title}</p>
@@ -24,7 +26,7 @@ const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
               <p className="glancebrieftext">{post.content}</p>
             </div>
           </div>
-        </Link>
+   
         <div className="little">
        <Link to={post.beongsto ? `/${post.beongsto.id}` : '/unknownUser'} className='link'>
   <div className="author">
@@ -54,6 +56,7 @@ const PostCard = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
           </div>
         
           
+        </div>
         </div>
       </Paper>
     </div>

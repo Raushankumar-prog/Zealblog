@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import '../channels/channel.css';
 import img from '../../Glance/OIP.jpeg';
 import solar from '../channels/solar.jpg';
-import Authorpost from '../channels/channel_template/authorpost';
+import Authorpost from '../channels/channel_template/otherauthorpost';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
 import Cookies from 'js-cookie';

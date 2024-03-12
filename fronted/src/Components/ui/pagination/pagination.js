@@ -12,7 +12,7 @@ const Pagination = ({pagenumber,previouspage,nextpage}) => {
           className="paginationbutton"
           onClick={previouspage}
         >
-          pre
+          Pre
         </button>
         <button
           className="paginationbutton"
@@ -23,7 +23,7 @@ const Pagination = ({pagenumber,previouspage,nextpage}) => {
           className="paginationbutton"
           onClick={nextpage}
         >
-          next
+          Next
         </button>
       </div>
     </>
