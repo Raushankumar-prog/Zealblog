@@ -1,4 +1,4 @@
-import Pagination from '../ui/pagination/pagination';
+import Pagination from '../Ui/Pagination/Pagination';
 import './footer.css';
 import {Link} from 'react-router-dom';
 

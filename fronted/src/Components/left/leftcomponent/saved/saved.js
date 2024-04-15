@@ -1,15 +1,16 @@
-// Saved.js
 import React, { useEffect, useState } from 'react';
 import './saved.css';
-import PostCard from '../../../ui/postcard/postcard';
-import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts, deleteLikedPost, likePost } from '../../../services/httprequest/apiService';
-import Pagination from '../../../ui/pagination/pagination';
-const Savedd = () => {
+import PostCardfile from '../../../Ui/Postcard/Postcardfile';
+import { fetchSavedPosts, deleteSavedPost, fetchLikedPosts, deleteLikedPost, likePost } from '../../../../Service/HttpRequest/ApiService';
+import Pagination from '../../../Ui/Pagination/Pagination';
 
+
+import { Paper } from '@mui/material';
+
+const Savedd = () => {
   const [savedPosts, setsavedPosts] = useState([]);
   const [likePosts, setlikePosts] = useState([]);
-  
- 
+  const [showZeroSavedModal, setShowZeroSavedModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,6 @@ const Savedd = () => {
 
   const handleDelete = async (postId) => {
     await deleteSavedPost(postId);
-    // Fetch updated saved posts after deleting a saved post
     const updatedSavedPosts = await fetchSavedPosts();
     setsavedPosts(updatedSavedPosts);
   };
@@ -40,7 +40,6 @@ const Savedd = () => {
     const like = likePosts.find((likes) => likes.belongstoposts.id === postId);
     if (like) {
       await deleteLikedPost(like.id);
-      // Fetch updated liked posts after deleting a liked post
       const updatedLikedPosts = await fetchLikedPosts();
       setlikePosts(updatedLikedPosts);
     }
@@ -48,7 +47,6 @@ const Savedd = () => {
 
   const handleLikePost = async (postId) => {
     await likePost(postId);
-    // Fetch updated liked posts after liking a post
     const updatedLikedPosts = await fetchLikedPosts();
     setlikePosts(updatedLikedPosts);
   };
@@ -61,16 +59,20 @@ const Savedd = () => {
     postsInRows.push(rowPosts);
   }
 
+  useEffect(() => {
+    setShowZeroSavedModal(savedPosts.length === 0);
+  }, [savedPosts]);
+
   return (
-    <div>
+    <div className="saved-container">
       <h2 align="center">Saved Posts</h2>
 
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
           {row.map((post) => (
-            <PostCard
+            <PostCardfile
               key={post.belongstoposts.id}
-              post={post.belongstoposts}
+              post={ post}
               isSaved
               handleDelete={() => handleDelete(post.id)}
               handleLikePost={() => handleLikePost(post.belongstoposts.id)}
@@ -81,7 +83,13 @@ const Savedd = () => {
         </div>
       ))}
       
-   
+      {showZeroSavedModal && (
+        <Paper className="zero-saved-modal">
+          <div className="modal-content">
+            <p id="savedcountmessage">Zero post is saved.</p>
+          </div>
+        </Paper>
+      )}
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './profile.css';
 import Cookies from 'js-cookie';
-import Channel from '../../../ui/channels/channel';
-import { makeRequest } from '../../../services/fetch/fetch';
+import Channel from '../../../Ui/Channel/Channel';
+import { makeRequest } from '../../../../Service/Fetch/Fetch';
 import { Paper } from '@mui/material';
 import Button from '@mui/material/Button';
 
 const Profile = () => {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [localCheckUsername, setLocalCheckUsername] = useState(false);
@@ -60,11 +61,16 @@ const Profile = () => {
       setLocalCheckUsername(true);
     }
   }, []);
+  const providedId=Cookies.get('id');
 
+
+
+
+  
   return (
     <div id="profilebox">
       {localCheckUsername ? (
-        <div id="content"><Channel /></div>
+        <div id="content"><Channel providedId={providedId} /></div>
       ) : (
         <Paper style={{ width: '50%', marginLeft: '14%', marginTop: '6%' }}>
           <div id="formlogin">

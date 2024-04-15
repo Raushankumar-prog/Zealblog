@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { makeRequest } from '../../../services/fetch/fetch';
+import { makeRequest } from '../../../../Service/Fetch/Fetch';
 
 const Author = () => {
   const [authors, setAuthors] = useState([]);

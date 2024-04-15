@@ -1,60 +1,84 @@
 .fr {
     border-radius: 6%;
-    width: 8%;
-    height: 30%;
-    margin-left: 1%;
+    margin-right: 2%;
     background-color: rgb(21, 0,21);
+
+  
+}
+.navigator {
+    position: fixed;
+    
+    width: 12%;
+    height:79%;
+     margin-top: 3%;
+    background-color: rgb(21, 0, 21);
     padding-right: 2%;
     padding-left: 2%;
-    margin-top: 3%
+     padding-top:3%;
+    z-index: 4440;
+
+    
+}
+.navigator:hover {
+    position: fixed;
+ 
+    width: 12%;
+    height: 79%;
+    margin-top: 3%;
+    background-color: rgb(21, 0, 21);
+    padding-right: 2%;
+    padding-left: 2%;
+    padding-top: 3%;
+    z-index: 4440;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+}
+.link {
+    text-decoration:none;
+
+}
+.link.active .category1 {
+    background: linear-gradient(45deg, rgba(255, 179, 0, 1), rgba(255, 179, 0, 0.5));
+    border-radius: 8%;
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.2);
+    transition:all 0.3ms ease-in;
+}
+
+.link.active .category1:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 2% rgba(0, 0, 0, 0.3);
 }
 
 .category1 {
     text-transform: capitalize;
-    padding-top: 5%;
+    padding-top: 3%;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1vw;
+    font-size: 1.15vw;
     display: flex;
-
+    font-weight: 500;
 }
 
-.category2 {
-    text-transform: capitalize;
-    padding-top: 5%;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1vw;
-    margin-top: 120%;
-    display: flex;
-}
 
 .text {
     padding-left: 5%;
 }
 
 .icon {
-    padding-top: 3%;
+    padding-top: 11%;
 }
 
-@media only screen and (max-width:700px) {
-    .text {
-        display: none;
-    }
 
-    .fr {
-        border-radius: 6%;
-        width: 4%;
-        height: auto;
-        margin-left: 4%;
-        background-color: rgb(21, 0, 21);
-        margin-top: 3%;
-        padding-right: 2%;
-
-
-    }
-}
 
 .link {
     text-decoration: none;
+}
+
+.you,.writer,.subcriptions{
+      font-size: 1.2vw;
+      color: #e42727;
+      font-weight: 700;
+      align-items:center;
+      text-align:center;
 }

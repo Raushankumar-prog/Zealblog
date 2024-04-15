@@ -1,6 +1,6 @@
 import React from "react";
 
-import './pagination.css';
+import './Pagination.css';
 
 
 const Pagination = ({pagenumber,previouspage,nextpage}) => {

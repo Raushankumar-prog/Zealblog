@@ -144,7 +144,7 @@ height: 40%;
 }
 
 .space {
-    
+    background-color: aqua;
     margin: 1%;
     padding-top: 1%;
     padding-left: 1%;
@@ -246,3 +246,16 @@ height: 40%;
     color: rgb(19, 19, 19);
 }
 
+.userchannelimage {
+    height: 50%;
+    width: 80%;
+    border-radius: 50%;
+}
+.imagefitting{
+    height:50%;
+    width:100%;
+}
+
+.universe1{
+    background-color: aqua;
+}

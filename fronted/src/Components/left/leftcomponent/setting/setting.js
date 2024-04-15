@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import './setting.css';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { makeRequest } from '../../../services/fetch/fetch';
+import { makeRequest } from '../../../../Service/Fetch/Fetch';
 import Button from '@mui/material/Button';
 
 const handleSavePost = async () => {

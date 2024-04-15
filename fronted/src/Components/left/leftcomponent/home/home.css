@@ -5,7 +5,7 @@
       padding: 3%;
       border-radius: 2%;
       box-shadow: 0 0 1% rgba(0, 0, 0, 0.2);
-      padding-top: 3%;
+      padding-top: 2%;
       margin-bottom: 3%;
       transition: box-shadow 0.3s ease-in-out;
 }
@@ -91,4 +91,9 @@ select:focus {
 
 .Paper:hover {
       box-shadow: 0 0 2% rgba(0, 0, 0, 0.4);
+}
+
+
+#modal-modal-description{
+      font-weight: 700;
 }

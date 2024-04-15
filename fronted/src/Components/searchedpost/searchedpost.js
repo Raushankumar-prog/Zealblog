@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { usePost } from '../ui/search/search';
+import { usePost } from '../Ui/Search/Search';
 
 const Searchpost = () => {
 

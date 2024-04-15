@@ -1,3 +1,22 @@
 .postbinder,.little{
    background-color:  rgb(237, 237, 252);
 }
+
+#userimage{
+     width: 40%;
+     height:70%;
+      border-radius: 50%;
+}
+.signupimage {
+   margin-left: 15%;
+   text-decoration: none;
+
+   border: 1px solid black;
+   color: white;
+   background-color: rgb(163, 231, 242);
+   font-weight: 620;
+   border-radius: 5%;
+   margin-right: 2%;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}

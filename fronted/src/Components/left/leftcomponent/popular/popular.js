@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './popular.css';
-import PostCard from '../../../ui/postcard/postcard';
-import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts, deleteSavedPost, deleteLikedPost } from '../../../services/httprequest/apiService';
-import Pagination from '../../../ui/pagination/pagination';
+
+import { fetchPopularPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts, deleteSavedPost, deleteLikedPost } from '../../../../Service/HttpRequest/ApiService';
+import Pagination from '../../../Ui/Pagination/Pagination';
+import Template from '../../../Ui/Postcard/Template';
+
+
+
 const Popular = () => {
   const [popularPosts, setPopularPosts] = useState([]);
   const [savedPosts, setsavedPosts] = useState([]);
@@ -76,7 +80,7 @@ const Popular = () => {
   };
 
   const postsInRows = [];
-  const postsPerRow = 2;
+  const postsPerRow = 3;
 
   for (let i = 0; i < popularPosts.length; i += postsPerRow) {
     const rowPosts = popularPosts.slice(i, i + postsPerRow);
@@ -84,12 +88,12 @@ const Popular = () => {
   }
 
   return (
-    <div>
-      <h2  align="center">Popular Posts</h2>
+    <div className="maincontent">
+      
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
           {row.map((post) => (
-            <PostCard
+            <Template
               key={post.id}
               post={post}
               isSaved={savedPosts.some((last) => last.belongstoposts.id === post.id)}

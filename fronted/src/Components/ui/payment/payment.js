@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Paper from '@mui/material/Paper';
-import paymentsystem from './paymentsystem.json';
-import './payment.css';
+import paymentsystem from './PaymentSystem.json';
+import './Payment.css';
 import * as CiIcons from "react-icons/ci";  
 import * as FaIcons from "react-icons/fa";  
-import googlePayImage from '../../../../src/asset/gpay.jpg';
-import UPI from '../../../../src/asset/upi.jpg';
-import StripeCheckout from '../../../payment/stripe'; 
+import googlePayImage from '../../../../src/Asset/gpay.jpg';
+import UPI from '../../../../src/Asset/upi.jpg';
+import StripeCheckout from '../../../Payment/stripe'; 
 
 const Paymentsystem = () => {
   const [openModal, setOpenModal] = useState(false);

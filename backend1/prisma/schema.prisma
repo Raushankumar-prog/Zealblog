@@ -11,17 +11,25 @@ datasource db {
 }
 
 model user {
-  id        String   @id @default(uuid())
-  username  String   @unique
-  password  String
+  id          String  @id @default(uuid())
+  username    String  @unique
+  password    String
+  imagebanner String?
+  profession  String?
+  description String?
+  image       String?
+
   createdAt DateTime @default(now())
   like      Int      @default(0)
   dislike   Int      @default(0)
 
-  post      post[]
-  saving    saving[]
-  subscribe subscribe[]
-  liked     liked[]
+  post   post[]
+  saving saving[]
+
+  liked                liked[]
+  UserSubscription     UserSubscription[]
+  articlereadbyuser    articlereadbyuser[]
+  summarywatchedbyuser summarywatchedbyuser[]
 }
 
 model post {
@@ -32,15 +40,19 @@ model post {
   content   String?
   nichetype String?
   imageName String?
+  videoName String?
+  txtName   String?
   like      Int      @default(0)
   dislike   Int      @default(0)
   published Boolean  @default(false)
   belongsid String
   beongsto  user     @relation(fields: [belongsid], references: [id])
 
-  comment comment[]
-  saving  saving[]
-  liked   liked[]
+  comment              comment[]
+  saving               saving[]
+  liked                liked[]
+  articlereadbyuser    articlereadbyuser[]
+  summarywatchedbyuser summarywatchedbyuser[]
 }
 
 model comment {
@@ -58,10 +70,29 @@ model saving {
   belongsto      user   @relation(fields: [belongsid], references: [id])
 }
 
-model subscribe {
-  id        String @id @default(uuid())
-  belongsid String
-  belongsto user   @relation(fields: [belongsid], references: [id])
+model articlereadbyuser {
+  id             String @id @default(uuid())
+  postid         String
+  belongstoposts post   @relation(fields: [postid], references: [id])
+  belongsid      String
+  belongsto      user   @relation(fields: [belongsid], references: [id])
+}
+
+model summarywatchedbyuser {
+  id             String @id @default(uuid())
+  postid         String
+  belongstoposts post   @relation(fields: [postid], references: [id])
+  belongsid      String
+  belongsto      user   @relation(fields: [belongsid], references: [id])
+}
+
+model UserSubscription {
+  id           String @id @default(uuid())
+  subscribedId String
+  subsciberId  String
+  belongsto    user   @relation(fields: [subsciberId], references: [id])
+
+  @@unique([subsciberId, subscribedId])
 }
 
 model liked {

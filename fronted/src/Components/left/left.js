@@ -1,14 +1,11 @@
-import Navigation from "../ui/navigation@left/navigation1/navigation";
+import Navigation from "../Ui/navigation@left/navigation1/navigation";
 
 const Left = () => {
 
     return (
   <div className="fr">
-
-     <Navigation/>
-  </div>    
-
-
+ <Navigation/>
+  </div> 
     );
 }
  
