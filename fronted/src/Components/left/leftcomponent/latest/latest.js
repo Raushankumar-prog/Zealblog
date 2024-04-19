@@ -4,6 +4,7 @@ import { fetchLatestPosts, fetchSavedPosts, savePost, likePost, fetchLikedPosts,
 import Pagination from '../../../Ui/Pagination/Pagination';
 import Template from '../../../Ui/Postcard/Template';
 
+
 const Latest = () => {
   const [latestPosts, setLatestPosts] = useState([]);
   const [savedPosts, setsavedPosts] = useState([]);
@@ -96,8 +97,9 @@ useEffect(() => {
     postsInRows.push(rowPosts);
   }
 
+
   return (
-    <div className="maincontent">
+    <div className="maincontent" >
       
       {postsInRows.map((row, index) => (
         <div key={index} className="post-row">
@@ -111,6 +113,7 @@ useEffect(() => {
               isLiked={likePosts.some((likes) => likes.belongstoposts.id === post.id)}
               handleDelete={() => handleDelete(post.saving[0].id)}
               handleDeletelike={() => handleDeletelike(post.liked[0].id)}
+            
             />
           ))}
         </div>

@@ -1,0 +1,61 @@
+.contenttitle{
+    font-size: 2.3vw;
+    font-weight: 800;
+    text-transform: capitalize;
+    color:rgb(47, 42, 42);
+    margin-left: 1%;
+}
+.contentuserimage{
+      height: 3%;
+      width:5%;
+      border-radius: 50%;
+      margin-top: 3%;
+      margin-left: 2%;
+}
+
+.contentprofile {
+    display: flex;
+   
+    align-items: center;
+    /* Vertically center content */
+}
+
+.contentusername{
+    padding-top: 2%;
+    font-weight: 600;
+    font-size: 1.1vw;
+    margin-left:1%;
+}
+.contentcreatedAt{
+    margin-top: 2%;
+}
+
+.contentmaincontent::first-letter {
+    text-transform: uppercase;
+
+}
+.contentmaincontent{
+    margin-top:5%;
+    margin-left: 1%;
+    margin-right: 8%;
+    font-weight: 600;
+    color: rgb(52, 52, 52);
+}
+
+
+.contentpageimage{
+    width:65%; 
+     height:350px;
+}
+
+
+.contentpageimagebox{
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+
+
+.summarywatched{
+        margin-left: 25%;
+}

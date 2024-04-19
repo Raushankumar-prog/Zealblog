@@ -9,7 +9,7 @@ import Left from './Components/Left/Left';
 //import {gapi} from 'gapi-script';
 import Header from './Components/Header/Header';
 
-const clientId="700675575965-p4ipb35g1t1u5ahni9gj1gali8e667i1.apps.googleusercontent.com";
+
 
 
 

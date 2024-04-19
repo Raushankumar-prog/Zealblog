@@ -17,6 +17,8 @@ export const createNewUser = async (req, res) => {
    
 }
 
+
+
 export const signin = async (req, res) => {
   const user = await prisma.user.findUnique({
     where:{
@@ -35,6 +37,10 @@ export const signin = async (req, res) => {
   const token = createJWT(user)
   res.json({ token,user })
 }
+
+
+
+
 
 
 // deleting the user

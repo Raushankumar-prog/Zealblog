@@ -7,10 +7,25 @@ import { deletingsavedPost, savedPost, savingPost } from './controllers/save';
 import { deletinglikedPost, likedPost, likingPost } from './controllers/like';
 import { gettingprofile } from './controllers/profile';
 import { creatingsubscriber, deletesubscribedto, subscribedto } from './controllers/subscriber';
+import { articlereadbyid, articlereadbyyou } from './controllers/articleread';
+import { getcontent } from './controllers/content';
+import { summarywatchedbyid, videowatchedbyyou } from './controllers/summarywatched';
+import { videourl } from './controllers/videourl';
 //import { search } from './handlers/search';
 //import {upload} from '../sfc/handlers/post';
 const router = Router()
+
 router.post('/subscribing',creatingsubscriber);
+router.get('/getcontent/:postid',getcontent);
+//article read
+router.post('/articleread',articlereadbyid);
+router.get('/articlereadbyyou/:belongsid',articlereadbyyou);
+//videowatched
+router.post('/videowatched',summarywatchedbyid);
+router.get('/videowatchedbyyou/:belongsid',videowatchedbyyou);
+//videourl
+router.get('/videourl/:postid',videourl);
+
 router.get('/gettingsubscriber/:ProfileId',subscribedto);
 router.delete('/unsubscribe',deletesubscribedto);
 router.get('/getimage/:imageName',getImage);

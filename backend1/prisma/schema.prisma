@@ -76,6 +76,7 @@ model articlereadbyuser {
   belongstoposts post   @relation(fields: [postid], references: [id])
   belongsid      String
   belongsto      user   @relation(fields: [belongsid], references: [id])
+  @@unique([belongsid,postid])
 }
 
 model summarywatchedbyuser {
@@ -84,6 +85,7 @@ model summarywatchedbyuser {
   belongstoposts post   @relation(fields: [postid], references: [id])
   belongsid      String
   belongsto      user   @relation(fields: [belongsid], references: [id])
+  @@unique([postid,belongsid])
 }
 
 model UserSubscription {

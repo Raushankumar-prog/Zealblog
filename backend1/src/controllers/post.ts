@@ -153,6 +153,10 @@ export const createPost = async (req, res) => {
   }
 };
 
+
+
+
+
 export const updatePost = async (req, res) => {
   try {
     const updatedPost = await prisma.post.update({
@@ -175,6 +179,10 @@ export const updatePost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
 
 export const deletePost = async (req, res) => {
   try {
@@ -214,6 +222,10 @@ export const publish = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
 
 export const latestPost = async (req, res) => {
   const providedId = req.params.providedId;
@@ -279,6 +291,9 @@ export const latestPost = async (req, res) => {
   }
 };
 
+
+
+
 export const profilePost = async (req, res) => {
  
   try {
@@ -324,6 +339,10 @@ export const profilePost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
 export const popularPosts = async (req, res) => {
   
    

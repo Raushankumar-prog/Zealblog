@@ -42,7 +42,7 @@ const Navigation = () => {
         <div className="category1" >
        
                <div className="icon"><ExploreIcon  fontSize="small" style={{ color:'white'}}  /></div> 
-              <div className="text"><p className="category">lastest</p></div>
+              <div className="text"><p className="category">latest</p></div>
        </div>    
 </Link>
 {/* <Link to="subscribe" className='link'>
@@ -61,14 +61,14 @@ const Navigation = () => {
    <hr></hr> 
    <div className="you">You</div>
            
-  <Link to="/createpost" className={`link ${pathname === '/createpost' ? 'active' : ''}`}>
+  <Link to="articlereadbyyou" className={`link ${pathname === '/articlereadbyyou' ? 'active' : ''}`}>
         <div className="category1" >
        
                <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Article read</p></div>
        </div>    
 </Link>        
-  <Link to="/createpost" className={`link ${pathname === '/createpost' ? 'active' : ''}`}>
+  <Link to="video" className={`link ${pathname === '/video' ? 'active' : ''}`}>
         <div className="category1" >
        
                <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 

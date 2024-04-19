@@ -10,25 +10,30 @@ import Saved from '@mui/icons-material/BookmarkBorder';
 import BSaved from '@mui/icons-material/Bookmark';
 
 
+
+
 const Template = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete ,isLiked,handleDeletelike}) => {
-   
+
   return (
-    <div className="universe" key={post.id}>
+  
+    <div className="universe" key={post.id} >
+       
       <Paper className="papersClass"  sx={{ width: '100%',margin:'0%',padding:'0%'}}>
+        
         <div className="postbinder">
-      
-          <div className="space">
+       <Link to={`/content/${post.id}`} className='remove'>
+         <div className="space">
             <div className="headingglance">
               <p className="headingtext">{post.title}</p>
             </div>
             <div className="glancebriefbox">
               <img src={post.imageUrl} width="100%" height="200px"/>
-              <p className="glancebrieftext">{post.content}</p>
+              <p className="glancebrieftext" >{post.content}</p>
             </div>
           </div>
-   
+     </Link>
         <div className="little">
-       <Link to={post.beongsto ? `/${post.beongsto.id}` : '/unknownUser'} className='link'>
+       <Link to={post.beongsto ? `/U/${post.beongsto.id}` : '/unknownUser'} className='link'>
   <div className="author">
     <div className="channelicon">
     {post.userimage ? <img src={post.userimage} alt="Post Image" id="userimage" className='signupimage'/> : <AccountCircleIcon fontSize="large" />}
@@ -59,8 +64,11 @@ const Template = ({ post, isSaved, handleSavePost, handleLikePost, handleDelete 
           
         </div>
         </div>
+      
       </Paper>
+       
     </div>
+    
   );
 };
 
