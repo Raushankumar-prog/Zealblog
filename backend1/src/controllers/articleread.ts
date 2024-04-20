@@ -24,6 +24,10 @@ export const articlereadbyid=async (req,res)=>{
 
 
 
+
+
+
+
 export const articlereadbyyou = async (req, res) => {
   try {
     const articleread = await prisma.articlereadbyuser.findMany({
@@ -69,3 +73,6 @@ export const articlereadbyyou = async (req, res) => {
     await prisma.$disconnect();
   }
 }
+
+
+

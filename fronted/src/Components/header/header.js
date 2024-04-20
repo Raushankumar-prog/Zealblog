@@ -1,6 +1,6 @@
 import './Header.css';
 import React, { useState, useEffect } from 'react';
-import logo from './logo.jpg';
+import logo from '../../Asset/logo.jpg';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';

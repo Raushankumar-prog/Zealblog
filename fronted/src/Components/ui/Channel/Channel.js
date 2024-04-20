@@ -1,7 +1,5 @@
 import React, { useState,useEffect } from 'react';
 import './Channel.css';
-import img from '../../Glance/OIP.jpeg';
-import solar from './solar.jpg';
 import Authorpost from './Component/AuthorPost';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
