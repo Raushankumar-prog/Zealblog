@@ -1,4 +1,5 @@
 
+import { getObjectURL } from '../aws/fileupload';
 import prisma from '../db';
 
 export const creatingsubscriber=async (req,res) =>{
@@ -40,7 +41,15 @@ export const subscribedto=async (req,res)=>{
         }
       }
     })
-     res.status(200).json({success: true, subscriber:yousubscribedto});
+
+      const subscriberlist= await Promise.all(yousubscribedto.map(async post => {
+      const userimage = await getObjectURL(`upload/image/${post.belongsto.image}`);
+
+      return { ...yousubscribedto,userimage};
+    }));
+
+
+     res.status(200).json({success: true, subscriber:subscriberlist});
   
   }catch(error){
      console.error(error);

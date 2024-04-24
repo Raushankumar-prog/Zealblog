@@ -23,6 +23,39 @@ export const getImage = async (req, res) => {
 
 
 
+// export const getVideo = async (req, res) => {
+//     try {
+//         const videoName = req.params.videoName;
+//         const videoUrl = await getObjectURL(`upload/image/${videoName}`);
+//         res.status(200).json({ videoUrl }); 
+//     } catch (error) {
+//         // Handle errors appropriately, e.g., sending an error response
+//         console.error('Error getting image URL:', error);
+//         res.status(500).json({ error: 'Failed to get image URL' });
+//     }
+// };
+
+
+
+
+
+// export const gettxt= async (req, res) => {
+//     try {
+//         const txtName = req.params.txtName;
+//         const txtUrl = await getObjectURL(`upload/image/${txtName}`);
+//         res.status(200).json({ txtUrl }); 
+//     } catch (error) {
+//         // Handle errors appropriately, e.g., sending an error response
+//         console.error('Error getting image URL:', error);
+//         res.status(500).json({ error: 'Failed to get image URL' });
+//     }
+// };
+
+
+
+
+
+
 
 
 
@@ -140,6 +173,8 @@ export const createPost = async (req, res) => {
         nichetype: req.body.nichetype,
         belongsid: req.body.id,
         imageName:req.body.image,
+        videoName:req.body.video,
+        txtName:req.body.text
       },
   
     });
@@ -152,6 +187,11 @@ export const createPost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
+
 
 
 
@@ -179,6 +219,8 @@ export const updatePost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
 
 
 
@@ -222,6 +264,9 @@ export const publish = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
 
 
 
@@ -294,6 +339,10 @@ export const latestPost = async (req, res) => {
 
 
 
+
+
+
+
 export const profilePost = async (req, res) => {
  
   try {
@@ -339,6 +388,11 @@ export const profilePost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
+
 
 
 
@@ -410,3 +464,5 @@ export const popularPosts = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+

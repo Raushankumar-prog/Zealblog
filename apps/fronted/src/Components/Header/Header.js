@@ -35,7 +35,7 @@ export default function Header() {
             <div className="logo">
                 <div className="menu"><MenuIcon/></div>
                 <div className="image">
-                    <img src={logo} alt="Logo"/>
+                    <img src={logo} alt="Logo" />
                     <div className='apple'>APPLE</div>
                 </div>
             </div>

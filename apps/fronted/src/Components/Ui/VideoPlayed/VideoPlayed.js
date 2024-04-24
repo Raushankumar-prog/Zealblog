@@ -7,8 +7,6 @@ const Videoplayed = () => {
   const { postid } = useParams();
   const [url, setUrl] = useState();
 
-
-
   useEffect(() => {
     const fetchVideoUrl = async () => {
       try {
@@ -22,10 +20,8 @@ const Videoplayed = () => {
     fetchVideoUrl();
   }, [postid]);
 
-
-
   useEffect(() => {
-    const fetchVideoUrl = async () => {
+    const fetchVideoWatched = async () => {
       try {
         const data = await videowatched(postid);
         setUrl(data);
@@ -34,17 +30,21 @@ const Videoplayed = () => {
       }
     };
 
-    fetchVideoUrl();
+    fetchVideoWatched();
   }, [postid]);
 
-
+  console.log(url?.videoUrl);
 
   return (
     <>
-      <video controls autoPlay height="550px" width="1200px">
-        <source src={url?.videoName} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {url && url.videoUrl ? (
+        <video controls autoPlay muted height="550px" width="1200px">
+          <source src={url.videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div>Loading...</div>
+      )}
     </>
   );
 };

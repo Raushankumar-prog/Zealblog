@@ -16,6 +16,9 @@ import { videourl } from './controllers/videourl';
 const router = Router()
 
 router.post('/subscribing',creatingsubscriber);
+
+
+
 router.get('/getcontent/:postid',getcontent);
 //article read
 router.post('/articleread',articlereadbyid);
@@ -27,7 +30,10 @@ router.get('/videowatchedbyyou/:belongsid',videowatchedbyyou);
 router.get('/videourl/:postid',videourl);
 
 router.get('/gettingsubscriber/:ProfileId',subscribedto);
+
 router.delete('/unsubscribe',deletesubscribedto);
+
+
 router.get('/getimage/:imageName',getImage);
 router.get('/getprofile/:providedId',gettingprofile);
 router.post('/createcomment',createComment);

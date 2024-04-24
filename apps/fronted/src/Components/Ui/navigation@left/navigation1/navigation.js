@@ -1,14 +1,18 @@
 import './navigation.css';
 import Saved from '@mui/icons-material/Bookmark';
-import SettingsIcon from '@mui/icons-material/Settings';
-import LockIcon from '@mui/icons-material/Lock';
+import HomeIcon from '@mui/icons-material/Home';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import HistoryIcon from '@mui/icons-material/History';
+//import SettingsIcon from '@mui/icons-material/Settings';
+//import LockIcon from '@mui/icons-material/Lock';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+//import NotificationsIcon from '@mui/icons-material/Notifications';
 import ExploreIcon from '@mui/icons-material/Explore';
 import PostAddSharpIcon from '@mui/icons-material/PostAddSharp';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {Link,useLocation} from 'react-router-dom';
-import { blue } from '@mui/material/colors';
+//import { blue } from '@mui/material/colors';
 import Logout from '../../CreateUser/LogOut';
 import Subscribe from '../../../Left/LeftComponent/subscribe/subscribe';
 
@@ -17,8 +21,7 @@ import Subscribe from '../../../Left/LeftComponent/subscribe/subscribe';
 const Navigation = () => {
 
   const { pathname } = useLocation();
-
-
+  
 
     return (
 
@@ -27,7 +30,7 @@ const Navigation = () => {
   <Link to="/" className={`link ${pathname === '/' ? 'active' : ''}`}>
         <div className="category1" >
        
-               <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 
+               <div className="icon"><HomeIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Home</p></div>
        </div>    
 </Link>       
@@ -64,14 +67,14 @@ const Navigation = () => {
   <Link to="articlereadbyyou" className={`link ${pathname === '/articlereadbyyou' ? 'active' : ''}`}>
         <div className="category1" >
        
-               <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 
+               <div className="icon"><HistoryIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Article read</p></div>
        </div>    
 </Link>        
   <Link to="video" className={`link ${pathname === '/video' ? 'active' : ''}`}>
         <div className="category1" >
        
-               <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 
+               <div className="icon"><PlayCircleIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Summary watched</p></div>
        </div>    
 </Link>
@@ -85,7 +88,7 @@ const Navigation = () => {
   <Link to="/likedpost" className={`link ${pathname === '/likedpost' ? 'active' : ''}`}>
         <div className="category1" >
        
-               <div className="icon"><PostAddSharpIcon fontSize="small" style={{ color:'white'}}  /></div> 
+               <div className="icon"><ThumbUpIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Like</p></div>
        </div>    
 </Link>

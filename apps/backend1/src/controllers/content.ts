@@ -20,6 +20,7 @@ export const getcontent = async (req, res) => {
                     select: {
                         username: true,
                         image: true,
+                        id:true,
                     }
                 }
             }

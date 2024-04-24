@@ -35,11 +35,12 @@
 
 }
 .contentmaincontent{
-    margin-top:5%;
+    margin-top:2%;
     margin-left: 1%;
     margin-right: 8%;
     font-weight: 600;
     color: rgb(52, 52, 52);
+    word-spacing: 1vw;
 }
 
 
@@ -58,4 +59,13 @@
 
 .summarywatched{
         margin-left: 25%;
+}
+
+
+
+
+.contenttextaws{
+    font-weight: 600;
+    color: rgb(52, 52, 52);
+
 }

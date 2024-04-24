@@ -10,6 +10,8 @@ const Home = () => {
   const [content, setContent] = useState('');
   const [nichetype, setNichetype] = useState('');
   const [imageData, setImageData] = useState('');
+  const [videoData,setvideoData]=useState('');
+  const [txtData,settxtData]=useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const id = Cookies.get('id');
@@ -30,6 +32,17 @@ const Home = () => {
   const handleNichetypeChange = (event) => {
     setNichetype(event.target.value);
   };
+
+
+
+
+
+
+
+
+
+
+
 
   const handleuploadimage=async()=>{
     try{
@@ -53,6 +66,67 @@ const Home = () => {
     }
   }
 
+
+  
+
+  const handleuploadvideo=async()=>{
+    try{
+        const imageInput = document.querySelector("#postvideo");
+      const file = imageInput.files[0];
+      
+      // Upload the image
+      const { videoaws, videodate } = await makeRequest("/api/uploadvideo", "GET");
+      await fetch(videoaws, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+ 
+      setvideoData(videodate);
+    }catch (error) {
+      setModalMessage('Error submitting the form.');
+      
+    }
+  }
+
+
+
+  
+
+  const handleuploadtxt=async()=>{
+    try{
+        const imageInput = document.querySelector("#posttxt");
+      const file = imageInput.files[0];
+      
+      // Upload the image
+      const { txtaws, txtdate } = await makeRequest("/api/uploadtxt", "GET");
+      await fetch(txtaws, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+ 
+      settxtData(txtdate);
+    }catch (error) {
+      setModalMessage('Error submitting the form.');
+      
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
   const handleSubmit = async () => {
     try {
 
@@ -63,6 +137,8 @@ const Home = () => {
         nichetype: nichetype,
         id: id,
         image: imageData,
+        video:videoData,
+        text:txtData,
       };
       console.log(formDataObject)
 
@@ -126,6 +202,10 @@ const Home = () => {
           </select>
         </div>
 
+
+
+
+
         <div className="form-group-1">
           <label htmlFor="posttitle" className='labeltext'>Image:</label><br />
           <input
@@ -139,6 +219,64 @@ const Home = () => {
           <button type="button" className="btn-primary" onClick={handleuploadimage}>
           Upload
         </button>
+
+
+
+
+
+
+
+
+
+
+
+        <div className="form-group-1">
+          <label htmlFor="posttitle" className='labeltext'>Video:</label><br />
+          <input
+            type="file"
+            accept="video/*"
+            placeholder="choose image"
+            id="postvideo"
+            className="form-control"
+          />
+        </div>
+          <button type="button" className="btn-primary" onClick={handleuploadvideo}>
+          Upload
+        </button>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div className="form-group-1">
+          <label htmlFor="posttitle" className='labeltext'>Text:</label><br />
+          <input
+            type="file"
+            accept=".txt"
+            placeholder="choose image"
+            id="posttxt"
+            className="form-control"
+          />
+        </div>
+          <button type="button" className="btn-primary" onClick={handleuploadtxt}>
+          Upload
+        </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <button type="button" className="btn-primary" onClick={handleSubmit}>
           Submit
         </button>

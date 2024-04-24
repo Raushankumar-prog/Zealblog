@@ -3,6 +3,7 @@ import prisma from '../db';
 
 
 
+
 export const savingPost = async (req, res) => {
   try {
      const saving = await prisma.saving.create({
@@ -20,6 +21,10 @@ export const savingPost = async (req, res) => {
     await prisma.$disconnect();
   }
 };
+
+
+
+
 
 
 export const savedPost=async (req,res)=>{

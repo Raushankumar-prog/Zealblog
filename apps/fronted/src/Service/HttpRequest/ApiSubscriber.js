@@ -3,18 +3,30 @@ import Cookies from 'js-cookie';
 
 export const subscribing=async( subscribedId)=>{
     try{
-       const subscriberId=Cookies.id('id');
+       const subscriberId=Cookies.get('id');
        const formDataObject = {
         subscribedId: subscribedId,
         subscriberId:subscriberId,
-      };
+       }
+
+
 const response = await makeRequest('/api/subscribing', 'POST', formDataObject);
+
     return response;
-    }catch(error){
-         console.error('Error fetching liked posts:', error.message);
+    }
+    catch(error){
+         console.error('Error fetching subscribing posts:', error.message);
           return [];
     }
 }
+
+
+
+
+
+
+
+
 
 
 // export const fetchSubsciber = async () => {
@@ -27,6 +39,16 @@ const response = await makeRequest('/api/subscribing', 'POST', formDataObject);
 //     return [];
 //   }
 // };
+
+
+
+
+
+
+
+
+
+
 export const fetchSubsciber = async () => {
   try {
     const ProfileId = Cookies.get('id');
@@ -37,6 +59,9 @@ export const fetchSubsciber = async () => {
     return []; // Return an empty array in case of error
   }
 };
+
+
+
 
 
 
