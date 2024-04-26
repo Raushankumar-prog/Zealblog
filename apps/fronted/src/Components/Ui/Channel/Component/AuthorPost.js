@@ -7,10 +7,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Cookies from 'js-cookie';
 
-const AuthorPost = () => {
+const AuthorPost = ({loggedInUserId}) => {
  
   const [profilePosts, setProfilePosts] = useState([]);
-  const loggedInUserId = Cookies.get('id');
+ // const loggedInUserId = Cookies.get('id');
   
   
   useEffect(() => {

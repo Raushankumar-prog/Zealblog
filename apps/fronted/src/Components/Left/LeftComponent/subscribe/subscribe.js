@@ -28,10 +28,10 @@ const Subscribe = () => {
     <>
       {subscriber && subscriber.length > 0 ? (
         subscriber.map((data) => (
-         <Link to={data.belongsto ? `/${data.belongsto.id}` : '/unknownUser'} className='link'>
+         <Link to={data? `/U/${data.id}` : '/unknownUser'} className='link'>
           <div key={data.id}  className='usersubscriberbox'>
             <img src={data?.userimage} alt='userimage' className='userimagesubscriber' />
-            <div className='subscribedname'>{data?.belongsto?.username}</div>
+            <div className='subscribedname'>{data?.username}</div>
           </div>
           </Link> 
         ))

@@ -80,7 +80,7 @@ useEffect(() => {
         </div>
       </div>
       <div className="lower">
-        {showAuthorPost && <Authorpost  />}
+        {showAuthorPost && <Authorpost  loggedInUserId={providedId}/>}
       </div>
     </div>
   );

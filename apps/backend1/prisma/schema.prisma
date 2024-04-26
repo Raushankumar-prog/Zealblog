@@ -92,7 +92,7 @@ model UserSubscription {
   id           String @id @default(uuid())
   subscribedId String
   subsciberId  String
-  belongsto    user   @relation(fields: [subsciberId], references: [id])
+  belongsto    user   @relation(fields: [subscribedId], references: [id])
 
   @@unique([subsciberId, subscribedId])
 }

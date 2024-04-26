@@ -8,6 +8,9 @@ export const createNewUser = async (req, res) => {
    data: {
       username: req.body.username,
       image:req.body.image,
+      imagebanner:req.body.banner,
+      description:req.body.description,
+      profession:req.body.profession,
       password: await hashPassword(req.body.password)
     }
   })

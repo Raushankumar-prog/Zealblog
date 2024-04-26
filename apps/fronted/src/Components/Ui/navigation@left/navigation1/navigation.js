@@ -110,7 +110,7 @@ const Navigation = () => {
        <div className="subcriptions">Following</div>
           
         <div  className="category1">
-             <div className="icon"><AccountCircleIcon fontSize="small" style={{color:'white' }} /></div> 
+           
               <div className="text"><p className="category"><Subscribe/></p></div>
        </div>
        

@@ -91,6 +91,12 @@ CREATE TABLE "liked" (
 CREATE UNIQUE INDEX "user_username_key" ON "user"("username");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "articlereadbyuser_belongsid_postid_key" ON "articlereadbyuser"("belongsid", "postid");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "summarywatchedbyuser_postid_belongsid_key" ON "summarywatchedbyuser"("postid", "belongsid");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "UserSubscription_subsciberId_subscribedId_key" ON "UserSubscription"("subsciberId", "subscribedId");
 
 -- AddForeignKey
@@ -118,7 +124,7 @@ ALTER TABLE "summarywatchedbyuser" ADD CONSTRAINT "summarywatchedbyuser_postid_f
 ALTER TABLE "summarywatchedbyuser" ADD CONSTRAINT "summarywatchedbyuser_belongsid_fkey" FOREIGN KEY ("belongsid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "UserSubscription" ADD CONSTRAINT "UserSubscription_subsciberId_fkey" FOREIGN KEY ("subsciberId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "UserSubscription" ADD CONSTRAINT "UserSubscription_subscribedId_fkey" FOREIGN KEY ("subscribedId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "liked" ADD CONSTRAINT "liked_postid_fkey" FOREIGN KEY ("postid") REFERENCES "post"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

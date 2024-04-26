@@ -13,8 +13,9 @@ const SignUp = () => {
       const [imageData, setImageData] = useState('');
       const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-
-
+ const [banner,setbanner]=useState('');
+ const [profession,setprofession]=useState('');
+ const [description,setdescription]=useState('');
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -22,6 +23,16 @@ const SignUp = () => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+  };
+
+  
+  const handleProfessionChange = (event) => {
+    setprofession(event.target.value);
+  };
+
+
+  const handleDescriptionChange = (event) => {
+    setdescription(event.target.value);
   };
 
  
@@ -49,6 +60,48 @@ const SignUp = () => {
   }
 
 
+
+
+
+  const handleuploadbanner=async()=>{
+    try{
+        const imageInput = document.querySelector("#banner");
+      const file = imageInput.files[0];
+      
+      // Upload the image
+      const { imageaws, imagedate } = await makeRequest("/api/uploadimage", "GET");
+     
+      await fetch(imageaws, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+ 
+      setbanner(imagedate);
+    }catch (error) {
+      setModalMessage('Error submitting the form.');
+      setShowModal(true);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const handleSubmit = async () => {
     try {
       
@@ -57,8 +110,11 @@ const SignUp = () => {
         username: UserName,
         password: Password,
          image: imageData,
+         banner:banner,
+         description:description,
+         profession:profession,
       };
-  console.log(formDataObject);
+     console.log(formDataObject);
       const response = await makeRequest('/user', 'POST', formDataObject);
 
 
@@ -122,6 +178,54 @@ const SignUp = () => {
           />
         </div>
 
+
+
+
+
+     <div className="form-group-1">
+          <label htmlFor="content" className='labeltext'>Profession:</label><br />
+          <input
+            placeholder="Profession"
+            id="profession"
+            className="form-control"
+            style={{ height: '6%' }}
+            value={profession}
+            onChange={handleProfessionChange}
+          />
+        </div>
+
+
+
+          <div className="form-group-1">
+          <label htmlFor="content" className='labeltext'>description:</label><br />
+          <textarea
+            placeholder="Write the brief description about what you  doing"
+            id="description"
+            className="form-control"
+            style={{ height: '6%' }}
+            value={description}
+            onChange={handleDescriptionChange}
+          />
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className="form-group-1">
           <label htmlFor="posttitle" className='labeltext'>Image:</label><br />
           <input
@@ -132,13 +236,58 @@ const SignUp = () => {
             className="form-control"
           />
         </div>
-         <button type="button" className="btn-primary" onClick={handleuploadimage}>
+       <button type="button" className="btn-primary" onClick={handleuploadimage}>
           Upload
         </button>
+
+
+
+
+
+
+        <div className="form-group-1">
+          <label htmlFor="posttitle" className='labeltext'>Banner:</label><br />
+          <input
+            type="file"
+            accept="image/*"
+            placeholder="choose image"
+            id="banner"
+            className="form-control"
+          />
+        </div>
+       <button type="button" className="btn-primary" onClick={handleuploadbanner}>
+          Upload
+        </button>
+
+
+
+
+
+
+
+
+
         <button type="button" className="btn-primary" onClick={handleSubmit}>
           Submit
         </button>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <Modal
         open={showModal}
