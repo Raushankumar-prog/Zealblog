@@ -19,9 +19,15 @@
 }
 
 .logo img {
-    width: 45%; 
+    width: 100%; 
     height: auto; 
   
+}
+.logoimage{
+    width:12%;
+    height:100%;
+    overflow: hidden;
+
 }
 .image{
     width:auto;
@@ -55,6 +61,7 @@
 }
 
 .signup {
+
     margin-left:15%;
     text-decoration: none;
     padding: 4% 6%;
@@ -90,8 +97,8 @@
 
 #profileimage{
       border-radius:50%;
-      height:30%;
-      width: 20%;
+      height:10%;
+      width: 15%;
     
 }
 

@@ -71,8 +71,8 @@ useEffect(() => {
 
         <div className="channelheading" >
             <Button variant="contained" onClick={authoro} disableElevation className={classes.customButton}><span className="userniche">Post</span></Button>
-          <Button variant="contained" onClick={authoro} disableElevation className={classes.customButton}> <span className="userniche">Niche</span></Button> 
-           <Button variant="contained" onClick={authoro} disableElevation  className={classes.customButton}><span className="userniche">About</span></Button>
+          <Button variant="contained" onClick={authoro} disableElevation className={classes.customButton}style={{marginLeft:"2%"}}> <span className="userniche">Niche</span></Button> 
+           <Button variant="contained" onClick={authoro} disableElevation  className={classes.customButton}style={{marginLeft:"2%"}}><span className="userniche">About</span></Button>
   
         </div>
         <div className="hr">

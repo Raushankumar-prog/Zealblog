@@ -33,10 +33,10 @@ export default function Header() {
     return (
         <div className="heading">
             <div className="logo">
-                <div className="menu"><MenuIcon/></div>
+               {/* <div className="menu"><MenuIcon/></div>*/} 
                 <div className="image">
-                    <img src={logo} alt="Logo" />
-                    <div className='apple'>APPLE</div>
+                   
+                    <div className='apple'>ZEALBLOG</div>
                 </div>
             </div>
             <div className="inflex">

@@ -120,7 +120,7 @@ useEffect(() => {
       ))}
       
       
-      <Pagination  pagenumber={pagenumber} previouspage={previouspage} nextpage={nextpage} />
+    {/*  <Pagination  pagenumber={pagenumber} previouspage={previouspage} nextpage={nextpage} />*/} 
    
     </div>
   );

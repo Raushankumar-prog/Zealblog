@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Cookies from 'js-cookie';
+import './AuthorPost.css'; 
 
-const AuthorPost = ({loggedInUserId}) => {
- 
+const AuthorPost = ({ loggedInUserId }) => {
+
   const [profilePosts, setProfilePosts] = useState([]);
- // const loggedInUserId = Cookies.get('id');
-  
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,8 +23,7 @@ const AuthorPost = ({loggedInUserId}) => {
     };
 
     fetchData();
-  }, [ loggedInUserId]);
-
+  }, [loggedInUserId]);
 
   const deleteuserpost = (postUserId) => loggedInUserId === postUserId;
 
@@ -40,30 +38,30 @@ const AuthorPost = ({loggedInUserId}) => {
   };
 
   return (
-    <div>
-      <h2>Your Posts</h2>
+    <div className="author-post-container">
+      
       {profilePosts.map((post) => (
-        <div className="universe1" key={post.id}>
-          <Paper className="papersClass">
-            <Link to="/mainpage" className="remove">
-              <div className="space">
-                <div className="headingglance">
-                  <p className="headingtext">{post.title}</p>
-                  <img src={post.imageUrl}   className="imagefitting"/>
+        <div className="post-item" key={post.id}>
+          <Paper className="post-paper">
+            <Link to="/mainpage" className="post-link">
+              <div className="post-content">
+                <div className="post-heading">
+                  <p className="post-title">{post.title}</p>
+                  <img src={post.imageUrl} alt="Post" className="post-image" />
                 </div>
-                <div className="glancebriefbox">
-                  <p className="glancebrieftext">{post.content}</p>
+                <div className="post-description">
+                  <p className="post-content-text">{post.content}</p>
                 </div>
               </div>
             </Link>
-            <div className="little">
-              <div className="author">
-                <div className="channelicon">
-                   {post.userimage ? <img src={post.userimage} alt="Post Image" className="userchannelimage"/> : <AccountCircleIcon fontSize="large" />}
+            <div className="post-footer">
+              <div className="author-info">
+                <div className="author-image">
+                  {post.userimage ? <img src={post.userimage} alt="User" className="author-image" /> : <AccountCircleIcon fontSize="large" />}
                 </div>
-                <div className="profile">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
+                <div className="author-name">{post.beongsto ? post.beongsto.username : 'Unknown User'}</div>
               </div>
-              {deleteuserpost(post.beongsto.id) && <div className="like"><DeleteIcon color="error" onClick={() => handleDelete(post.id)} /></div>}
+              {deleteuserpost(post.beongsto.id) && <div className="delete-icon"><DeleteIcon color="error" onClick={() => handleDelete(post.id)} /></div>}
             </div>
           </Paper>
         </div>

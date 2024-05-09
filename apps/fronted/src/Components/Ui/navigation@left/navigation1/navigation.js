@@ -27,13 +27,13 @@ const Navigation = () => {
 
   <div className="navigator">
            
-  <Link to="/" className={`link ${pathname === '/' ? 'active' : ''}`}>
+  {/*<Link to="/" className={`link ${pathname === '/' ? 'active' : ''}`}>
         <div className="category1" >
        
                <div className="icon"><HomeIcon fontSize="small" style={{ color:'white'}}  /></div> 
               <div className="text"><p className="category">Home</p></div>
        </div>    
-</Link>       
+    </Link>   */}    
   <Link to="/createpost" className={`link ${pathname === '/createpost' ? 'active' : ''}`}>
         <div className="category1" >
        
