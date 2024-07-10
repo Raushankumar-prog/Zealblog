@@ -1,0 +1,79 @@
+.author-post-container {
+  height: 60%;
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.post-item{
+      margin-top: 1%;
+}
+.post-paper {
+    padding: 2vw;
+  
+}
+.post-footer{
+         margin-top: 6%;
+          display: flex;
+}
+.post-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-heading {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+
+.post-title {
+    margin: 0;
+    font-size: 1.5vw;
+  
+    font-weight: bold;
+
+}
+
+.post-image {
+    height:70%;
+    width:60%;
+    padding: 2%;
+    object-fit: cover;
+    margin-left: 2vw;
+}
+
+.post-description {
+  
+    font-size: 1vw;
+
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+}
+
+.author-image {
+    width: 3vw;
+   
+    height: 3vw;
+  
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.author-name {
+    font-size: 1vw;
+    
+}
+
+.delete-icon {
+    margin-left: auto;
+    cursor: pointer;
+}

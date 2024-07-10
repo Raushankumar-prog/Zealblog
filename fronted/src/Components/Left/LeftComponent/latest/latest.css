@@ -1,0 +1,33 @@
+.paperClass {
+    
+    width: 70%;
+    
+    height: 100%;
+    
+    padding: 2px;
+   
+    margin: 1px;
+    
+}
+/* lastest.css */
+
+.post-row {
+   height: auto;
+   width: auto;
+} 
+
+
+.postcard {
+  
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    
+}
+.maincontent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    margin-top: 2%;
+    margin-left: 5%;
+}

@@ -1,0 +1,143 @@
+.fr {
+    margin-top: 100%;
+    border-radius: 6%;
+    margin-right: 2%;
+    background-color: rgb(21, 0,21);
+position: absolute;
+left:-100%;
+transition: 500ms;
+}
+
+.visiblefr{
+    border-radius: 6%;
+    margin-right: 2%;
+    background-color: rgb(21, 0, 21);
+    position: absolute;
+    left: 0px;
+    transition: 500ms;
+}
+
+.navigator{
+    position: fixed;
+ 
+    width: 24%;
+    height: 90%;
+    background-color: rgb(21, 0, 21);
+    padding-right: 4%;
+    padding-left: 4%;
+    z-index: 4440;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    padding-bottom: 10%;
+ margin-bottom: 5%;
+overscroll-behavior:none;
+ 
+}
+  @media only screen and (max-width:800px) {
+    .navigator {
+            position: fixed;
+            
+            width:80%;
+            height: 90%;
+            background-color: rgb(21, 0, 21);
+            padding-right: 2%;
+            padding-left: 2%;
+            z-index: 4440;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            padding-bottom: 10%;
+            margin-bottom: 5%;
+            overscroll-behavior: none;
+    
+        }
+}
+.link {
+    text-decoration:none;
+
+}
+.link.active .category1 {
+    background: linear-gradient(45deg, rgba(255, 179, 0, 1), rgba(255, 179, 0, 0.5));
+    border-radius: 8%;
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.2);
+    transition:all 0.3ms ease-in;
+    
+}
+
+.link.active .category1:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 2% rgba(0, 0, 0, 0.3);
+}
+
+.category1 {
+    text-transform: capitalize;
+    padding-top: 3%;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.15vw;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 500;
+    align-items:center;
+    align-content:baseline;
+}
+
+@media only screen and (max-width:800px) {
+    .category1 {
+            text-transform: capitalize;
+            padding-top: 3%;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 3.5vw;
+            display: flex;
+            flex-wrap: wrap;
+            font-weight: 500;
+            align-items: center;
+            align-content: baseline;
+        }
+}
+.text {
+    padding-left: 5%;
+     margin-top: 9%;
+}
+
+.icon {
+    padding-top: 11%;
+    align-items: center;
+}
+
+
+
+.link {
+    text-decoration: none;
+}
+
+.you,
+.writer,
+.subcriptions {
+    font-size: 1.2vw;
+    color: #e42727;
+    font-weight: 700;
+    align-items: center;
+    text-align: center;
+}
+@media only screen and (max-width:700px) {
+    .you,
+        .writer,
+        .subcriptions {
+            font-size: 3.5vw;
+            color: #e42727;
+            font-weight: 700;
+            align-items: center;
+            text-align: center;
+        }
+}
+
+.loginkaro{
+    display: none;
+}
+.close{
+    margin-top: 10%;
+    cursor: pointer;
+    margin-left: 85%;
+    margin-bottom: 10%;
+}

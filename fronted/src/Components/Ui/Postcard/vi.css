@@ -1,0 +1,22 @@
+#userimages {
+    width: 90%;
+    height: 30%;
+    border-radius: 50%;
+}
+
+.viprofile {
+    
+    margin-left: 0%;
+    text-transform: capitalize;
+}
+
+.vichannelicon {
+    width: 5%;
+    margin-right: 0%;
+}
+
+.vitext {
+    padding-left: 6%;
+     
+    font-weight: 900;
+}

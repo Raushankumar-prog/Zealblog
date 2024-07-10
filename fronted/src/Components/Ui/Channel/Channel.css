@@ -1,0 +1,119 @@
+
+.channel {
+    display:flex;
+    flex-direction: column;
+}
+
+
+.upper {
+    display: flex;
+   flex-direction: column;
+   height:40%;
+     overflow: hidden;
+    background-color: #f0f0f0;
+
+}
+
+
+.lower {
+    display: grid;
+}
+
+
+.channelheading {
+    display: flex;
+ 
+    align-items: center;
+
+    margin-bottom: 2%;
+}
+
+
+.channelnamebox {
+    display: flex;
+    align-items: center;
+    padding-top: 2%;
+    width:70% ;
+   
+    overflow: hidden;
+}
+
+
+.userprofiletext {
+    display: grid;
+    grid-template-rows: 20% 20%;
+    margin-left: 4%;
+    width: 70%;
+}
+
+.bannerbox {
+    background-size: cover;
+    height:30%;
+    background-position: center;
+    border-radius: 2vw;
+   
+    overflow: hidden;
+  
+}
+
+#imagebanner {
+    width: 100%;
+     height:150px;
+      
+    overflow: hidden;
+}
+
+
+.profileimagebox {
+    width: 20%;
+  
+    height: 8vw;
+
+    margin-right: 2%;
+
+    border-radius: 50%;
+  
+    overflow: hidden;
+}
+
+
+.profilenamebox {
+   
+    text-align: left;
+}
+
+
+.userworkplace {
+    font-size: 1vw;
+ 
+    padding-left: 4%;
+    font-family: cursive;
+}
+
+
+.mainheading {
+    font-size: 1vw;
+   
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 2%;
+  
+}
+
+@media screen and (max-width:750px) {
+    .mainheading {
+            font-size: 1.5vw;
+    
+            font-weight: 700;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 2%;
+    
+        }
+    
+}
+.userniche {
+margin-left: 2%;
+   
+    margin-top: 2%;
+    font-weight: 700;
+}

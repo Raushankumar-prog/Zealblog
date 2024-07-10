@@ -1,0 +1,33 @@
+.btn-primary1{
+    color: rgb(52, 49, 49);
+    background-color: rgb(249, 243, 243);
+    width: 90%;
+    padding: 1%;
+   font-size:1.2vw;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 3%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary1:hover {
+    background-color: #ada4a4;
+}
+
+
+.btn-primaryfor {
+    color: white;
+    background-color: black;
+    padding: 2%;
+   
+    align-items: center;
+
+    font-weight: 800;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primaryfor:hover {
+    background-color: #525252;
+}
