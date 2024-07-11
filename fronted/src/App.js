@@ -20,7 +20,7 @@ const [le,setle]=useState(false);
     
     
  <div className="main">
- 
+
   <div className="appheading"><Header  le={le} setle={setle}/></div>
  <div className="appleft"><Left   le={le} setle={setle} /></div>
 <div className="approuting"><Routing/></div>
