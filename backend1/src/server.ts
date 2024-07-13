@@ -7,7 +7,14 @@ import { createNewUser, signin } from './controllers/user'
 
 const app = express()
 
-app.use(cors())
+
+app.use(cors({
+  origin: process.env.ORIGIN,  
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}));
+
+
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
