@@ -12,6 +12,7 @@ RUN npm install
 COPY . .
 ENV NODE_ENV=production
 # Expose the port the app runs on.
+RUN npx prisma generate
 EXPOSE 3000
 # Run the application.
 CMD [ "npm", "run","dev" ]
