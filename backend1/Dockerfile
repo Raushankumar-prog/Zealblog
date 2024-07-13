@@ -10,9 +10,8 @@ RUN npm install
 
 # Copy app files.
 COPY . .
-
+ENV NODE_ENV=production
 # Expose the port the app runs on.
 EXPOSE 3000
-
 # Run the application.
 CMD [ "npm", "run","dev" ]
