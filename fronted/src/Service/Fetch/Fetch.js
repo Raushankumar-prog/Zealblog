@@ -19,6 +19,7 @@ export const makeRequest = async (endpoint, method, data = null) => {
   const requestOptions = {
     method,
     headers,
+     credentials: 'include',  
     // stringifing the data for non-GET and non-FormData requests
     ...(method !== 'GET'&& method !== 'DELETE' && method !=='PUT' && !(data instanceof FormData) && { body: JSON.stringify(data) }),
     
