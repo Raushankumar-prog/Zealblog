@@ -2,14 +2,7 @@
 <html lang="en">
 
 <head>
-  <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_MEASUREMENT_ID}`}></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', process.env.REACT_APP_MEASUREMENT_ID, { 'anonymize_ip': true });
-  </script>
-
+  
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +16,15 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Finglobal.tech - Financial Insights and Analysis</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNBRVVC2RS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-DNBRVVC2RS');
+  </script>
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Finglobal.tech - Financial Insights and Analysis" />
   <meta property="og:description"
