@@ -1,23 +1,30 @@
-# Use the official Node.js image.
-FROM node:20
+# Stage 1: Build the React app
+FROM node:18 AS build
 
-# Create and change to the app directory.
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# Install app dependencies.
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy app files and build.
+# Copy the source code
 COPY . .
+
+# Build the React app
 RUN npm run build
 
-# Use a web server to serve the build.
+# Stage 2: Serve the app with Nginx
 FROM nginx:alpine
-COPY --from=0 /usr/src/app/build /usr/share/nginx/html
 
-# Expose the port the app runs on.
+# Copy the build artifacts from the build stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Copy the custom nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80 for the app
 EXPOSE 80
 
-# Run the web server.
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
