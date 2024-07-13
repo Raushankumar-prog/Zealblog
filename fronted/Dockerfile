@@ -1,32 +1,23 @@
-# Base image
-FROM node:20-alpine as build
+# Use the official Node.js image.
+FROM node:20
 
-# Set working directory
+# Create and change to the app directory.
 WORKDIR /usr/src/app
 
-# Copy package files
+# Install app dependencies.
 COPY package*.json ./
+RUN npm install
 
-# Install app dependencies
-RUN npm install --legacy-peer-deps
-
-# Copy the rest of the app files
+# Copy app files and build.
 COPY . .
-
-# Build the app
 RUN npm run build
 
-# Final image
+# Use a web server to serve the build.
 FROM nginx:alpine
+COPY --from=0 /usr/src/app/build /usr/share/nginx/html
 
-# Copy built app from the build stage
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port
+# Expose the port the app runs on.
 EXPOSE 80
 
-# Start Nginx
+# Run the web server.
 CMD ["nginx", "-g", "daemon off;"]
