@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = "https://zealblog.onrender.com";
 
 export const makeRequest = async (endpoint, method, data = null) => {
   const url = new URL(endpoint, apiUrl);
