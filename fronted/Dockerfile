@@ -1,5 +1,5 @@
 # Use the official Node.js image.
-FROM node:14
+FROM node:20-alpine as build
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -14,7 +14,9 @@ RUN npm run build
 
 # Use a web server to serve the build.
 FROM nginx:alpine
-COPY --from=0 /usr/src/app/build /usr/share/nginx/html
+
+# Copy the build artifacts from the previous stage.
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
 # Expose the port the app runs on.
 EXPOSE 80

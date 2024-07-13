@@ -1,7 +1,6 @@
 import Cookies from 'js-cookie';
 
-
-const apiUrl = "http://localhost:4001";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const makeRequest = async (endpoint, method, data = null) => {
   const url = new URL(endpoint, apiUrl);
