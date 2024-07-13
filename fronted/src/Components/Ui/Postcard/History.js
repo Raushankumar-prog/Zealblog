@@ -4,7 +4,10 @@ import './Postcard.css';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 
+
+   
 const History = ({ article }) => {
   console.log(article);
   return (
@@ -17,7 +20,9 @@ const History = ({ article }) => {
               <h2 className="headingtext">{article.belongstoposts.title}</h2>
             </footer>
             <div className="glancebriefbox">
-              <img src={article.postImageUrl} width="100%" height="200px" alt={article.title}  />
+              <AspectRatio.Root ratio={16 / 9}>
+              <img src={article.postImageUrl}  height="200px" alt={article.title}  loading='lazy' />
+              </AspectRatio.Root>
               <p className="glancebrieftext">{article.belongstoposts.content}</p>
             </div>
           </div>

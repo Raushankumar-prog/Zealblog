@@ -1,5 +1,5 @@
 # Use the official Node.js image.
-FROM node:14
+FROM node:19.7.0
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3000
 
 # Run the application.
-CMD [ "node", "server.js" ]
+CMD [ "npm", "run","dev" ]

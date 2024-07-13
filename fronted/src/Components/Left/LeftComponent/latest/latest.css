@@ -12,11 +12,25 @@
 /* lastest.css */
 
 .post-row {
-   height: auto;
-   width: auto;
+   height: 400px;
+   width: 470px;
+   margin-bottom:20%;
 } 
-
-
+@media screen and (max-width:1000px) {
+    .post-row {
+        height: 450px;
+        width: 550px;
+        margin-bottom: 10%;
+    }
+}
+@media screen and (max-width:690px){
+    .post-row {
+            height: 400px;
+            width: 550px;
+            margin-bottom:45%;
+            margin-left:1%;
+        }
+    }
 .postcard {
   
     width: 100%;
@@ -27,7 +41,7 @@
 .maincontent {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-
+      
     margin-top: 2%;
     margin-left: 5%;
 }
