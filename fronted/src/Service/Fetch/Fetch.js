@@ -5,8 +5,6 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export const makeRequest = async (endpoint, method, data = null) => {
   const url = new URL(endpoint, apiUrl);
 
-  // Retrieve the 'token' value from cookies using js-cookie
-  const token = Cookies.get('token');
 
   const headers = {
     'Authorization': `Bearer ${token}`,
@@ -20,7 +18,7 @@ export const makeRequest = async (endpoint, method, data = null) => {
     method,
     headers,
      credentials: 'include',  
-    // stringifing the data for non-GET and non-FormData requests
+   
     ...(method !== 'GET'&& method !== 'DELETE' && method !=='PUT' && !(data instanceof FormData) && { body: JSON.stringify(data) }),
     
   };
