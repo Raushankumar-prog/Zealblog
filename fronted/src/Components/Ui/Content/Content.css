@@ -5,12 +5,30 @@
     color:rgb(47, 42, 42);
     margin-left: 1%;
 }
+@media screen and (max-width:450px){
+    .contenttitle {
+            font-size: 4.7vw;
+            font-weight: 800;
+            text-transform: capitalize;
+            color: rgb(47, 42, 42);
+            margin-left: 1%;
+        }
+}
 .contentuserimage{
       height: 3%;
       width:5%;
       border-radius: 50%;
       margin-top: 3%;
       margin-left: 2%;
+}
+@media screen and (max-width:450px) {
+.contentuserimage {
+        height: 6%;
+        width: 8%;
+        border-radius: 50%;
+        margin-top: 3%;
+        margin-left: 2%;
+    }
 }
 
 .contentprofile {
@@ -26,6 +44,17 @@
     font-size: 1.1vw;
     margin-left:1%;
 }
+
+
+@media screen and (max-width:580px){
+    .contentusername {
+            padding-top: 2.2%;
+            font-weight: 600;
+            font-size: 2vw;
+            margin-left: 1%;
+        }
+}
+
 .contentcreatedAt{
     margin-top: 2%;
 }
@@ -59,9 +88,16 @@
 
 .summarywatched{
         margin-left: 25%;
+        
 }
 
-
+@media screen and (max-width:400px) {
+    .summarywatched {
+            margin-left: 15%;
+            height: 8px;
+            
+        }
+}
 
 
 .contenttextaws{

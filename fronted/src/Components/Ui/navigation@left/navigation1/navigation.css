@@ -4,7 +4,7 @@
     margin-right: 2%;
     background-color: rgb(21, 0,21);
 position: absolute;
-left:-100%;
+left:-300%;
 transition: 500ms;
 }
 
@@ -94,6 +94,20 @@ overscroll-behavior:none;
             align-items: center;
             align-content: baseline;
         }
+}
+@media only screen and (max-width:500px) {
+    .category1 {
+        text-transform: capitalize;
+        padding-top: 3%;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 5vw;
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: 600;
+        align-items: center;
+        align-content: baseline;
+    }
 }
 .text {
     padding-left: 5%;
