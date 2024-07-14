@@ -12,7 +12,7 @@ const History = ({ article }) => {
   console.log(article);
   return (
     <article className="universe" key={article.id}>
-      <Paper className="papersClass" sx={{ width: '100%', margin: '0%', padding: '0%' }}>
+      <Paper className="papersClass" id="papercl">
         <div className="postbinder">
 
           <div className="space">
@@ -21,7 +21,7 @@ const History = ({ article }) => {
             </footer>
             <div className="glancebriefbox">
               <AspectRatio.Root ratio={16 / 9}>
-              <img src={article.postImageUrl}  height="200px" alt={article.title}  loading='lazy' />
+              <img src={article.postImageUrl}  className="imagefor"  alt={article.title}  loading='lazy' />
               </AspectRatio.Root>
               <p className="glancebrieftext">{article.belongstoposts.content}</p>
             </div>

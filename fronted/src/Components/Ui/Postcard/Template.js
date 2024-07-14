@@ -12,7 +12,7 @@ const Template = React.memo(({ post }) => {
    
          
     <article className="universe" key={post.id}>
-      <Paper className="papersClass" sx={{ width: '100%', margin: '0%', padding: '0%' }}>
+      <Paper className="papersClass" id="papercl">
         <div className="postbinder">
           <Link to={`/content/${post.id}`} className='remove' aria-label={`Read more about ${post.title}`}>
             <section className="space">
@@ -24,8 +24,8 @@ const Template = React.memo(({ post }) => {
                   <Button variant="contained" aria-label={`Watch video summary for ${post.title}`}>Video Summary</Button>
                 </Link>
                 <AspectRatio.Root ratio={16 / 9}>
-                  <LazyLoad height={200} offset={100}>
-                    <img src={post.imageUrl} height="200px" alt={` for ${post.title}`} loading="lazy" />
+                  <LazyLoad  offset={100}>
+                    <img src={post.imageUrl}  className="imagefor"   alt={` for ${post.title}`} loading="lazy" />
                   </LazyLoad>
                 </AspectRatio.Root>
                 <p className="glancebrieftext">{post.content}</p>

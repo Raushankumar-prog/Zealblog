@@ -35,10 +35,11 @@ const Routing = () => {
       <Route path="/popular"  element={<Popular/>}/>
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/savedpost" element={<Savedd/>}/>
-      < Route path='/likedpost'  element={<Like/>}/>
+      <Route path='/likedpost'  element={<Like/>}/>
       <Route path='/share'   element={<ShareButton/>}/>
       <Route path="/subscribe" element={<Subscribe/>}/>
       <Route path="/createpost" element={<Home/>}/>
+      
        </Routes>
     </div> );
 }

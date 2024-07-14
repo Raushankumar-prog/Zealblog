@@ -31,6 +31,16 @@
             margin-left:1%;
         }
     }
+
+        @media screen and (max-width:450px) {
+            .post-row {
+    
+                width:100%;
+                margin-bottom: 5%;
+            
+            }
+        }
+
 .postcard {
   
     width: 100%;
@@ -38,6 +48,9 @@
     margin-bottom: 10px;
     
 }
+
+
+
 .maincontent {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
