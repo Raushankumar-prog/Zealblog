@@ -40,7 +40,7 @@ export default function Header({le,setle}) {
                 <div className="image">
                    
                     <div className='apple'>
-                        <div className='Finglobal'>finglobal</div>
+                        <div className='Finglobal'>finstartup</div>
                          <div className='com'>.tech</div>
                     </div>
                    
