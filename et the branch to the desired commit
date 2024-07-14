@@ -1,0 +1,227 @@
+[33mc87d64f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to HEAD~7
+[33m9d9016f[m HEAD@{1}: reset: moving to HEAD~1
+[33mc8bc3dd[m HEAD@{2}: reset: moving to HEAD~6
+[33mbb86145[m HEAD@{3}: commit: solving nginx config problem
+[33m7bdf11c[m HEAD@{4}: commit: solving nginx config problem
+[33mdb85830[m HEAD@{5}: commit: solving nginx config problem
+[33mf895160[m HEAD@{6}: commit: solving nginx config problem
+[33m298721f[m HEAD@{7}: commit: solving nginx config problem
+[33m4557547[m HEAD@{8}: commit: solving nginx config problem
+[33mc8bc3dd[m HEAD@{9}: commit: solving nginx config problem
+[33m9d9016f[m HEAD@{10}: commit: changing style for small device
+[33m362486d[m HEAD@{11}: commit: adding google analytics
+[33m994fb5b[m HEAD@{12}: commit: adding google analytics
+[33mfbd57d9[m HEAD@{13}: commit: making of conf
+[33mfcbdc38[m HEAD@{14}: commit: making of conf
+[33m8fcb45e[m HEAD@{15}: commit: making of conf
+[33maac7d4c[m HEAD@{16}: commit: making of conf
+[33mc87d64f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{17}: commit: making of conf
+[33maed4960[m HEAD@{18}: commit: making 404 work
+[33m62ff98c[m HEAD@{19}: commit: recovering
+[33m7e9e6e6[m HEAD@{20}: commit: making 404 work
+[33mabf6594[m HEAD@{21}: commit: configuring the nginx
+[33m2962d52[m HEAD@{22}: commit: configuring the nginx
+[33m53d15da[m HEAD@{23}: commit: creating configure file
+[33md6e1a91[m HEAD@{24}: commit: redirecting the subroutes
+[33m07eb3fd[m HEAD@{25}: commit: facing error in connecting in production
+[33m60fd673[m HEAD@{26}: commit: facing error in connecting in production
+[33m88cc1df[m HEAD@{27}: commit: resolvin gconflict
+[33m4e41014[m HEAD@{28}: commit: getting fron and backend in production
+[33m4505221[m HEAD@{29}: commit: production fronted and backend not connecting. trying with the creditals
+[33m57526ae[m HEAD@{30}: commit: adding cors policy
+[33m038e2ac[m HEAD@{31}: commit: docker file
+[33m340bdbf[m HEAD@{32}: commit: docker file
+[33m3564860[m HEAD@{33}: commit: change port
+[33mbde7ca9[m HEAD@{34}: commit: change port
+[33m70b9568[m HEAD@{35}: commit: change port
+[33m552cae0[m HEAD@{36}: Branch: renamed refs/heads/main to refs/heads/main
+[33m552cae0[m HEAD@{38}: commit: changing docker file
+[33m5a40c5d[m HEAD@{39}: commit: making dockerfile for fronted,backend and applying ci and cd using github actions,
+[33mf956baf[m HEAD@{40}: commit: adding public
+[33m0184a2a[m HEAD@{41}: commit: moved frontde and backend directory and other changes
+[33m229b0ac[m HEAD@{42}: commit: removed the node_modules and public
+[33m93a66a5[m HEAD@{43}: Branch: renamed refs/heads/main to refs/heads/main
+[33m93a66a5[m HEAD@{45}: commit: new version
+[33ma79842c[m HEAD@{46}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma79842c[m HEAD@{48}: commit: updating prisma
+[33me3d1093[m HEAD@{49}: Branch: renamed refs/heads/main to refs/heads/main
+[33me3d1093[m HEAD@{51}: commit: including follower feature
+[33m700081a[m HEAD@{52}: Branch: renamed refs/heads/main to refs/heads/main
+[33m700081a[m HEAD@{54}: commit: moving fronted and backend1 in apps folder
+[33m45e148c[m HEAD@{55}: Branch: renamed refs/heads/main to refs/heads/main
+[33m45e148c[m HEAD@{57}: commit: making repo more readeable
+[33me1a2eff[m HEAD@{58}: Branch: renamed refs/heads/main to refs/heads/main
+[33me1a2eff[m HEAD@{60}: commit: adding video summary of article
+[33m79508e8[m HEAD@{61}: Branch: renamed refs/heads/main to refs/heads/main
+[33m79508e8[m HEAD@{63}: commit: improving the functionalities
+[33mc2089e6[m HEAD@{64}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc2089e6[m HEAD@{66}: commit: improving form design
+[33m58bfede[m HEAD@{67}: Branch: renamed refs/heads/main to refs/heads/main
+[33m58bfede[m HEAD@{69}: commit: making of payment system
+[33mec59a9d[m HEAD@{70}: Branch: renamed refs/heads/main to refs/heads/main
+[33mec59a9d[m HEAD@{72}: commit: implementing ui fronted
+[33m886add3[m HEAD@{73}: Branch: renamed refs/heads/main to refs/heads/main
+[33m886add3[m HEAD@{75}: commit: adding pagination in popular post
+[33mac7db06[m HEAD@{76}: Branch: renamed refs/heads/main to refs/heads/main
+[33mac7db06[m HEAD@{78}: commit: handling pagination
+[33ma5d5c01[m HEAD@{79}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma5d5c01[m HEAD@{81}: commit: making of pagination
+[33m59a284f[m HEAD@{82}: Branch: renamed refs/heads/main to refs/heads/main
+[33m59a284f[m HEAD@{84}: commit:  enhancing prisma but not worked
+[33m0e98ad8[m HEAD@{85}: Branch: renamed refs/heads/amin to refs/heads/main
+[33m0e98ad8[m HEAD@{87}: Branch: renamed refs/heads/main to refs/heads/amin
+[33m0e98ad8[m HEAD@{89}: commit: making the repo readable
+[33m9d4e515[m HEAD@{90}: Branch: renamed refs/heads/main to refs/heads/main
+[33m9d4e515[m HEAD@{92}: commit: make codebase more readable
+[33m2cedfa9[m HEAD@{93}: Branch: renamed refs/heads/main to refs/heads/main
+[33m2cedfa9[m HEAD@{95}: commit: showing the searched post
+[33m9abb738[m HEAD@{96}: Branch: renamed refs/heads/main to refs/heads/main
+[33m9abb738[m HEAD@{98}: checkout: moving from MAIN to main
+[33m9abb738[m HEAD@{99}: Branch: renamed refs/heads/main to refs/heads/MAIN
+[33m9abb738[m HEAD@{101}: commit: sending req for searchbox and making backend for searchbox
+[33m4c43bba[m HEAD@{102}: Branch: renamed refs/heads/main to refs/heads/main
+[33m4c43bba[m HEAD@{104}: commit: opening the profile when clicking after the channelicon
+[33ma9e6f97[m HEAD@{105}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma9e6f97[m HEAD@{107}: commit: implemented deletelike in the for saved post
+[33m3e103f0[m HEAD@{108}: Branch: renamed refs/heads/main to refs/heads/main
+[33m3e103f0[m HEAD@{110}: commit: filtering the user for their posts
+[33mc3db4d6[m HEAD@{111}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc3db4d6[m HEAD@{113}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc3db4d6[m HEAD@{115}: commit: improving code readablity and avoiding code duplication
+[33m641f758[m HEAD@{116}: Branch: renamed refs/heads/main to refs/heads/main
+[33m641f758[m HEAD@{118}: commit: implementing like
+[33m6d298a7[m HEAD@{119}: Branch: renamed refs/heads/main to refs/heads/main
+[33m6d298a7[m HEAD@{121}: commit: writing function for like
+[33m473f8b9[m HEAD@{122}: Branch: renamed refs/heads/main to refs/heads/main
+[33m473f8b9[m HEAD@{124}: Branch: renamed refs/heads/main to refs/heads/main
+[33m473f8b9[m HEAD@{126}: commit: implementing of saved post in popularpost
+[33m4bc3f5d[m HEAD@{127}: Branch: renamed refs/heads/main to refs/heads/main
+[33m4bc3f5d[m HEAD@{129}: commit: making of the deletingsavedpost
+[33m3a559f5[m HEAD@{130}: Branch: renamed refs/heads/main to refs/heads/main
+[33m3a559f5[m HEAD@{132}: commit: implementing logout,login,improving saved post logic
+[33m41fd32c[m HEAD@{133}: Branch: renamed refs/heads/main to refs/heads/main
+[33m41fd32c[m HEAD@{135}: commit: improving logic of function for saving post
+[33mc1ec173[m HEAD@{136}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc1ec173[m HEAD@{138}: commit: showing saved post
+[33m8365f4d[m HEAD@{139}: Branch: renamed refs/heads/main to refs/heads/main
+[33m8365f4d[m HEAD@{141}: commit: making function for saving post
+[33ma6804bb[m HEAD@{142}: reset: moving to origin/main
+[33ma6804bb[m HEAD@{143}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma6804bb[m HEAD@{145}: commit: improving the fronted of form
+[33me6926e0[m HEAD@{146}: Branch: renamed refs/heads/main to refs/heads/main
+[33me6926e0[m HEAD@{148}: commit: changing delete function
+[33m877f399[m HEAD@{149}: Branch: renamed refs/heads/main to refs/heads/main
+[33m877f399[m HEAD@{151}: commit: now profile generalising working
+[33mc69bfe8[m HEAD@{152}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc69bfe8[m HEAD@{154}: commit: generalised profile
+[33m8a329f8[m HEAD@{155}: Branch: renamed refs/heads/main to refs/heads/main
+[33m8a329f8[m HEAD@{157}: commit: improving notification
+[33mdf144a0[m HEAD@{158}: Branch: renamed refs/heads/main to refs/heads/main
+[33mdf144a0[m HEAD@{160}: commit: leaving image in version 1 of zealblog
+[33md39118c[m HEAD@{161}: checkout: moving from main to main
+[33md39118c[m HEAD@{162}: Branch: renamed refs/heads/main to refs/heads/main
+[33md39118c[m HEAD@{164}: commit: finally fronted working and only error left is handling the firebase
+[33m84b07e8[m HEAD@{165}: Branch: renamed refs/heads/main to refs/heads/main
+[33m84b07e8[m HEAD@{167}: commit: finally fronted working correct
+[33m1fcfef5[m HEAD@{168}: Branch: renamed refs/heads/main to refs/heads/main
+[33m1fcfef5[m HEAD@{170}: commit: image is coming in blob form but formdata is not handling it correctly
+[33m29633f7[m HEAD@{171}: commit: error in the sending the formdata in fronted and handling multiform in backend
+[33m7910019[m HEAD@{172}: checkout: moving from main to main
+[33m7910019[m HEAD@{173}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7910019[m HEAD@{175}: commit: sending the correct data
+[33ma021572[m HEAD@{176}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma021572[m HEAD@{178}: commit: may be error handling the multiform
+[33m8b252fd[m HEAD@{179}: Branch: renamed refs/heads/main to refs/heads/main
+[33m8b252fd[m HEAD@{181}: commit: firebase still not working
+[33mcd39a16[m HEAD@{182}: commit: made sparate folder for function to nichetype
+[33m7fa997a[m HEAD@{183}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7fa997a[m HEAD@{185}: commit: adding another secret key in gitignore
+[33m2dd40f0[m HEAD@{186}: Branch: renamed refs/heads/main to refs/heads/main
+[33m2dd40f0[m HEAD@{188}: Branch: renamed refs/heads/main to refs/heads/main
+[33m2dd40f0[m HEAD@{190}: revert: Revert "adding key of firebase in env filr"
+[33md8ff7be[m HEAD@{191}: pull origin main: Merge made by the 'ort' strategy.
+[33m6f6135b[m HEAD@{192}: Branch: renamed refs/heads/main to refs/heads/main
+[33m6f6135b[m HEAD@{194}: revert: Revert "Committing my changes before revert"
+[33m260a0e6[m HEAD@{195}: commit: Committing my changes before revert
+[33mbd00bfa[m HEAD@{196}: reset: moving to HEAD^
+[33md3cace2[m HEAD@{197}: Branch: renamed refs/heads/main to refs/heads/main
+[33md3cace2[m HEAD@{199}: commit: adding key of firebase in env filr
+[33mbd00bfa[m HEAD@{200}: Branch: renamed refs/heads/main to refs/heads/main
+[33mbd00bfa[m HEAD@{202}: commit: switching to firebase from aws s3 bucket
+[33m5664869[m HEAD@{203}: Branch: renamed refs/heads/main to refs/heads/main
+[33m5664869[m HEAD@{205}: commit: displaying the names of authors
+[33m8f224dc[m HEAD@{206}: Branch: renamed refs/heads/main to refs/heads/main
+[33m8f224dc[m HEAD@{208}: commit: displaying the names of authors
+[33mb8868a0[m HEAD@{209}: Branch: renamed refs/heads/main to refs/heads/main
+[33mb8868a0[m HEAD@{211}: commit: writing getauthor function for sorting author via their number of post
+[33md2d5395[m HEAD@{212}: Branch: renamed refs/heads/main to refs/heads/main
+[33md2d5395[m HEAD@{214}: commit: improving the fetch for lastest and popular post request
+[33me5ad2c5[m HEAD@{215}: Branch: renamed refs/heads/main to refs/heads/main
+[33me5ad2c5[m HEAD@{217}: commit: avoiding code duplication
+[33m61739f6[m HEAD@{218}: Branch: renamed refs/heads/main to refs/heads/main
+[33m61739f6[m HEAD@{220}: commit: corrected lastest and popular post
+[33m942229c[m HEAD@{221}: Branch: renamed refs/heads/main to refs/heads/main
+[33m942229c[m HEAD@{223}: commit: making template for for the lastest and popular post
+[33me9b21f5[m HEAD@{224}: Branch: renamed refs/heads/main to refs/heads/main
+[33me9b21f5[m HEAD@{226}: commit: connecting the createpost with its backend
+[33m93fee82[m HEAD@{227}: Branch: renamed refs/heads/main to refs/heads/main
+[33m93fee82[m HEAD@{229}: commit: making for creating post
+[33m643f0b4[m HEAD@{230}: Branch: renamed refs/heads/main to refs/heads/main
+[33m643f0b4[m HEAD@{232}: commit: making the fetch funtion works
+[33m1a957c8[m HEAD@{233}: Branch: renamed refs/heads/main to refs/heads/main
+[33m1a957c8[m HEAD@{235}: commit: changing put method to patch
+[33m0808e13[m HEAD@{236}: Branch: renamed refs/heads/main to refs/heads/main
+[33m0808e13[m HEAD@{238}: commit: using fetch in popularpost
+[33m9f7ff72[m HEAD@{239}: Branch: renamed refs/heads/main to refs/heads/main
+[33m9f7ff72[m HEAD@{241}: commit: making funtion to lastest function
+[33m571c0bb[m HEAD@{242}: Branch: renamed refs/heads/main to refs/heads/main
+[33m571c0bb[m HEAD@{244}: commit: generalising the fetch api
+[33m8b64855[m HEAD@{245}: Branch: renamed refs/heads/main to refs/heads/main
+[33m8b64855[m HEAD@{247}: commit: writing a generalised function for fetch command
+[33m8e30efb[m HEAD@{248}: commit: writing a function to connect with aws
+[33m791c0e1[m HEAD@{249}: Branch: renamed refs/heads/main to refs/heads/main
+[33m791c0e1[m HEAD@{251}: commit: sharp and image upload is not working
+[33ma2e6ca2[m HEAD@{252}: reset: moving to origin/main
+[33mae67515[m HEAD@{253}: commit: Save local changes
+[33ma2e6ca2[m HEAD@{254}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma2e6ca2[m HEAD@{256}: commit: changing of sign up of form
+[33ma0042c7[m HEAD@{257}: Branch: renamed refs/heads/main to refs/heads/main
+[33ma0042c7[m HEAD@{259}: commit: shorting the notation
+[33m5a55f9b[m HEAD@{260}: Branch: renamed refs/heads/main to refs/heads/main
+[33m5a55f9b[m HEAD@{262}: commit: adding the funtion of image url to getting the image
+[33m817f912[m HEAD@{263}: Branch: renamed refs/heads/main to refs/heads/main
+[33m817f912[m HEAD@{265}: commit: changing in schema
+[33m751cd41[m HEAD@{266}: Branch: renamed refs/heads/main to refs/heads/main
+[33m751cd41[m HEAD@{268}: commit: uploading the image to the amazon s3
+[33m5fb79b3[m HEAD@{269}: Branch: renamed refs/heads/main to refs/heads/main
+[33m5fb79b3[m HEAD@{271}: commit: making of subscribe and notification back
+[33me4e9aed[m HEAD@{272}: Branch: renamed refs/heads/main to refs/heads/main
+[33me4e9aed[m HEAD@{274}: commit (amend): updating schema for image upload to aws s3
+[33m5eeaaaf[m HEAD@{275}: commit: git branch -m main
+[33m7d575ab[m HEAD@{276}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7d575ab[m HEAD@{278}: commit: setting up routes for different function
+[33me4b5486[m HEAD@{279}: Branch: renamed refs/heads/main to refs/heads/main
+[33me4b5486[m HEAD@{281}: commit: making of save post function
+[33m965a1bd[m HEAD@{282}: Branch: renamed refs/heads/main to refs/heads/main
+[33m965a1bd[m HEAD@{284}: commit: adding popular function in backend
+[33m6f52a1c[m HEAD@{285}: Branch: renamed refs/heads/main to refs/heads/main
+[33m6f52a1c[m HEAD@{287}: commit: writing function for the lastest post
+[33m501ab0f[m HEAD@{288}: Branch: renamed refs/heads/main to refs/heads/main
+[33m501ab0f[m HEAD@{290}: commit: generalising it
+[33mc5f7bbd[m HEAD@{291}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc5f7bbd[m HEAD@{293}: commit: making of post template
+[33m188e97e[m HEAD@{294}: Branch: renamed refs/heads/main to refs/heads/main
+[33m188e97e[m HEAD@{296}: commit: adding notification api
+[33m13c9ed5[m HEAD@{297}: Branch: renamed refs/heads/main to refs/heads/main
+[33m13c9ed5[m HEAD@{299}: commit: making of share button
+[33m0af6f09[m HEAD@{300}: Branch: renamed refs/heads/main to refs/heads/main
+[33m0af6f09[m HEAD@{302}: commit: making of author post template
+[33m6f87dfb[m HEAD@{303}: Branch: renamed refs/heads/main to refs/heads/main
+[33m6f87dfb[m HEAD@{305}: commit: making of author post template
+[33m3b022ac[m HEAD@{306}: Branch: renamed refs/heads/main to refs/heads/main
+[33m3b022ac[m HEAD@{308}: commit: making of channel template
+[33m6bc25ef[m HEAD@{309}: Branch: renamed refs/heads/main to refs/heads/main
+[33m6bc25ef[m HEAD@{311}: commit: making of channel template
+[33mfea9e37[m HEAD@{312}: Branch: renamed refs/heads/main to refs/heads/main
+[33mfea9e37[m HEAD@{314}: commit: making of the channel using banner and image do so
+[33me081843[m HEAD@{315}: Branch: renamed refs/heads/main to refs/heads/main
