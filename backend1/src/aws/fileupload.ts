@@ -10,15 +10,20 @@ const s3Client=new S3Client({
     region:process.env.region,
 });
 
-export async function getObjectURL(key){
+
+
+export async function getObjectURL(key,expiresIn=3600){
       const command=new GetObjectCommand({
           Bucket:process.env.Bucket,
           Key:key ,
+   
       });
-      const url=await getSignedUrl(s3Client,command);
+      const url=await getSignedUrl(s3Client,command,{ expiresIn });
     
       return url;
 }
+
+
 
 export async function putObject(filename,contentType){
     const command=new PutObjectCommand({
