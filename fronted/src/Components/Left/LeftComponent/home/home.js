@@ -20,6 +20,15 @@ const Home = () => {
   const [showModol, setShowModol] = useState(false);
   const navigate = useNavigate();
 
+  const [uploadimageprogress, setuploadimageprogress]=useState(0);
+  const [uploadvideoprogress, setuploadvideoprogress]=useState(0);
+   const [uploadtxtprogress, setuploadtxtprogress]=useState(0);
+
+
+
+
+
+
   useEffect(() => {
     try {
       checkUser(id, setShowModol);
@@ -65,6 +74,7 @@ const handleUploadImage = async () => {
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) {
         const progressPercent = (event.loaded / event.total) * 100;
+        setuploadimageprogress(progressPercent);
         console.log(`Upload progress: ${progressPercent.toFixed(2)}%`);
         // You can also update the UI with the progress here if needed
       }
@@ -112,6 +122,7 @@ const handleUploadImage = async () => {
       xhr.upload.onprogress = function (event) {
         if (event.lengthComputable) {
           const percentComplete = (event.loaded / event.total) * 100;
+          setuploadvideoprogress(percentComplete);
           console.log(`Upload progress: ${percentComplete.toFixed(2)}%`);
         }
       };
@@ -158,6 +169,7 @@ const handleUploadTxt = async () => {
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) {
         const progressPercent = (event.loaded / event.total) * 100;
+        setuploadtxtprogress(progressPercent);
         console.log(`Upload progress: ${progressPercent.toFixed(2)}%`);
         // You can also update the UI with the progress here if needed
       }
@@ -300,6 +312,8 @@ const handleUploadTxt = async () => {
                 id="postimage"
                 className="form-control"
               />
+              {uploadimageprogress > 0 && <progress value={uploadimageprogress} max={100}></progress>}
+
             </div>
             <div className='upbtn'>
               <button type="button" className="btn-primary" onClick={handleUploadImage}>
@@ -318,6 +332,7 @@ const handleUploadTxt = async () => {
                 id="postvideo"
                 className="form-control"
               />
+               {uploadvideoprogress > 0 && <progress value={uploadvideoprogress} max={100}></progress>}
             </div>
             <div className='upbtn'>
               <button type="button" className="btn-primary" onClick={handleUploadVideo}>
@@ -336,6 +351,7 @@ const handleUploadTxt = async () => {
                 id="posttxt"
                 className="form-control"
               />
+               {uploadtxtprogress > 0 && <progress value={uploadtxtprogress} max={100}></progress>}
             </div>
             <div className='upbtn'>
               <button type="button" className="btn-primary" onClick={handleUploadTxt}>
