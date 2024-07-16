@@ -18,7 +18,7 @@ const Home = () => {
   const [modalMessage, setModalMessage] = useState('');
   const id = Cookies.get('id');
   const [showModol, setShowModol] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -30,7 +30,7 @@ const Home = () => {
 
   const handleClose = () => {
     setShowModol(false);
-    navigate('/'); 
+    navigate('/');
   };
 
   const handleTitleChange = (event) => {
@@ -45,62 +45,166 @@ const Home = () => {
     setNichetype(event.target.value);
   };
 
-  const handleUploadImage = async () => {
-    try {
-      const imageInput = document.querySelector("#postimage");
-      const file = imageInput.files[0];
-      const { imageaws, imagedate } = await makeRequest("/api/uploadimage", "GET");
-      await fetch(imageaws, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      setImageData(imagedate);
-    } catch (error) {
-      setModalMessage('Error submitting the form.');
+
+
+
+
+
+
+const handleUploadImage = async () => {
+  try {
+    const imageInput = document.querySelector("#postimage");
+    const file = imageInput.files[0];
+    const { imageaws, imagedate } = await makeRequest("/api/uploadimage", "GET");
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", imageaws, true);
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+
+    // Track upload progress
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        const progressPercent = (event.loaded / event.total) * 100;
+        console.log(`Upload progress: ${progressPercent.toFixed(2)}%`);
+        // You can also update the UI with the progress here if needed
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        console.log("Upload successful image");
+        setImageData(imagedate);
+      } else {
+        console.log("Failed to upload image");
+        setModalMessage("Error uploading the image.");
+        setShowModal(true);
+      }
+    };
+
+    xhr.onerror = () => {
+      setModalMessage("Error submitting the form.");
       setShowModal(true);
-    }
-  };
+    };
+
+    xhr.send(file);
+  } catch (error) {
+    setModalMessage("Error submitting the form.");
+    setShowModal(true);
+  }
+};
+
+
+
+
+
+
+
 
   const handleUploadVideo = async () => {
     try {
       const videoInput = document.querySelector("#postvideo");
       const file = videoInput.files[0];
       const { videoaws, videodate } = await makeRequest("/api/uploadvideo", "GET");
-      await fetch(videoaws, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": "multipart/form-data"
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("PUT", videoaws, true);
+
+      xhr.upload.onprogress = function (event) {
+        if (event.lengthComputable) {
+          const percentComplete = (event.loaded / event.total) * 100;
+          console.log(`Upload progress: ${percentComplete.toFixed(2)}%`);
         }
-      });
-      setVideoData(videodate);
+      };
+
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          console.log('Upload video successful');
+          setVideoData(videodate);
+        } else {
+          console.log('Failed to upload video');
+        }
+      };
+
+      xhr.onerror = function () {
+        console.log('Upload error');
+      };
+
+      xhr.setRequestHeader("Content-Type", "multipart/form-data");
+      xhr.send(file);
+
     } catch (error) {
       setModalMessage('Error submitting the form.');
       setShowModal(true);
     }
   };
 
-  const handleUploadTxt = async () => {
-    try {
-      const txtInput = document.querySelector("#posttxt");
-      const file = txtInput.files[0];
-      const { txtaws, txtdate } = await makeRequest("/api/uploadtxt", "GET");
-      await fetch(txtaws, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      setTxtData(txtdate);
-    } catch (error) {
-      setModalMessage('Error submitting the form.');
+
+
+
+
+
+
+
+const handleUploadTxt = async () => {
+  try {
+    const txtInput = document.querySelector("#posttxt");
+    const file = txtInput.files[0];
+    const { txtaws, txtdate } = await makeRequest("/api/uploadtxt", "GET");
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", txtaws, true);
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        const progressPercent = (event.loaded / event.total) * 100;
+        console.log(`Upload progress: ${progressPercent.toFixed(2)}%`);
+        // You can also update the UI with the progress here if needed
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        console.log("Upload successful");
+        setTxtData(txtdate);
+      } else {
+        console.log("Failed to upload txt file");
+        setModalMessage("Error uploading the file.");
+        setShowModal(true);
+      }
+    };
+
+    xhr.onerror = () => {
+      setModalMessage("Error submitting the form.");
       setShowModal(true);
-    }
-  };
+    };
+
+    xhr.send(file);
+  } catch (error) {
+    setModalMessage("Error submitting the form.");
+    setShowModal(true);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const handleSubmit = async () => {
     try {
@@ -131,6 +235,17 @@ const Home = () => {
     navigate('/'); // Redirect to the home page
   };
 
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <>
       <LoginSignupModal open={showModol} handleClose={handleClose} />
