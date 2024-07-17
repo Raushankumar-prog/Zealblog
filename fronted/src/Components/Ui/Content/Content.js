@@ -57,6 +57,7 @@ const Content = () => {
                     throw new Error('Failed to fetch content');
                 }
                 const data = await response.text();
+                
                 setTextContent(data);
             } catch (error) {
                 console.error('Error fetching content:', error);

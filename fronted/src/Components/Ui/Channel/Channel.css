@@ -66,21 +66,19 @@
 
 .profileimagebox {
     width: 20%;
-  
-    height: 8vw;
-
+    height: 15vw;
     margin-right: 2%;
+   border-radius: 50%;
+  overflow: hidden;
+ 
+}
+.profileimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-    border-radius: 50%;
-  
-    overflow: hidden;
 }
 
-
-.profilenamebox {
-   
-    text-align: left;
-}
 
 
 .userworkplace {
