@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://finstartup.tech/</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+    <!-- Latest Articles -->
+    <url>
+        <loc>https://finstartup.tech/latest</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+    <!-- Popular Articles -->
+    <url>
+        <loc>https://finstartup.tech/popular</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+    <!-- Individual Content Pages (Example: f86ac476-26a8-47d0-bb3d-b9c37b66bd2d) -->
+    <url>
+        <loc>https://finstartup.tech/content/f86ac476-26a8-47d0-bb3d-b9c37b66bd2d</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+    <!-- Video Played Pages (Example: f86ac476-26a8-47d0-bb3d-b9c37b66bd2d) -->
+    <url>
+        <loc>https://finstartup.tech/videoplayed/f86ac476-26a8-47d0-bb3d-b9c37b66bd2d</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+    <!-- Profile Page -->
+    <url>
+        <loc>https://finstartup.tech/profile</loc>
+        <lastmod>2024-07-17T05:11:24+00:00</lastmod>
+    </url>
+
+</urlset>
