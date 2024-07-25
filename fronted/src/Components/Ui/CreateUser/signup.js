@@ -17,6 +17,9 @@ const SignUp = () => {
  const [profession,setprofession]=useState('');
  const [description,setdescription]=useState('');
 
+
+
+ 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
   };

@@ -233,6 +233,8 @@ export const deletePost = async (req, res) => {
   }
 };
 
+
+
 export const publish = async (req, res) => {
   try {
     const publishedPost = await prisma.post.update({
